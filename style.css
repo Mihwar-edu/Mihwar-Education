@@ -1297,3 +1297,147 @@ footer {
     }
 
 }
+ /* =========================================================
+   ✨ اللمعان السماوي + الأخضر
+========================================================= */
+
+.branch-card,
+.choose-branch-button,
+.back-home,
+.start-button {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* خط لامع متحرك */
+
+.branch-card::after,
+.choose-branch-button::after,
+.back-home::after,
+.start-button::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(56, 189, 248, 0.05) 25%,
+        rgba(56, 189, 248, 0.55) 45%,
+        rgba(74, 222, 128, 0.65) 52%,
+        rgba(56, 189, 248, 0.35) 60%,
+        transparent 85%
+    );
+
+    transform: skewX(-20deg);
+
+    animation: cyanGreenShine 4s ease-in-out infinite;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+@keyframes cyanGreenShine {
+
+    0% {
+        left: -120%;
+    }
+
+    45% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+
+}
+
+
+/* =========================================================
+   ✨ وهج إضافي للخانات
+========================================================= */
+
+.branch-card {
+    box-shadow:
+        0 10px 35px rgba(56, 189, 248, 0.08),
+        0 0 0 rgba(74, 222, 128, 0);
+}
+
+
+.branch-card:hover {
+    border-color: rgba(56, 189, 248, 0.55);
+
+    box-shadow:
+        0 20px 55px rgba(56, 189, 248, 0.18),
+        0 0 35px rgba(74, 222, 128, 0.10);
+}
+
+
+/* =========================================================
+   ✨ زر العودة
+========================================================= */
+
+.back-home {
+    padding: 10px 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(56, 189, 248, 0.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56, 189, 248, 0.08),
+            rgba(74, 222, 128, 0.07)
+        );
+
+    color: #bae6fd;
+
+    box-shadow:
+        0 8px 25px rgba(56, 189, 248, 0.08);
+
+    transition: 0.35s ease;
+}
+
+
+.back-home:hover {
+    color: white;
+
+    border-color: rgba(74, 222, 128, 0.55);
+
+    box-shadow:
+        0 0 25px rgba(56, 189, 248, 0.20),
+        0 0 35px rgba(74, 222, 128, 0.12);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   ✨ الأزرار الرئيسية
+========================================================= */
+
+.start-button,
+.choose-branch-button {
+    box-shadow:
+        0 12px 35px rgba(56, 189, 248, 0.15),
+        0 0 25px rgba(74, 222, 128, 0.08);
+}
+
+
+.start-button:hover,
+.choose-branch-button:hover {
+    box-shadow:
+        0 18px 45px rgba(56, 189, 248, 0.25),
+        0 0 35px rgba(74, 222, 128, 0.15);
+}
