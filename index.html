@@ -8,12 +8,25 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Himma Academy | منصة همة التعليمية</title>
+    <title>محور أكاديمي | منصة تعليمية</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
@@ -27,20 +40,34 @@
 
 <header class="header">
 
-    <div class="logo">
+    <nav class="navbar">
 
-        <i class="fa-solid fa-graduation-cap"></i>
+        <a href="#" class="logo">
 
-        <span>Himma Academy</span>
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
 
-    </div>
+            <span>محور أكاديمي</span>
+
+        </a>
 
 
-    <nav class="nav">
+        <ul class="nav-links">
 
-        <a href="index.html">الرئيسية</a>
+            <li>
+                <a href="#home">
+                    الرئيسية
+                </a>
+            </li>
 
-        <a href="#about">عن المنصة</a>
+            <li>
+                <a href="#about">
+                    عن المنصة
+                </a>
+            </li>
+
+        </ul>
 
     </nav>
 
@@ -52,56 +79,53 @@
      HERO
 ========================= -->
 
-<section class="hero">
+<main>
+
+<section class="hero" id="home">
 
     <div class="hero-content">
 
+
         <div class="hero-badge">
 
-            <i class="fa-solid fa-graduation-cap"></i>
+            <i class="fa-solid fa-sparkles"></i>
 
-            منصة همة التعليمية
+            منصة محور أكاديمي
 
         </div>
 
 
         <h1>
 
-            Himma Academy
+            محور أكاديمي
 
-            <span>
-                نحو نجاحك الدراسي
-            </span>
+            <br>
+
+            <span>نحو نجاحك الدراسي</span>
 
         </h1>
 
 
-        <p>
+        <p class="hero-subtitle">
 
-            منصة تعليمية تجمع لك الدروس والملخصات
-            والتمارين ومواضيع البكالوريا في مكان واحد.
+            منصة تعليمية تجمع لك المعرفة،
+            التنظيم، والطريق نحو التفوق.
 
         </p>
 
 
         <button
-            class="main-button"
+            class="start-button"
             id="startButton">
 
-            <span>
-                ابدأ الآن
-            </span>
+            <i class="fa-solid fa-book-open"></i>
+
+            ابدأ الآن
 
             <i class="fa-solid fa-arrow-left"></i>
 
         </button>
 
-    </div>
-
-
-    <div class="hero-icon">
-
-        <i class="fa-solid fa-graduation-cap"></i>
 
     </div>
 
@@ -118,53 +142,54 @@
     id="choicesSection">
 
 
-    <div class="choices-title">
+    <h2 class="choices-title">
 
-        <span>
-            Himma Academy
-        </span>
+        مرحبًا بك في شعبة تقني رياضي
 
-        <h2>
-            مرحبًا بك في شعبة تقني رياضي
-        </h2>
-
-        <p>
-            اختر الشعبة التي تدرس فيها للمتابعة.
-        </p>
-
-    </div>
+    </h2>
 
 
+    <!-- Technical Math -->
 
-    <!-- Welcome Card -->
-
-    <button
+    <div
         class="welcome-card"
         id="technicalButton">
 
-        <div class="welcome-icon">
 
-            <i class="fa-solid fa-gears"></i>
+        <div class="welcome-content">
+
+
+            <div class="welcome-icon">
+
+                <i class="fa-solid fa-gears"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    شعبة تقني رياضي
+                </h3>
+
+                <p>
+                    اختر تخصصك للانتقال إلى المحتوى التعليمي
+                </p>
+
+            </div>
+
 
         </div>
 
 
-        <div>
+        <div class="arrow">
 
-            <h3>
-                شعبة تقني رياضي
-            </h3>
-
-            <p>
-                اضغط لاختيار التخصص
-            </p>
+            <i class="fa-solid fa-chevron-down"></i>
 
         </div>
 
 
-        <i class="fa-solid fa-chevron-down arrow"></i>
-
-    </button>
+    </div>
 
 
 
@@ -175,15 +200,11 @@
         id="specializations">
 
 
-        <div class="choose-title">
+        <h3 class="choose-title">
 
-            <i class="fa-solid fa-circle-check"></i>
+            اختر الشعبة
 
-            <span>
-                اختر الشعبة
-            </span>
-
-        </div>
+        </h3>
 
 
         <div class="specialization-grid">
@@ -195,20 +216,23 @@
                 href="#"
                 class="specialization-card">
 
+
                 <div class="specialization-icon">
 
                     <i class="fa-solid fa-building"></i>
 
                 </div>
 
+
                 <h3>
                     هندسة مدنية
                 </h3>
 
-                <span>
-                    الدخول إلى الشعبة
-                    <i class="fa-solid fa-arrow-left"></i>
-                </span>
+
+                <p>
+                    مواد ودروس وملخصات
+                    الهندسة المدنية
+                </p>
 
             </a>
 
@@ -220,20 +244,23 @@
                 href="#"
                 class="specialization-card">
 
+
                 <div class="specialization-icon">
 
                     <i class="fa-solid fa-bolt"></i>
 
                 </div>
 
+
                 <h3>
                     هندسة كهربائية
                 </h3>
 
-                <span>
-                    الدخول إلى الشعبة
-                    <i class="fa-solid fa-arrow-left"></i>
-                </span>
+
+                <p>
+                    مواد ودروس وملخصات
+                    الهندسة الكهربائية
+                </p>
 
             </a>
 
@@ -245,20 +272,23 @@
                 href="#"
                 class="specialization-card">
 
+
                 <div class="specialization-icon">
 
                     <i class="fa-solid fa-gears"></i>
 
                 </div>
 
+
                 <h3>
                     هندسة ميكانيكية
                 </h3>
 
-                <span>
-                    الدخول إلى الشعبة
-                    <i class="fa-solid fa-arrow-left"></i>
-                </span>
+
+                <p>
+                    مواد ودروس وملخصات
+                    الهندسة الميكانيكية
+                </p>
 
             </a>
 
@@ -279,34 +309,32 @@
     class="about"
     id="about">
 
-    <div class="about-icon">
 
-        <i class="fa-solid fa-lightbulb"></i>
+    <div class="about-container">
 
-    </div>
-
-
-    <div>
-
-        <span>
-            Himma Academy
-        </span>
 
         <h2>
-            العلم طريقك، والهِمّة سر نجاحك
+            عن محور أكاديمي
         </h2>
+
 
         <p>
 
-            منصة تعليمية تهدف إلى تنظيم المحتوى
-            الدراسي ومساعدة الطلاب على الوصول
-            إلى ما يحتاجونه بسهولة.
+            محور أكاديمي منصة تعليمية تهدف
+            إلى تنظيم المحتوى الدراسي وتقديمه
+            بطريقة بسيطة، واضحة واحترافية،
+            لمساعدة الطالب على الوصول إلى
+            المعرفة وتحقيق النجاح.
 
         </p>
+
 
     </div>
 
 </section>
+
+
+</main>
 
 
 
@@ -317,11 +345,7 @@
 <footer>
 
     <p>
-        © 2026 Himma Academy
-    </p>
-
-    <p>
-        العلم طريقك، والهِمّة سر نجاحك
+        © 2026 محور أكاديمي — جميع الحقوق محفوظة
     </p>
 
 </footer>
