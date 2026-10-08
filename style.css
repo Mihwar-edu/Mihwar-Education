@@ -1,7 +1,7 @@
 /* =========================================================
    محور أكاديمي
-   الهوية:
-   أبيض + أزرق سماوي + كحلي + أخضر لامع
+   PREMIUM DARK ACADEMIC DESIGN
+   Navy + Deep Purple + Cyan
 ========================================================= */
 
 
@@ -21,9 +21,9 @@ html {
 
 body {
     font-family: "Cairo", sans-serif;
-    background: #f7fbff;
-    color: #102a43;
     overflow-x: hidden;
+    background: #070b1c;
+    color: white;
 }
 
 a {
@@ -32,101 +32,113 @@ a {
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header {
     position: fixed;
+
     top: 0;
     right: 0;
     left: 0;
 
     z-index: 1000;
 
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(7, 11, 28, 0.72);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+    border-bottom:
+        1px solid rgba(56, 189, 248, 0.10);
 
-    transition: 0.3s ease;
+    transition: 0.35s ease;
 }
 
 
 .navbar {
-    max-width: 1200px;
+    max-width: 1250px;
+
+    min-height: 78px;
+
     margin: auto;
 
-    min-height: 76px;
-
-    padding: 0 25px;
+    padding: 0 30px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
 
-/* =========================
+/* =========================================================
    LOGO
-========================= */
+========================================================= */
 
 .logo {
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 
-    color: #102a43;
+    color: white;
 
     font-size: 1.25rem;
+
     font-weight: 900;
 }
 
 
 .logo-icon {
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border-radius: 13px;
+    border-radius: 14px;
 
     background:
         linear-gradient(
             135deg,
-            #0e7490,
+            #4c1d95,
+            #7c3aed,
             #38bdf8
         );
 
-    color: white;
-
     box-shadow:
-        0 8px 25px rgba(56, 189, 248, 0.28);
+        0 0 25px rgba(124, 58, 237, 0.35);
+
+    color: white;
 }
 
 
-/* =========================
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 .nav-links {
     display: flex;
+
     align-items: center;
 
-    gap: 35px;
+    gap: 38px;
 
     list-style: none;
 }
 
 
 .nav-links a {
-    color: #28506b;
+    color: #cbd5e1;
 
     font-size: 0.95rem;
+
     font-weight: 700;
 
     transition: 0.3s ease;
@@ -134,12 +146,15 @@ a {
 
 
 .nav-links a:hover {
-    color: #0891b2;
+    color: #38bdf8;
+
+    text-shadow:
+        0 0 15px rgba(56, 189, 248, 0.5);
 }
 
 
 /* =========================================================
-   HERO
+   MAIN HERO
 ========================================================= */
 
 .hero {
@@ -148,10 +163,15 @@ a {
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    padding: 120px 20px 80px;
+    padding:
+        130px
+        30px
+        100px;
 
     overflow: hidden;
 
@@ -159,43 +179,46 @@ a {
 
         radial-gradient(
             circle at 15% 20%,
-            rgba(56, 189, 248, 0.22),
+            rgba(124, 58, 237, 0.25),
             transparent 32%
         ),
 
         radial-gradient(
-            circle at 85% 75%,
-            rgba(74, 222, 128, 0.16),
+            circle at 85% 70%,
+            rgba(56, 189, 248, 0.18),
             transparent 32%
         ),
 
         linear-gradient(
             135deg,
-            #dff6ff 0%,
-            #eefaff 42%,
-            #ffffff 100%
+            #050816,
+            #0a1028 48%,
+            #161044
         );
 }
 
 
-/* decorative glow */
+/* =========================================================
+   HERO GLOW
+========================================================= */
 
 .hero::before {
     content: "";
 
     position: absolute;
 
-    width: 330px;
-    height: 330px;
+    width: 420px;
+    height: 420px;
+
+    top: -140px;
+    right: -100px;
 
     border-radius: 50%;
 
-    top: 5%;
-    right: 3%;
+    background:
+        rgba(124, 58, 237, 0.18);
 
-    background: rgba(56, 189, 248, 0.13);
-
-    filter: blur(70px);
+    filter: blur(90px);
 }
 
 
@@ -204,96 +227,116 @@ a {
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
+
+    bottom: -180px;
+    left: -100px;
 
     border-radius: 50%;
 
-    bottom: 0;
-    left: 3%;
+    background:
+        rgba(56, 189, 248, 0.14);
 
-    background: rgba(74, 222, 128, 0.12);
-
-    filter: blur(70px);
+    filter: blur(90px);
 }
 
 
-/* =========================
+/* =========================================================
    HERO CONTENT
-========================= */
+========================================================= */
 
 .hero-content {
     position: relative;
 
-    z-index: 2;
+    z-index: 3;
 
-    max-width: 850px;
+    max-width: 950px;
 
     text-align: center;
 
-    animation: heroAppear 0.9s ease both;
+    animation:
+        heroEntrance
+        1s
+        ease
+        both;
 }
 
 
-@keyframes heroAppear {
+@keyframes heroEntrance {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(35px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    BADGE
-========================= */
+========================================================= */
 
 .hero-badge {
     display: inline-flex;
 
     align-items: center;
+
     gap: 9px;
 
-    padding: 9px 18px;
+    padding:
+        9px
+        19px;
 
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 
     border-radius: 50px;
 
-    background: rgba(56, 189, 248, 0.10);
+    color: #c4b5fd;
 
-    border: 1px solid rgba(56, 189, 248, 0.30);
+    background:
+        rgba(124, 58, 237, 0.11);
 
-    color: #087ea4;
-
-    font-size: 0.9rem;
-    font-weight: 800;
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.28);
 
     box-shadow:
-        0 5px 25px rgba(56, 189, 248, 0.08);
+        0 0 30px
+        rgba(124, 58, 237, 0.10);
 }
 
 
-/* =========================
+/* =========================================================
    HERO TITLE
-========================= */
+========================================================= */
 
 .hero h1 {
-    color: #102a43;
+    color: white;
 
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            5.8rem
+        );
 
-    line-height: 1.25;
+    line-height: 1.2;
 
     font-weight: 900;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+
+    letter-spacing: -1px;
 }
 
 
@@ -303,38 +346,48 @@ a {
     background:
         linear-gradient(
             90deg,
-            #087ea4,
-            #22a6c7,
-            #16a34a
+            #8b5cf6,
+            #38bdf8,
+            #a78bfa
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(56, 189, 248, 0.12)
+        );
 }
 
 
-/* =========================
-   HERO TEXT
-========================= */
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
 
 .hero-subtitle {
-    max-width: 650px;
+    max-width: 700px;
 
-    margin: 0 auto 35px;
+    margin:
+        0
+        auto
+        38px;
 
-    color: #486581;
+    color: #aebbd0;
 
-    font-size: 1.1rem;
+    font-size: 1.08rem;
 
     line-height: 2;
 }
 
 
-/* =========================
+/* =========================================================
    START BUTTON
-========================= */
+========================================================= */
 
 .start-button {
     position: relative;
@@ -342,76 +395,62 @@ a {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 13px;
 
-    min-width: 210px;
+    min-width: 220px;
 
-    padding: 16px 28px;
+    padding:
+        16px
+        30px;
 
     border-radius: 17px;
 
     color: white;
 
-    font-size: 1rem;
     font-weight: 900;
 
     background:
         linear-gradient(
             135deg,
-            #087ea4,
-            #20a8c9,
-            #22a653
+            #4c1d95,
+            #7c3aed,
+            #0891b2
         );
 
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
     box-shadow:
-        0 12px 30px rgba(8, 126, 164, 0.22),
-        0 0 25px rgba(74, 222, 128, 0.10);
+
+        0 15px 45px
+        rgba(76, 29, 149, 0.35),
+
+        0 0 30px
+        rgba(56, 189, 248, 0.08);
 
     overflow: hidden;
 
-    transition: 0.35s ease;
-}
-
-
-.start-button::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    padding: 1px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #38bdf8,
-            #4ade80,
-            #38bdf8
-        );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-
-    mask-composite: exclude;
-
-    opacity: 0.8;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 
 .start-button:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        0 18px 40px rgba(8, 126, 164, 0.25),
-        0 0 30px rgba(74, 222, 128, 0.15);
+
+        0 22px 55px
+        rgba(76, 29, 149, 0.40),
+
+        0 0 35px
+        rgba(56, 189, 248, 0.20);
 }
 
 
@@ -420,13 +459,15 @@ a {
 ========================================================= */
 
 .about {
-    padding: 100px 20px;
+    padding:
+        100px
+        25px;
 
     background:
         linear-gradient(
             180deg,
-            #ffffff,
-            #eefaff
+            #0a1028,
+            #080c20
         );
 }
 
@@ -436,53 +477,62 @@ a {
 
     margin: auto;
 
-    padding: 50px 35px;
+    padding:
+        50px
+        35px;
 
     text-align: center;
 
-    background: rgba(255,255,255,0.88);
+    background:
+        rgba(255,255,255,0.035);
 
-    border-radius: 25px;
+    border:
+        1px solid
+        rgba(139,92,246,0.15);
 
-    border: 1px solid rgba(56, 189, 248, 0.16);
+    border-radius: 28px;
+
+    backdrop-filter:
+        blur(15px);
 
     box-shadow:
-        0 20px 60px rgba(16, 42, 67, 0.08);
+        0 25px 70px
+        rgba(0,0,0,0.25);
 }
 
 
 .about h2 {
     margin-bottom: 18px;
 
+    color: white;
+
     font-size: 2rem;
 
     font-weight: 900;
-
-    color: #102a43;
 }
 
 
 .about p {
-    color: #486581;
+    color: #9fb0c5;
 
     line-height: 2;
-
-    font-size: 1rem;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
-    padding: 25px 20px;
+    padding:
+        25px
+        20px;
 
     text-align: center;
 
-    background: #102a43;
+    background: #050816;
 
-    color: #d9f4ff;
+    color: #8091a7;
 
     font-size: 0.85rem;
 }
@@ -495,19 +545,22 @@ footer {
 .technical-page {
     min-height: 100vh;
 
-    background: #f7fbff;
+    background: #070b1c;
 
-    color: #102a43;
+    color: white;
 }
 
 
 .technical-background {
+
     min-height: 100vh;
 
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
@@ -515,107 +568,133 @@ footer {
     background:
 
         radial-gradient(
-            circle at 10% 20%,
-            rgba(56, 189, 248, 0.22),
+            circle at 12% 18%,
+            rgba(124,58,237,0.25),
             transparent 32%
         ),
 
         radial-gradient(
-            circle at 90% 75%,
-            rgba(74, 222, 128, 0.16),
+            circle at 88% 78%,
+            rgba(56,189,248,0.18),
             transparent 32%
         ),
 
         linear-gradient(
             135deg,
-            #e3f7ff,
-            #f7fcff,
-            #ffffff
+            #050816,
+            #0a1028,
+            #171044
         );
 }
 
 
-/* =========================
-   GLOW
-========================= */
+/* =========================================================
+   TECHNICAL GLOW
+========================================================= */
 
 .glow {
     position: absolute;
 
     border-radius: 50%;
 
-    filter: blur(80px);
+    filter: blur(85px);
 
     pointer-events: none;
 
-    animation: glowFloat 7s ease-in-out infinite alternate;
+    animation:
+        glowMove
+        8s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 
 .glow-one {
-    width: 300px;
-    height: 300px;
 
-    background: rgba(56, 189, 248, 0.20);
+    width: 330px;
+    height: 330px;
 
-    top: 3%;
-    right: 7%;
+    top: 0;
+    right: 5%;
+
+    background:
+        rgba(124,58,237,0.20);
 }
 
 
 .glow-two {
-    width: 260px;
-    height: 260px;
 
-    background: rgba(74, 222, 128, 0.15);
+    width: 300px;
+    height: 300px;
 
-    bottom: 4%;
-    left: 7%;
+    bottom: 0;
+    left: 5%;
 
-    animation-delay: 2s;
+    background:
+        rgba(56,189,248,0.15);
+
+    animation-delay:
+        2s;
 }
 
 
 .glow-three {
+
     width: 180px;
     height: 180px;
-
-    background: rgba(56, 189, 248, 0.12);
 
     top: 45%;
     left: 45%;
 
-    animation-delay: 4s;
+    background:
+        rgba(139,92,246,0.12);
+
+    animation-delay:
+        4s;
 }
 
 
-@keyframes glowFloat {
+@keyframes glowMove {
 
     from {
-        transform: translate(0, 0) scale(1);
+        transform:
+            translate(0,0)
+            scale(1);
     }
 
     to {
-        transform: translate(25px, -20px) scale(1.10);
+        transform:
+            translate(25px,-20px)
+            scale(1.12);
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    TECHNICAL CONTENT
-========================= */
+========================================================= */
 
 .technical-content {
+
     position: relative;
 
     z-index: 5;
 
-    width: min(900px, 92%);
+    width:
+        min(
+            950px,
+            92%
+        );
 
     text-align: center;
 
-    animation: pageAppear 0.9s ease both;
+    animation:
+        pageAppear
+        0.9s
+        ease
+        both;
 }
 
 
@@ -623,58 +702,71 @@ footer {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(30px)
+            scale(0.98);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    BADGE
-========================= */
+========================================================= */
 
 .technical-badge {
+
     display: inline-flex;
 
     align-items: center;
+
     gap: 9px;
 
-    padding: 9px 18px;
+    padding:
+        9px
+        19px;
 
     margin-bottom: 30px;
 
     border-radius: 50px;
 
-    background: rgba(56, 189, 248, 0.09);
+    color: #c4b5fd;
 
-    border: 1px solid rgba(56, 189, 248, 0.28);
+    background:
+        rgba(124,58,237,0.10);
 
-    color: #087ea4;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 5px 25px rgba(56, 189, 248, 0.08);
+    border:
+        1px solid
+        rgba(139,92,246,0.28);
 }
 
 
 .pulse-dot {
+
     width: 9px;
     height: 9px;
 
     border-radius: 50%;
 
-    background: #22c55e;
+    background: #38bdf8;
 
     box-shadow:
-        0 0 0 0 rgba(34, 197, 94, 0.55);
+        0 0 0
+        rgba(56,189,248,0.6);
 
-    animation: pulse 2s infinite;
+    animation:
+        pulse
+        2s
+        infinite;
 }
 
 
@@ -682,28 +774,35 @@ footer {
 
     70% {
         box-shadow:
-            0 0 0 10px rgba(34, 197, 94, 0);
+            0 0 0 10px
+            rgba(56,189,248,0);
     }
 
     100% {
         box-shadow:
-            0 0 0 0 rgba(34, 197, 94, 0);
+            0 0 0 0
+            rgba(56,189,248,0);
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    TECHNICAL ICON
-========================= */
+========================================================= */
 
 .technical-icon {
-    width: 100px;
-    height: 100px;
 
-    margin: 0 auto 28px;
+    width: 105px;
+    height: 105px;
+
+    margin:
+        0
+        auto
+        30px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -712,9 +811,9 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #087ea4,
-            #38bdf8,
-            #22a653
+            #4c1d95,
+            #7c3aed,
+            #0891b2
         );
 
     color: white;
@@ -722,36 +821,52 @@ footer {
     font-size: 2.8rem;
 
     box-shadow:
-        0 18px 45px rgba(56, 189, 248, 0.22),
-        0 0 30px rgba(74, 222, 128, 0.10);
 
-    animation: iconFloat 4s ease-in-out infinite;
+        0 20px 55px
+        rgba(76,29,149,0.35),
+
+        0 0 35px
+        rgba(56,189,248,0.12);
+
+    animation:
+        iconFloat
+        4s
+        ease-in-out
+        infinite;
 }
 
 
 @keyframes iconFloat {
 
-    0%, 100% {
-        transform: translateY(0);
+    0%,100% {
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-9px);
+        transform:
+            translateY(-10px);
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    TECHNICAL TITLE
-========================= */
+========================================================= */
 
 .technical-content h1 {
-    color: #102a43;
 
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: white;
 
-    line-height: 1.4;
+    font-size:
+        clamp(
+            2.4rem,
+            6vw,
+            4.8rem
+        );
+
+    line-height: 1.35;
 
     font-weight: 900;
 
@@ -760,17 +875,19 @@ footer {
 
 
 .technical-content h1 span {
+
     display: block;
 
     background:
         linear-gradient(
             90deg,
-            #087ea4,
-            #22a6c7,
-            #16a34a
+            #8b5cf6,
+            #38bdf8,
+            #a78bfa
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
@@ -778,11 +895,15 @@ footer {
 
 
 .technical-text {
-    max-width: 650px;
 
-    margin: 0 auto 35px;
+    max-width: 680px;
 
-    color: #486581;
+    margin:
+        0
+        auto
+        38px;
+
+    color: #aebbd0;
 
     line-height: 2;
 
@@ -795,16 +916,18 @@ footer {
 ========================================================= */
 
 .choose-branch-button {
-    position: relative;
 
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 15px;
 
-    padding: 16px 30px;
+    padding:
+        17px
+        32px;
 
     border-radius: 17px;
 
@@ -815,89 +938,71 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #087ea4,
-            #20a8c9,
-            #22a653
+            #4c1d95,
+            #7c3aed,
+            #0891b2
         );
 
     box-shadow:
-        0 12px 35px rgba(56, 189, 248, 0.20),
-        0 0 25px rgba(74, 222, 128, 0.10);
 
-    overflow: hidden;
+        0 18px 45px
+        rgba(76,29,149,0.32),
+
+        0 0 25px
+        rgba(56,189,248,0.10);
 
     transition: 0.35s ease;
 }
 
 
-.choose-branch-button::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    padding: 1px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #38bdf8,
-            #4ade80,
-            #38bdf8
-        );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-
-    mask-composite: exclude;
-}
-
-
 .choose-branch-button:hover {
-    transform: translateY(-4px);
+
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        0 20px 45px rgba(56, 189, 248, 0.25),
-        0 0 35px rgba(74, 222, 128, 0.15);
+
+        0 25px 60px
+        rgba(76,29,149,0.40),
+
+        0 0 35px
+        rgba(56,189,248,0.20);
 }
 
 
 /* =========================================================
-   BACK BUTTON
+   PREMIUM BACK BUTTON
 ========================================================= */
 
 .back-home {
+
     position: relative;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 9px;
 
     width: fit-content;
 
-    margin: 25px auto 0;
+    margin:
+        27px
+        auto
+        0;
 
-    padding: 10px 20px;
+    padding:
+        11px
+        22px;
 
-    border-radius: 14px;
+    border-radius: 15px;
 
-    color: #087ea4;
+    color: #bae6fd;
 
-    background: rgba(255,255,255,0.72);
-
-    border: 1px solid rgba(56, 189, 248, 0.30);
-
-    box-shadow:
-        0 8px 25px rgba(56, 189, 248, 0.10);
+    background:
+        rgba(9,15,35,0.70);
 
     overflow: hidden;
 
@@ -905,69 +1010,91 @@ footer {
 }
 
 
-/* الحاشية المضيئة */
+/*
+   الحاشية المضيئة
+   بنفسجي + سماوي
+*/
 
 .back-home::before {
+
     content: "";
 
     position: absolute;
 
     inset: 0;
 
-    border-radius: inherit;
-
     padding: 1.5px;
+
+    border-radius: inherit;
 
     background:
         linear-gradient(
             120deg,
+            #7c3aed,
             #38bdf8,
-            #4ade80,
+            #a855f7,
             #38bdf8,
-            #4ade80
+            #7c3aed
         );
 
-    background-size: 250% 250%;
+    background-size:
+        300% 300%;
 
-    animation: borderGlow 3s linear infinite;
+    animation:
+        borderMove
+        4s
+        linear
+        infinite;
 
     -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0)
+        content-box,
         linear-gradient(#fff 0 0);
 
-    -webkit-mask-composite: xor;
+    -webkit-mask-composite:
+        xor;
 
-    mask-composite: exclude;
+    mask-composite:
+        exclude;
 
     pointer-events: none;
 }
 
 
-@keyframes borderGlow {
+@keyframes borderMove {
 
     0% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 
     50% {
-        background-position: 100% 50%;
+        background-position:
+            100% 50%;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 
 }
 
 
 .back-home:hover {
-    color: #075985;
 
-    transform: translateY(-3px);
+    color: white;
+
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 12px 30px rgba(56, 189, 248, 0.18),
-        0 0 25px rgba(74, 222, 128, 0.10);
+
+        0 0 25px
+        rgba(124,58,237,0.18),
+
+        0 0 30px
+        rgba(56,189,248,0.12);
 }
 
 
@@ -976,24 +1103,32 @@ footer {
 ========================================================= */
 
 .branches-page {
+
     min-height: 100vh;
 
-    background: #f7fbff;
+    background:
+        #070b1c;
 
-    color: #102a43;
+    color: white;
 }
 
 
 .branches-background {
+
     min-height: 100vh;
 
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    padding: 70px 20px;
+    padding:
+        115px
+        30px
+        70px;
 
     overflow: hidden;
 
@@ -1001,63 +1136,83 @@ footer {
 
         radial-gradient(
             circle at 10% 15%,
-            rgba(56, 189, 248, 0.20),
+            rgba(124,58,237,0.25),
             transparent 32%
         ),
 
         radial-gradient(
             circle at 90% 80%,
-            rgba(74, 222, 128, 0.14),
+            rgba(56,189,248,0.18),
             transparent 32%
         ),
 
         linear-gradient(
             135deg,
-            #e3f7ff,
-            #f8fcff,
-            #ffffff
+            #050816,
+            #0a1028,
+            #171044
         );
 }
 
 
+/* =========================================================
+   BRANCH CONTENT
+========================================================= */
+
 .branches-content {
+
     position: relative;
 
     z-index: 5;
 
-    width: min(1050px, 94%);
+    width:
+        min(
+            1120px,
+            94%
+        );
 
     text-align: center;
 
-    animation: pageAppear 0.9s ease both;
+    animation:
+        pageAppear
+        0.9s
+        ease
+        both;
 }
 
 
-/* =========================
+/* =========================================================
    BRANCH TITLE
-========================= */
+========================================================= */
 
 .branches-content h1 {
-    color: #102a43;
 
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    color: white;
+
+    font-size:
+        clamp(
+            2.7rem,
+            6vw,
+            4.8rem
+        );
 
     font-weight: 900;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 
 .branches-content h1 span {
+
     background:
         linear-gradient(
             90deg,
-            #087ea4,
-            #22a6c7,
-            #16a34a
+            #8b5cf6,
+            #38bdf8
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
@@ -1065,9 +1220,10 @@ footer {
 
 
 .branches-subtitle {
-    color: #627d98;
 
-    margin-bottom: 40px;
+    color: #aebbd0;
+
+    margin-bottom: 55px;
 
     font-size: 1rem;
 }
@@ -1077,119 +1233,165 @@ footer {
    BRANCH GRID
 ========================================================= */
 
+/*
+   الكمبيوتر:
+   ┌──────────────┐ ┌──────────────┐
+   │    مدنية     │ │   كهربائية   │
+   └──────────────┘ └──────────────┘
+
+            ┌──────────────┐
+            │   ميكانيكية  │
+            └──────────────┘
+*/
+
 .branch-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(2, minmax(300px, 1fr));
 
-    gap: 22px;
+    gap:
+        30px;
 
-    margin-top: 25px;
+    max-width: 920px;
+
+    margin:
+        0
+        auto;
 }
 
 
 /* =========================================================
-   BRANCH CARD
+   PREMIUM BRANCH CARD
 ========================================================= */
 
 .branch-card {
+
     position: relative;
 
     min-height: 300px;
 
-    padding: 35px 25px;
+    padding:
+        42px
+        35px;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
+    border-radius: 28px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.96),
-            rgba(241,250,255,0.92)
+            rgba(18,28,60,0.88),
+            rgba(10,18,42,0.82)
         );
 
-    border-radius: 25px;
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
 
-    border: 2px solid transparent;
+    backdrop-filter:
+        blur(18px);
 
-    background-clip: padding-box;
+    -webkit-backdrop-filter:
+        blur(18px);
 
     box-shadow:
-        0 15px 45px rgba(16, 42, 67, 0.08);
 
-    overflow: visible;
+        0 25px 70px
+        rgba(0,0,0,0.32);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 
-/* الحاشية المضيئة */
+/* =========================================================
+   LUMINOUS BORDER
+========================================================= */
 
 .branch-card::before {
+
     content: "";
 
     position: absolute;
 
-    inset: -2px;
+    inset: -1.5px;
 
     z-index: -1;
 
-    border-radius: 27px;
+    border-radius: 30px;
 
     background:
         linear-gradient(
             120deg,
+            #5b21b6,
+            #7c3aed,
             #38bdf8,
-            #4ade80,
-            #38bdf8,
-            #4ade80,
-            #38bdf8
+            #7c3aed,
+            #5b21b6
         );
 
-    background-size: 300% 300%;
+    background-size:
+        300% 300%;
 
-    animation: cardBorderGlow 5s linear infinite;
+    animation:
+        cardBorder
+        5s
+        linear
+        infinite;
+
+    opacity: 0.95;
 
     filter:
         drop-shadow(
-            0 0 5px rgba(56, 189, 248, 0.30)
+            0 0 6px
+            rgba(124,58,237,0.45)
         )
 
         drop-shadow(
-            0 0 8px rgba(74, 222, 128, 0.18)
+            0 0 8px
+            rgba(56,189,248,0.28)
         );
 }
 
 
-@keyframes cardBorderGlow {
+@keyframes cardBorder {
 
     0% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 
     50% {
-        background-position: 100% 50%;
+        background-position:
+            100% 50%;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 
 }
 
 
-/* inner white layer */
+/* =========================================================
+   CARD INNER LIGHT
+========================================================= */
 
 .branch-card::after {
+
     content: "";
 
     position: absolute;
@@ -1198,25 +1400,62 @@ footer {
 
     z-index: -1;
 
-    border-radius: 23px;
+    border-radius: 26px;
 
     background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(124,58,237,0.13),
+            transparent 45%
+        ),
+
         linear-gradient(
             145deg,
-            #ffffff,
-            #f2faff
+            #111b3c,
+            #0b132e
         );
 }
 
 
-/* hover */
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
 .branch-card:hover {
-    transform: translateY(-9px);
+
+    transform:
+        translateY(-10px);
 
     box-shadow:
-        0 25px 60px rgba(56, 189, 248, 0.16),
-        0 0 35px rgba(74, 222, 128, 0.10);
+
+        0 30px 80px
+        rgba(0,0,0,0.40),
+
+        0 0 35px
+        rgba(124,58,237,0.12),
+
+        0 0 35px
+        rgba(56,189,248,0.08);
+}
+
+
+/* =========================================================
+   CENTER THE THIRD CARD
+========================================================= */
+
+.branch-card:nth-child(3) {
+
+    grid-column:
+        1 / 3;
+
+    width:
+        min(
+            430px,
+            100%
+        );
+
+    justify-self:
+        center;
 }
 
 
@@ -1225,231 +1464,336 @@ footer {
 ========================================================= */
 
 .branch-icon {
-    width: 78px;
-    height: 78px;
+
+    width: 82px;
+    height: 82px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 23px;
 
-    border-radius: 22px;
+    border-radius: 24px;
 
     background:
         linear-gradient(
             135deg,
-            #087ea4,
-            #38bdf8,
-            #22a653
+            #4c1d95,
+            #7c3aed,
+            #0891b2
         );
 
     color: white;
 
-    font-size: 1.9rem;
+    font-size: 2rem;
 
     box-shadow:
-        0 12px 30px rgba(56, 189, 248, 0.20);
 
-    transition: 0.35s ease;
+        0 15px 40px
+        rgba(76,29,149,0.32),
+
+        0 0 25px
+        rgba(56,189,248,0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 
 .branch-card:hover .branch-icon {
-    transform: translateY(-5px);
+
+    transform:
+        translateY(-7px)
+        scale(1.05);
 
     box-shadow:
-        0 16px 35px rgba(56, 189, 248, 0.25),
-        0 0 20px rgba(74, 222, 128, 0.12);
+
+        0 20px 50px
+        rgba(76,29,149,0.42),
+
+        0 0 30px
+        rgba(56,189,248,0.16);
 }
 
 
 /* =========================================================
-   BRANCH TEXT
+   CARD TITLE
 ========================================================= */
 
 .branch-card h2 {
-    color: #102a43;
 
-    font-size: 1.35rem;
+    color: white;
 
-    margin-bottom: 12px;
+    font-size: 1.45rem;
 
     font-weight: 900;
-}
 
-
-.branch-card p {
-    color: #627d98;
-
-    font-size: 0.9rem;
-
-    line-height: 1.9;
-
-    max-width: 250px;
+    margin-bottom: 12px;
 }
 
 
 /* =========================================================
-   BRANCH ARROW
+   CARD DESCRIPTION
+========================================================= */
+
+.branch-card p {
+
+    max-width: 300px;
+
+    color: #9fb0c5;
+
+    font-size: 0.92rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   ARROW
 ========================================================= */
 
 .branch-arrow {
+
     position: absolute;
 
-    bottom: 18px;
-    left: 20px;
+    bottom: 20px;
 
-    width: 38px;
-    height: 38px;
+    left: 22px;
+
+    width: 40px;
+    height: 40px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
-    background: rgba(56, 189, 248, 0.09);
+    color: #38bdf8;
 
-    color: #0891b2;
+    background:
+        rgba(56,189,248,0.07);
 
-    transition: 0.3s ease;
+    border:
+        1px solid
+        rgba(56,189,248,0.12);
+
+    transition:
+        0.35s ease;
 }
 
 
 .branch-card:hover .branch-arrow {
-    background:
-        linear-gradient(
-            135deg,
-            #38bdf8,
-            #4ade80
-        );
 
     color: white;
 
-    transform: translateX(-5px);
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #0891b2
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(56,189,248,0.18);
+
+    transform:
+        translateX(-5px);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE TABLET
 ========================================================= */
 
 @media (max-width: 800px) {
 
     .navbar {
-        padding: 0 18px;
+
+        padding:
+            0
+            20px;
     }
 
 
     .nav-links {
-        gap: 18px;
-    }
 
-
-    .hero {
-        padding-top: 110px;
-    }
-
-
-    .hero h1 {
-        font-size: 3rem;
+        gap:
+            20px;
     }
 
 
     .branch-grid {
-        grid-template-columns: 1fr;
 
-        max-width: 500px;
+        grid-template-columns:
+            1fr;
 
-        margin-left: auto;
-        margin-right: auto;
+        max-width:
+            500px;
     }
 
 
-    .branch-card {
-        min-height: 250px;
+    .branch-card:nth-child(3) {
+
+        grid-column:
+            auto;
+
+        width:
+            100%;
     }
 
 }
 
 
-@media (max-width: 500px) {
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
 
     .navbar {
-        min-height: 68px;
+
+        min-height:
+            68px;
+
+        padding:
+            0
+            15px;
     }
 
 
     .logo {
-        font-size: 1rem;
+
+        font-size:
+            1rem;
     }
 
 
     .logo-icon {
+
         width: 37px;
         height: 37px;
     }
 
 
     .nav-links {
-        gap: 12px;
+
+        gap:
+            12px;
     }
 
 
     .nav-links a {
-        font-size: 0.78rem;
+
+        font-size:
+            0.78rem;
+    }
+
+
+    .hero {
+
+        padding:
+            110px
+            18px
+            70px;
     }
 
 
     .hero h1 {
-        font-size: 2.45rem;
+
+        font-size:
+            2.5rem;
     }
 
 
     .hero-subtitle {
-        font-size: 0.95rem;
+
+        font-size:
+            0.92rem;
     }
 
 
     .start-button,
     .choose-branch-button {
-        width: 100%;
 
-        max-width: 300px;
+        width:
+            100%;
+
+        max-width:
+            310px;
     }
 
 
     .technical-icon {
-        width: 85px;
-        height: 85px;
 
-        font-size: 2.3rem;
+        width:
+            88px;
+
+        height:
+            88px;
+
+        font-size:
+            2.3rem;
     }
 
 
     .technical-content h1 {
-        font-size: 2.15rem;
+
+        font-size:
+            2.15rem;
     }
 
 
     .technical-text {
-        font-size: 0.9rem;
+
+        font-size:
+            0.9rem;
+    }
+
+
+    .branches-background {
+
+        padding:
+            100px
+            15px
+            50px;
     }
 
 
     .branches-content h1 {
-        font-size: 2.4rem;
+
+        font-size:
+            2.5rem;
     }
 
 
     .branches-subtitle {
-        font-size: 0.9rem;
+
+        margin-bottom:
+            35px;
     }
 
 
     .branch-card {
-        padding: 30px 20px;
+
+        min-height:
+            275px;
+
+        padding:
+            35px
+            20px;
+    }
+
+
+    .branch-card h2 {
+
+        font-size:
+            1.3rem;
     }
 
 }
