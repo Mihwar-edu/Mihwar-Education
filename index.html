@@ -3,38 +3,17 @@
 
 <head>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GGCMZSSMV"></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-0GGCMZSSMV');
-    </script>
-
-    <!-- Google verification -->
-    <meta name="google-site-verification"
-          content="1RZ525bQBmyQ-bM1f74TaerKX5sEN659aGbwYkOr0xc">
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Science with Prof Marwa</title>
+    <title>Himma Academy | منصة همة التعليمية</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="./style.css?v=3002">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -42,45 +21,26 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-     ===================================================== -->
+========================= -->
 
-<header>
+<header class="header">
 
     <div class="logo">
 
-        🧬
+        <i class="fa-solid fa-graduation-cap"></i>
 
-        <div>
-
-            <strong>
-                Science with
-            </strong>
-
-            <span>
-                Prof Marwa
-            </span>
-
-        </div>
+        <span>Himma Academy</span>
 
     </div>
 
 
-    <nav>
+    <nav class="nav">
 
-        <a href="index.html">
-            الرئيسية
-        </a>
+        <a href="index.html">الرئيسية</a>
 
-        <a href="about.html">
-            حول الأستاذة
-        </a>
-       
-        
-          <a href="about-site.html">حول الموقع</a>
-   
-
+        <a href="#about">عن المنصة</a>
 
     </nav>
 
@@ -88,225 +48,222 @@
 
 
 
-<!-- =====================================================
-     الصفحة الرئيسية
-     ===================================================== -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-text">
+    <div class="hero-content">
 
+        <div class="hero-badge">
 
-        <p class="welcome">
-            Welcome to
-        </p>
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            منصة همة التعليمية
+
+        </div>
 
 
         <h1>
 
-            Science with
+            Himma Academy
 
             <span>
-                HIMMA EDUCATION 
+                نحو نجاحك الدراسي
             </span>
 
         </h1>
 
 
+        <p>
+
+            منصة تعليمية تجمع لك الدروس والملخصات
+            والتمارين ومواضيع البكالوريا في مكان واحد.
+
+        </p>
+
+
+        <button
+            class="main-button"
+            id="startButton">
+
+            <span>
+                ابدأ الآن
+            </span>
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="hero-icon">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CHOICES
+========================= -->
+
+<section
+    class="choices-section"
+    id="choicesSection">
+
+
+    <div class="choices-title">
+
+        <span>
+            Himma Academy
+        </span>
+
         <h2>
-            تقني رياضي 
+            مرحبًا بك في شعبة تقني رياضي
         </h2>
 
-
-        <p class="subtitle">
-            معًا نحو التفوق في البكالوريا
+        <p>
+            اختر الشعبة التي تدرس فيها للمتابعة.
         </p>
 
+    </div>
 
 
-        <!-- =================================================
-             مواقع التواصل
-             ================================================= -->
 
-        <div class="social-button-container">
+    <!-- Welcome Card -->
+
+    <button
+        class="welcome-card"
+        id="technicalButton">
+
+        <div class="welcome-icon">
+
+            <i class="fa-solid fa-gears"></i>
+
+        </div>
 
 
-            <a id="socialButton"
-               href="#"
-               
-               
-       
+        <div>
+
+            <h3>
+                شعبة تقني رياضي
+            </h3>
+
+            <p>
+                اضغط لاختيار التخصص
+            </p>
+
+        </div>
 
 
-                <span id="socialIcon">
+        <i class="fa-solid fa-chevron-down arrow"></i>
 
-                    <i class="fa-brands fa-telegram"></i>
+    </button>
 
+
+
+    <!-- Specializations -->
+
+    <div
+        class="specializations"
+        id="specializations">
+
+
+        <div class="choose-title">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <span>
+                اختر الشعبة
+            </span>
+
+        </div>
+
+
+        <div class="specialization-grid">
+
+
+            <!-- Civil -->
+
+            <a
+                href="#"
+                class="specialization-card">
+
+                <div class="specialization-icon">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <h3>
+                    هندسة مدنية
+                </h3>
+
+                <span>
+                    الدخول إلى الشعبة
+                    <i class="fa-solid fa-arrow-left"></i>
                 </span>
-
-
-                <span id="socialText">
-
-                    زورونا على Telegram
-
-                </span>
-
 
             </a>
 
 
 
-            <div class="social-dots"
-                 id="socialDots">
+            <!-- Electrical -->
+
+            <a
+                href="#"
+                class="specialization-card">
+
+                <div class="specialization-icon">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                </div>
+
+                <h3>
+                    هندسة كهربائية
+                </h3>
+
+                <span>
+                    الدخول إلى الشعبة
+                    <i class="fa-solid fa-arrow-left"></i>
+                </span>
+
+            </a>
 
 
-                <span class="social-dot active"></span>
 
-                <span class="social-dot"></span>
+            <!-- Mechanical -->
 
-                <span class="social-dot"></span>
+            <a
+                href="#"
+                class="specialization-card">
 
+                <div class="specialization-icon">
 
-            </div>
+                    <i class="fa-solid fa-gears"></i>
+
+                </div>
+
+                <h3>
+                    هندسة ميكانيكية
+                </h3>
+
+                <span>
+                    الدخول إلى الشعبة
+                    <i class="fa-solid fa-arrow-left"></i>
+                </span>
+
+            </a>
 
 
         </div>
-
-
-
-        <!-- =================================================
-             زر ابدأ الآن
-             ================================================= -->
-
-        <a href="#branchScene"
-           id="startButton"
-           class="main-button">
-
-            📚 ابدأ الآن
-
-        </a>
-
-
-
-        <!-- =================================================
-             الإحصائيات
-             ================================================= -->
-
-        <div class="stats-box">
-
-
-            <!-- Facebook -->
-
-            <div class="stat-item">
-
-                <div class="stat-icon facebook-icon">
-                    f
-                </div>
-
-
-                <div class="stat-title">
-                    .....
-                </div>
-
-
-                <div class="stat-number">
-                    
-                </div>
-
-            </div>
-
-
-
-            <!-- Instagram -->
-
-            <div class="stat-item">
-
-
-                <div class="stat-icon instagram-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-
-                        <rect
-                            x="3"
-                            y="3"
-                            width="18"
-                            height="18"
-                            rx="5">
-                        </rect>
-
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="4">
-                        </circle>
-
-
-                        <circle
-                            cx="17.5"
-                            cy="6.5"
-                            r="1">
-                        </circle>
-
-                    </svg>
-
-                </div>
-
-
-                <div class="stat-title">
-                    .......
-                </div>
-
-
-                <div class="stat-number">
-                    ...
-                </div>
-
-
-            </div>
-
-
-
-            <!-- المنشورات -->
-
-            <div class="stat-item">
-
-
-                <div class="stat-icon posts-icon">
-                    ✎
-                </div>
-
-
-                <div class="stat-title">
-                    ...
-                </div>
-
-
-                <div class="stat-number">
-                    ...
-                </div>
-
-
-                <div class="stat-subtitle">
-                    منشور
-                </div>
-
-
-            </div>
-
-
-
-            <div class="stats-message">
-
-           
- مع اكاديمية همة ،نكتشف العلم ونستنير به📌💡 ✦
-
-            </div>
-
-
-        </div>
-
 
     </div>
 
@@ -314,348 +271,38 @@
 
 
 
-<!-- =====================================================
-     واجهة اختيار الشعبة
-     ===================================================== -->
+<!-- =========================
+     ABOUT
+========================= -->
 
-<div id="branchScene"
-     class="branch-scene">
+<section
+    class="about"
+    id="about">
 
+    <div class="about-icon">
 
-    <!-- =================================================
-         محتوى اختيار الشعبة
-         ================================================= -->
+        <i class="fa-solid fa-lightbulb"></i>
 
-    <div class="branch-content">
-
-
-        <!-- العنوان -->
-
-        <div class="branch-heading">
+    </div>
 
 
-            <i class="fa-solid fa-graduation-cap"></i>
+    <div>
 
+        <span>
+            Himma Academy
+        </span>
 
-            <h1>
-                اختر شعبتك
-            </h1>
-
-
-        </div>
-
-
-
-        <!-- الوصف -->
+        <h2>
+            العلم طريقك، والهِمّة سر نجاحك
+        </h2>
 
         <p>
-            اختر الشعبة التي تريد الوصول إلى محتواها
+
+            منصة تعليمية تهدف إلى تنظيم المحتوى
+            الدراسي ومساعدة الطلاب على الوصول
+            إلى ما يحتاجونه بسهولة.
+
         </p>
-
-
-
-        <!-- =================================================
-             بطاقات الشعب
-             ================================================= -->
-
-        <div class="branch-cards">
-
-
-
-            <!-- =================================================
-                 هندسة مدنية 
-                 ================================================= -->
-
-            <div class="branch-card science">
-
-
-                <div class="branch-icon">
-
-                    <i class="fa-solid fa-dna"></i>
-
-                </div>
-
-
-                <h2>
-                    علوم تجريبية
-                </h2>
-
-
-                <p>
-                    محتوى شامل لطلاب شعبة الهندسة المدينة 
-                </p>
-
-
-                <button type="button"
-                        onclick="window.location.href='science.html'">
-
-                    اختر هذه الشعبة
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-              هندسة ميكانيكية 
-                 ================================================= -->
-
-            <div class="branch-card maths">
-
-
-                <div class="branch-icon">
-
-                    <i class="fa-solid fa-calculator"></i>
-
-                </div>
-
-
-                <h2>
-                    ميكانيك
-                </h2>
-
-
-                <p>
-                    محتوى شامل لطلاب شعبة الهندسة الميكانيكية
-                </p>
-
-
-                <button type="button"
-                        onclick="window.location.href='math.html'">
-
-                    اختر هذه الشعبة
-
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- =================================================
-             العبارة
-             ================================================= -->
-
-        <div class="branch-quote">
-
-            «النَجَاح الحَقِيقِي ليسَ أنْ تَحلُمَ باِلقِمَةِ، بَلْ تَسْعَىٰ لِلوصُولِ إِلَيهَا 🥇💡»
-
-        </div>
-        <!-- =====================================================
-             معلومات إضافية أسفل بطاقات الشعب
-             ===================================================== -->
-
-        <div class="branch-extra">
-
-            <div class="extra-item">
-
-                <div class="extra-icon pink">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <h3>
-                    دروس مبسطة
-                </h3>
-
-                <p>
-                    شرح سهل وواضح
-                </p>
-
-            </div>
-
-
-            <div class="extra-item">
-
-                <div class="extra-icon green">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                </div>
-
-                <h3>
-                    تمارين متنوعة
-                </h3>
-
-                <p>
-                    تدرب وتفوق
-                </p>
-
-            </div>
-
-<div class="extra-item">
-
-    <div class="extra-icon purple">
-        <i class="fa-solid fa-bullseye"></i>
-    </div>
-
-    <h3>
-        مواضيع الباك
-    </h3>
-
-    <p>
-        مواضيع رسمية محلولة
-    </p>
-
-</div>
-            
-                
-                 
-         
-      
-          
-         
-            <div class="extra-item">
-
-                <div class="extra-icon green">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-
-                <h3>
-                    مسار التميز
-                </h3>
-
-                <p>
-                    للوصول إلى القمة
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             العودة إلى الرئيسية
-             ================================================= -->
-
-           
-        <a href="index.html"
-           class="home-return">
-
-            🏫العودة إلى الرئيسية
-
-           
-        </a>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     الأقسام القديمة
-     ===================================================== -->
-
-<section id="sections"
-         class="cards-section"
-         style="display: none;">
-
-
-    <h2>
-        ماذا تريد أن تتعلم؟
-    </h2>
-
-
-
-    <div class="cards">
-
-
-
-        <!-- الملخصات -->
-
-        <div class="card">
-
-
-            <div class="icon">
-                📚
-            </div>
-
-
-            <h3>
-                الملخصات
-            </h3>
-
-
-            <p>
-                ملخصات منظمة ومبسطة لمساعدتك على المراجعة.
-            </p>
-
-
-            <a href="summaries.html">
-
-                استكشف الملخصات ←
-
-            </a>
-
-
-        </div>
-
-
-
-        <!-- الفروض والاختبارات -->
-
-        <div class="card">
-
-
-            <div class="icon">
-                📝
-            </div>
-
-
-            <h3>
-                الفروض والاختبارات
-            </h3>
-
-
-            <p>
-                فروض واختبارات للتدرب والاستعداد الجيد.
-            </p>
-
-
-            <a href="exams.html">
-
-                استكشف الفروض ←
-
-            </a>
-
-
-        </div>
-
-
-
-        <!-- البكالوريا -->
-
-        <div class="card">
-
-
-            <div class="icon">
-                🎓
-            </div>
-
-
-            <h3>
-                البكالوريا
-            </h3>
-
-
-            <p>
-                مواضيع البكالوريا والحلول للمراجعة والتدريب.
-            </p>
-
-
-            <a href="bac.html">
-
-                استكشف البكالوريا ←
-
-            </a>
-
-
-        </div>
-
 
     </div>
 
@@ -663,38 +310,25 @@
 
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-     ===================================================== -->
+========================= -->
 
 <footer>
 
-
-    <h2>
-        HIMMA ACADEMY 
-    </h2>
-
-
     <p>
-        تقني رياضي وفيزياء 
+        © 2026 Himma Academy
     </p>
 
-
     <p>
-        معًا نحو التفوق في البكالوريا ✍️
+        العلم طريقك، والهِمّة سر نجاحك
     </p>
-
 
 </footer>
 
 
 
-<!-- =====================================================
-     JavaScript
-     ===================================================== -->
-
-<script src="./script.js?v=2002"></script>
-
+<script src="script.js"></script>
 
 </body>
 
