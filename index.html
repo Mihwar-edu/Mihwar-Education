@@ -2,208 +2,333 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Himma Academy | منصة هِمّة التعليمية</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Himma Academy | منصة همة التعليمية</title>
 
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <span>Himma Academy</span>
+
+    </div>
+
+
+    <nav class="nav">
+
+        <a href="index.html">الرئيسية</a>
+
+        <a href="#about">عن المنصة</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
             <i class="fa-solid fa-graduation-cap"></i>
-            <span>Himma Academy</span>
+
+            منصة همة التعليمية
+
         </div>
 
-        <nav class="nav">
-            <a href="index.html">الرئيسية</a>
-            <a href="#sections">الأقسام</a>
-            <a href="#about">عن المنصة</a>
-        </nav>
-    </header>
+
+        <h1>
+
+            Himma Academy
+
+            <span>
+                نحو نجاحك الدراسي
+            </span>
+
+        </h1>
 
 
-    <!-- Hero -->
-    <main>
+        <p>
 
-        <section class="hero">
+            منصة تعليمية تجمع لك الدروس والملخصات
+            والتمارين ومواضيع البكالوريا في مكان واحد.
 
-            <div class="hero-content">
+        </p>
 
-                <span class="hero-badge">
-                    <i class="fa-solid fa-star"></i>
-                    منصة تعليمية جزائرية
+
+        <button
+            class="main-button"
+            id="startButton">
+
+            <span>
+                ابدأ الآن
+            </span>
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="hero-icon">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CHOICES
+========================= -->
+
+<section
+    class="choices-section"
+    id="choicesSection">
+
+
+    <div class="choices-title">
+
+        <span>
+            Himma Academy
+        </span>
+
+        <h2>
+            مرحبًا بك في شعبة تقني رياضي
+        </h2>
+
+        <p>
+            اختر الشعبة التي تدرس فيها للمتابعة.
+        </p>
+
+    </div>
+
+
+
+    <!-- Welcome Card -->
+
+    <button
+        class="welcome-card"
+        id="technicalButton">
+
+        <div class="welcome-icon">
+
+            <i class="fa-solid fa-gears"></i>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                شعبة تقني رياضي
+            </h3>
+
+            <p>
+                اضغط لاختيار التخصص
+            </p>
+
+        </div>
+
+
+        <i class="fa-solid fa-chevron-down arrow"></i>
+
+    </button>
+
+
+
+    <!-- Specializations -->
+
+    <div
+        class="specializations"
+        id="specializations">
+
+
+        <div class="choose-title">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <span>
+                اختر الشعبة
+            </span>
+
+        </div>
+
+
+        <div class="specialization-grid">
+
+
+            <!-- Civil -->
+
+            <a
+                href="#"
+                class="specialization-card">
+
+                <div class="specialization-icon">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <h3>
+                    هندسة مدنية
+                </h3>
+
+                <span>
+                    الدخول إلى الشعبة
+                    <i class="fa-solid fa-arrow-left"></i>
                 </span>
 
-                <h1>
-                    مرحبًا بك في
-                    <span>Himma Academy</span>
-                </h1>
+            </a>
 
-                <p>
-                    منصتك التعليمية للوصول إلى الدروس والملخصات
-                    والتمارين والمواضيع، في مكان واحد.
-                </p>
 
-                <a href="#sections" class="main-button">
-                    ابدأ الآن
+
+            <!-- Electrical -->
+
+            <a
+                href="#"
+                class="specialization-card">
+
+                <div class="specialization-icon">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                </div>
+
+                <h3>
+                    هندسة كهربائية
+                </h3>
+
+                <span>
+                    الدخول إلى الشعبة
                     <i class="fa-solid fa-arrow-left"></i>
-                </a>
+                </span>
 
-            </div>
-
-            <div class="hero-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-
-        </section>
+            </a>
 
 
-        <!-- Sections -->
-        <section id="sections" class="sections">
 
-            <div class="section-title">
-                <span>اكتشف المنصة</span>
-                <h2>ماذا تريد أن تتعلم؟</h2>
-                <p>
-                    اختر القسم الذي تريد الوصول إليه
-                </p>
-            </div>
+            <!-- Mechanical -->
 
+            <a
+                href="#"
+                class="specialization-card">
 
-            <div class="cards">
+                <div class="specialization-icon">
 
-                <a href="#" class="card">
+                    <i class="fa-solid fa-gears"></i>
 
-                    <div class="card-icon">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
+                </div>
 
-                    <h3>الدروس</h3>
+                <h3>
+                    هندسة ميكانيكية
+                </h3>
 
-                    <p>
-                        دروس منظمة تساعدك على فهم مختلف المواد.
-                    </p>
+                <span>
+                    الدخول إلى الشعبة
+                    <i class="fa-solid fa-arrow-left"></i>
+                </span>
 
-                    <span class="card-link">
-                        استكشف
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-
-                </a>
+            </a>
 
 
-                <a href="#" class="card">
+        </div>
 
-                    <div class="card-icon">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
+    </div>
 
-                    <h3>الملخصات</h3>
-
-                    <p>
-                        ملخصات مركزة للمراجعة بطريقة سهلة.
-                    </p>
-
-                    <span class="card-link">
-                        استكشف
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-
-                </a>
+</section>
 
 
-                <a href="#" class="card">
 
-                    <div class="card-icon">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </div>
+<!-- =========================
+     ABOUT
+========================= -->
 
-                    <h3>التمارين</h3>
+<section
+    class="about"
+    id="about">
 
-                    <p>
-                        تمارين متنوعة لتطبيق ما تعلمته.
-                    </p>
+    <div class="about-icon">
 
-                    <span class="card-link">
-                        استكشف
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
+        <i class="fa-solid fa-lightbulb"></i>
 
-                </a>
+    </div>
 
 
-                <a href="#" class="card">
+    <div>
 
-                    <div class="card-icon">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
+        <span>
+            Himma Academy
+        </span>
 
-                    <h3>البكالوريا</h3>
-
-                    <p>
-                        مواضيع البكالوريا والمواضيع التجريبية للمراجعة.
-                    </p>
-
-                    <span class="card-link">
-                        استكشف
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- About -->
-        <section id="about" class="about">
-
-            <div class="about-icon">
-                <i class="fa-solid fa-lightbulb"></i>
-            </div>
-
-            <div>
-                <span>Himma Academy</span>
-
-                <h2>
-                    العلم طريقك، والهِمّة سر نجاحك
-                </h2>
-
-                <p>
-                    نهدف إلى جمع المحتوى التعليمي المفيد
-                    وتقديمه بطريقة منظمة وسهلة للطلاب.
-                </p>
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer>
+        <h2>
+            العلم طريقك، والهِمّة سر نجاحك
+        </h2>
 
         <p>
-            © 2026 Himma Academy
+
+            منصة تعليمية تهدف إلى تنظيم المحتوى
+            الدراسي ومساعدة الطلاب على الوصول
+            إلى ما يحتاجونه بسهولة.
+
         </p>
 
-        <p>
-            صُنع بشغف لخدمة الطلاب
-        </p>
+    </div>
 
-    </footer>
+</section>
 
 
-    <script src="script.js"></script>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Himma Academy
+    </p>
+
+    <p>
+        العلم طريقك، والهِمّة سر نجاحك
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
 
 </body>
 
