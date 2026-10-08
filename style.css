@@ -1,0 +1,577 @@
+/* ================================
+   HIMMA ACADEMY
+   Main Style
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, "Tahoma", sans-serif;
+    background: #faf8ff;
+    color: #201638;
+    line-height: 1.7;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.header {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee8f7;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 22px;
+    font-weight: 800;
+    color: #5424a8;
+}
+
+.logo i {
+    font-size: 25px;
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #403653;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #7b35d6;
+}
+
+
+/* ================================
+   Hero
+================================ */
+
+.hero {
+    min-height: 650px;
+    padding: 80px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 85% 30%, rgba(168, 93, 255, 0.22), transparent 30%),
+        radial-gradient(circle at 15% 80%, rgba(255, 91, 183, 0.15), transparent 30%),
+        linear-gradient(135deg, #170d35, #32135e 55%, #59218c);
+}
+
+.hero-content {
+    max-width: 650px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 16px;
+    margin-bottom: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #f4dfff;
+    font-size: 14px;
+}
+
+.hero-badge i {
+    color: #ffd86b;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 70px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #ff70c5,
+        #d99aff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 600px;
+    margin-bottom: 35px;
+
+    font-size: 18px;
+    color: #e6dff1;
+}
+
+
+/* Main Button */
+
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 30px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+    color: white;
+
+    font-weight: 700;
+    font-size: 17px;
+
+    background: linear-gradient(
+        135deg,
+        #792ee0,
+        #e846ae
+    );
+
+    box-shadow:
+        0 12px 35px rgba(126, 42, 211, 0.35);
+
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 40px rgba(126, 42, 211, 0.45);
+}
+
+
+/* Hero Icon */
+
+.hero-icon {
+    width: 270px;
+    height: 270px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.16),
+            rgba(255,255,255,0.03)
+        );
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 80px rgba(195, 100, 255, 0.2);
+
+    position: relative;
+    z-index: 1;
+}
+
+.hero-icon i {
+    font-size: 125px;
+    color: #f5dfff;
+
+    filter:
+        drop-shadow(
+            0 0 25px rgba(236, 150, 255, 0.5)
+        );
+}
+
+
+/* ================================
+   Sections
+================================ */
+
+.sections {
+    padding: 90px 7%;
+    background: #faf8ff;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-title span {
+    color: #8b45d4;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.section-title h2 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+
+    font-size: 38px;
+    color: #24163d;
+}
+
+.section-title p {
+    color: #766b86;
+}
+
+
+/* ================================
+   Cards
+================================ */
+
+.cards {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    padding: 30px 24px;
+
+    min-height: 290px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: white;
+
+    border: 1px solid #eee7f7;
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(55, 28, 88, 0.06);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: #d9baf5;
+
+    box-shadow:
+        0 20px 45px rgba(91, 43, 130, 0.13);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0ddff,
+            #ffe0f2
+        );
+
+    color: #7130b4;
+
+    font-size: 25px;
+
+    margin-bottom: 22px;
+}
+
+.card h3 {
+    color: #2b1b43;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #756a82;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    margin-top: auto;
+
+    color: #7733b7;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ================================
+   About
+================================ */
+
+.about {
+    max-width: 1100px;
+    margin: 20px auto 90px;
+
+    padding: 45px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6edff,
+            #fff0f8
+        );
+
+    border: 1px solid #eadcf5;
+}
+
+.about-icon {
+    width: 80px;
+    height: 80px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background: white;
+
+    color: #8a42c9;
+
+    font-size: 34px;
+
+    box-shadow:
+        0 10px 25px rgba(75, 35, 110, 0.08);
+}
+
+.about span {
+    color: #8a42c9;
+    font-weight: 700;
+}
+
+.about h2 {
+    margin: 5px 0 8px;
+
+    font-size: 28px;
+    color: #28183d;
+}
+
+.about p {
+    color: #70647d;
+}
+
+
+/* ================================
+   Footer
+================================ */
+
+footer {
+    padding: 30px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #170d2c;
+
+    color: #cfc5db;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   Responsive
+================================ */
+
+/* Tablets */
+
+@media (max-width: 950px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    .hero-icon {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-icon i {
+        font-size: 95px;
+    }
+}
+
+
+/* Phones */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav {
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 13px;
+    }
+
+
+    .hero {
+        min-height: auto;
+
+        padding: 70px 6% 80px;
+
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-icon {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-icon i {
+        font-size: 75px;
+    }
+
+
+    .sections {
+        padding: 70px 5%;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .card {
+        min-height: 250px;
+    }
+
+
+    .about {
+        margin: 10px 5% 70px;
+
+        padding: 30px;
+
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about h2 {
+        font-size: 24px;
+    }
+
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+
+        text-align: center;
+    }
+}
+
+
+/* Very Small Phones */
+
+@media (max-width: 400px) {
+
+    .nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .main-button {
+        padding: 13px 23px;
+    }
+}
