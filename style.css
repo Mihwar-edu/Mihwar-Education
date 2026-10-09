@@ -735,3 +735,429 @@ button:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ==========================================
+   محور أكاديمي | تنسيق الصفحة الرئيسية
+   إضافة جديدة إلى نهاية style.css
+   ========================================== */
+
+:root {
+    --section-width: 1120px;
+}
+
+.section-padding {
+    padding: 75px 22px;
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.section-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.section-heading h2 {
+    margin-bottom: 14px;
+    color: var(--navy);
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.5;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* أزرار الواجهة الرئيسية */
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.hero-actions .start-button,
+.hero-actions .secondary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 52px;
+    padding: 13px 25px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform 0.25s, box-shadow 0.25s,
+                background 0.25s;
+}
+
+.hero-actions .start-button:hover,
+.hero-actions .secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+.hero-actions .secondary-button {
+    color: var(--blue-dark);
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.hero-actions .secondary-button:hover {
+    box-shadow: var(--shadow);
+}
+
+.hero-note {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* قسم المميزات */
+
+.features {
+    background: var(--white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: var(--section-width);
+    margin: 0 auto;
+}
+
+.feature-card {
+    padding: 28px 24px;
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    transition: transform 0.25s, box-shadow 0.25s,
+                border-color 0.25s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sky);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-radius: 17px;
+    font-size: 24px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    color: var(--navy);
+    font-size: 19px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* قسم الشعب الدراسية */
+
+.subjects {
+    background: var(--page);
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: var(--section-width);
+    margin: 0 auto;
+}
+
+.subject-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-width: 0;
+    padding: 24px 20px;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s,
+                border-color 0.25s;
+}
+
+.subject-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sky);
+    box-shadow: var(--shadow);
+}
+
+.subject-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-radius: 16px;
+    font-size: 23px;
+}
+
+.subject-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.subject-info h3 {
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.subject-info p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.subject-label {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.subject-arrow {
+    flex: 0 0 auto;
+    color: var(--blue);
+    font-size: 20px;
+    transition: transform 0.25s;
+}
+
+.subject-card:hover .subject-arrow {
+    transform: translateX(-4px);
+}
+
+/* عن المنصة */
+
+.about {
+    background: var(--white);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 38px;
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+}
+
+.about-symbol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 150px;
+    width: 150px;
+    height: 150px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-radius: 35px;
+    font-size: 58px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    margin-bottom: 15px;
+    color: var(--navy);
+    font-size: clamp(23px, 3vw, 32px);
+    line-height: 1.6;
+}
+
+.about-content p {
+    margin-bottom: 14px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.1;
+}
+
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 8px;
+    color: var(--blue);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.about-link:hover {
+    color: var(--blue-dark);
+}
+
+/* تذييل الموقع */
+
+.site-footer {
+    padding: 38px 22px 18px;
+    color: var(--white);
+    background: var(--navy);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: var(--section-width);
+    margin: 0 auto;
+}
+
+.footer-logo {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #dce9ff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--sky);
+}
+
+.footer-bottom {
+    max-width: var(--section-width);
+    margin: 28px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    color: #c8d6ed;
+    font-size: 12px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+/* تحسين الهاتف والتابلت */
+
+@media (max-width: 900px) {
+    .features-grid,
+    .subjects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-container {
+        gap: 25px;
+        padding: 28px;
+    }
+
+    .about-symbol {
+        flex-basis: 110px;
+        width: 110px;
+        height: 110px;
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-padding {
+        padding: 52px 16px;
+    }
+
+    .features-grid,
+    .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 23px 20px;
+    }
+
+    .subject-card {
+        padding: 19px 16px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        padding: 23px 19px;
+    }
+
+    .about-symbol {
+        align-self: center;
+        flex-basis: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 25px;
+        font-size: 40px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .start-button,
+    .hero-actions .secondary-button {
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        gap: 15px;
+    }
+}
