@@ -12,3 +12,38 @@ input:focus,select:focus,button:focus-visible{outline:3px solid var(--blue);outl
 button{width:100%;margin-top:22px;padding:13px;border:0;border-radius:999px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer}
 .err{color:#d92d20;font-size:14px;margin-top:12px;min-height:20px}
 .alt{text-align:center;margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* ===== تنسيق الكمبيوتر ===== */
+@media (min-width:900px){
+  html body:has(.wrap){padding:56px 4%}
+  html body .wrap{max-width:1060px}
+  html body .wrap .logo{font-size:26px;margin-bottom:10px}
+  html body .wrap h1{font-size:46px;margin-bottom:10px}
+  html body .wrap .sub{font-size:19px}
+
+  /* البطاقات: صف واحد من 4، والصف الأخير يتوسّط */
+  html body .grid:has(.b){display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-top:44px}
+  html body .grid:has(.b) .b{width:calc(25% - 17px);flex:none;padding:46px 16px;font-size:21px;border-radius:20px}
+  html body .grid:has(.b) .b span{font-size:42px;line-height:52px;height:52px;margin-bottom:14px}
+  html body .grid:has(.b) .b svg{width:46px;height:46px}
+
+  /* صفحة المواد: بطاقتان عريضتان */
+  html body .grid:has(.eng){max-width:780px;margin-inline:auto}
+  html body .grid:has(.eng) .b{width:calc(50% - 11px);padding:54px 16px;font-size:24px}
+  html body .grid:has(.eng) .eng{padding:36px 16px;font-size:24px}
+  html body .grid:has(.eng) .chip{padding:8px 22px;font-size:16px}
+
+  /* الأزرار والمربع السفلي */
+  html body .bar{margin-top:40px;gap:14px}
+  html body .back,html body .mode{padding:12px 30px;font-size:16px}
+  html body .mock{max-width:780px;padding:34px;margin-top:46px;border-radius:22px}
+  html body .mock .l{height:12px;margin-bottom:14px}
+  html body .mock .g{gap:18px;margin-top:26px}
+  html body .mock .g div{height:170px;border-radius:16px}
+
+  /* التسجيل والدخول */
+  html body .box{max-width:480px;padding:44px}
+
+  /* لوحة الطالب */
+  html body main{max-width:1100px}
+}
