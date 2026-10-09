@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تسجيل الدخول - أكاديمية مشكاة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<div class="box">
+  <div class="logo">أكاديمية مشكاة</div>
+  <p class="sub">مرحباً بعودتك</p>
+  <div>
+    <label for="e">البريد الإلكتروني</label>
+    <input id="e" type="email" autocomplete="email">
+    <label for="p">كلمة المرور</label>
+    <input id="p" type="password" autocomplete="current-password">
+    <div class="err" id="err" role="alert"></div>
+    <button id="go">دخول</button>
+  </div>
+  <p class="alt">ليس لديك حساب؟ <a href="signup.html">أنشئ حساباً</a></p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+$('go').onclick=()=>{
+  const email=$('e').value.trim().toLowerCase(), pass=$('p').value;
+  const users=JSON.parse(localStorage.getItem('mishkat_users')||'[]');
+  const u=users.find(x=>x.email===email&&x.pass===pass);
+  if(!u){$('err').textContent='البريد أو كلمة المرور غير صحيحة.';return;}
+  localStorage.setItem('mishkat_session',email);
+  location.href='dashboard.html';
+};
+</script>
+</body>
+</html>
