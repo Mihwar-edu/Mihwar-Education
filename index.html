@@ -17,6 +17,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:14p
 .logo i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#38bdf8,var(--blue));color:#fff;display:grid;place-items:center;font-style:normal}
 nav{display:flex;align-items:center;gap:18px;font-size:14px}
 .btn{display:inline-block;padding:10px 22px;border-radius:999px;font-weight:700;font-size:15px}
+button.btn{font-family:inherit;color:inherit;cursor:pointer;line-height:inherit}
 .btn.p{background:var(--blue);color:#fff}
 .btn.s{background:var(--card);border:1px solid var(--line)}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 5%;background:linear-gradient(135deg,#e3f4ff,#f4fbff 60%,#fffbea)}
@@ -58,6 +59,41 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 .go{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1e3fa8;padding:11px 26px;border-radius:999px;font-weight:800;font-size:15px;box-shadow:0 10px 22px rgba(0,0,0,.18)}
 .go:hover{background:#eef4ff}
 
+/* نافذة التعريف بالمنصة */
+.ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,16,28,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+.ov.open{display:flex}
+.ov.show{opacity:1}
+.mc{direction:rtl;text-align:right;position:relative;width:min(660px,100%);max-height:88vh;display:flex;flex-direction:column;overflow:hidden;border-radius:24px;color:#fff;background:linear-gradient(120deg,#1e3fa8,#3a68d4,#2a55c4,#1e3fa8);background-size:300% 300%;animation:abbg 10s ease infinite;box-shadow:0 30px 70px rgba(0,0,0,.45);transform:translateY(30px) scale(.96);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.ov.show .mc{transform:none}
+@keyframes abbg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.mc::before,.mc::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.mc::before{width:220px;height:220px;left:-80px;bottom:-100px;background:rgba(255,255,255,.08);animation:abf 7s ease-in-out infinite}
+.mc::after{width:130px;height:130px;right:-40px;top:-50px;background:rgba(255,169,10,.18);animation:abf 9s ease-in-out infinite reverse}
+@keyframes abf{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-14px)}}
+.shine{position:absolute;top:0;bottom:0;width:60px;left:-80px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:skewX(-20deg);animation:abs 6s ease-in-out 1.5s infinite;pointer-events:none;z-index:2}
+@keyframes abs{0%{left:-80px}40%,100%{left:110%}}
+.mh{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px 24px 6px}
+.x{width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:18px;font-family:inherit;cursor:pointer;display:grid;place-items:center}
+.x:hover{background:rgba(255,255,255,.3)}
+.mb{position:relative;z-index:1;overflow:auto;padding:6px 24px 26px}
+.mb h2{font-size:26px;font-weight:800;margin:6px 0 8px}
+.mb .intro{color:rgba(255,255,255,.92);font-size:15.5px;margin-bottom:6px}
+.sec{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;margin-top:18px}
+.ov.show .sec{opacity:1;transform:none}
+.ov.show .sec:nth-of-type(1){transition-delay:.15s}.ov.show .sec:nth-of-type(2){transition-delay:.3s}.ov.show .sec:nth-of-type(3){transition-delay:.45s}.ov.show .sec:nth-of-type(4){transition-delay:.6s}
+.sec h3{font-size:17px;font-weight:800;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.cp{padding:6px 15px;border-radius:999px;background:rgba(255,255,255,.15);font-size:14px;font-weight:700}
+.sb{background:rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.sb b{display:block;font-size:15.5px;margin-bottom:2px}
+.sb span{font-size:14px;color:rgba(255,255,255,.88)}
+.ck{list-style:none;padding:0;display:grid;gap:8px}
+.ck li{display:flex;gap:10px;font-size:14.5px;color:rgba(255,255,255,.93)}
+.ck li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:#ffa90a;color:#1e3fa8;font-weight:800;display:grid;place-items:center;font-size:13px;margin-top:2px}
+.quote{margin-top:14px;padding:12px 14px;border-radius:14px;background:rgba(255,169,10,.16);font-weight:700;font-size:14.5px}
+.cta{margin-top:22px;text-align:center}
+@media (prefers-reduced-motion:reduce){.mc,.mc::before,.mc::after,.shine{animation:none}.sec{opacity:1;transform:none;transition:none}.ov,.mc{transition:none}}
+
 footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 @media (max-width:800px){.hero{grid-template-columns:1fr;padding:40px 5%}nav a.h{display:none}}
 </style>
@@ -78,12 +114,12 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
     <p>انضم إلى الآلاف من الطلاب الذين يحققون النجاح الدراسي من خلال منصتنا التعليمية الحديثة.</p>
     <div class="acts">
       <a class="btn p" href="branches.html">ابدأ التعلم الآن</a>
-      <a class="btn s" href="#features">تعرّف على المنصة</a>
+      <button class="btn s" id="about-open" type="button" aria-haspopup="dialog">تعرّف على المنصة</button>
     </div>
     <div class="stats">
-      <div><b>+++</b><small>طالب نشط</small></div>
-      <div><b>+++</b><small>معلم متميز</small></div>
-      <div><b>+++</b><small>درس تفاعلي</small></div>
+      <div><b>+10K</b><small>طالب نشط</small></div>
+      <div><b>+500</b><small>معلم متميز</small></div>
+      <div><b>+1000</b><small>درس تفاعلي</small></div>
     </div>
   </div>
   <div class="mock" aria-hidden="true">
@@ -132,21 +168,72 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 
 <footer>© 2026 أكاديمية مشكاة. جميع الحقوق محفوظة.</footer>
 
+<!-- نافذة التعريف بالمنصة -->
+<div class="ov" id="ov" aria-hidden="true">
+  <div class="mc" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <span class="shine"></span>
+    <div class="mh">
+      <span class="tag">✨ تعرّف على المنصة</span>
+      <button class="x" id="about-close" type="button" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="mb">
+      <h2 id="mt">أكاديمية مشكاة</h2>
+      <p class="intro">منصة تعليمية عربية تجمع دروس شعبتك ومادتك في مكان واحد، بتصميم بسيط وواضح يساعدك على المراجعة بتركيز وبدون تشتت.</p>
+
+      <div class="sec">
+        <h3>🎓 الشعب التي نغطيها</h3>
+        <div class="chips">
+          <span class="cp">علوم تجريبية</span>
+          <span class="cp">رياضيات</span>
+          <span class="cp">تقني رياضي</span>
+          <span class="cp">تسيير واقتصاد (قريباً)</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h3>📚 المواد والدروس</h3>
+        <div class="sb"><b>الرياضيات</b><span>الدالة العددية، الدالة الأسية exp، الدالة اللوغاريتمية ln، المتتاليات، الدوال الأصلية والحساب التكاملي، الاحتمالات، الأعداد المركبة، وتُضاف القسمة في Z لشعبتي رياضيات وتقني رياضي.</span></div>
+        <div class="sb"><b>الفيزياء</b><span>المتابعة الزمنية، الميكانيك، دراسة الظواهر الكهربائية، التطور نحو حالة توازن (pH)، التحولات النووية، الاسترة (والأعمدة لشعبتي رياضيات وتقني رياضي)، والاهتزازات.</span></div>
+        <div class="sb"><b>الهندسة (لشعبة تقني رياضي)</b><span>الهندسة المدنية والميكانيكية والكهربائية.</span></div>
+      </div>
+
+      <div class="sec">
+        <h3>⚡ ماذا تقدم لك المنصة؟</h3>
+        <ul class="ck">
+          <li>دروس مرتبة حسب شعبتك ومادتك</li>
+          <li>شروحات مبسطة وفيديوهات تعيد مشاهدتها متى شئت</li>
+          <li>حساب شخصي يحفظ شعبتك ومادتك</li>
+          <li>وضع ليلي مريح للعين أثناء المراجعة</li>
+          <li>تعمل بسلاسة على الهاتف والكمبيوتر</li>
+        </ul>
+      </div>
+
+      <div class="sec">
+        <h3>💡 ماذا تفيدك؟</h3>
+        <p class="intro">توفّر عليك وقت البحث بين مصادر متفرقة، وتنظّم مراجعتك درساً بعد درس، وتركّز على ما يخص شعبتك فقط، فتصل إلى يوم الامتحان وأنت واثق مما راجعت.</p>
+        <div class="quote">مشكاة: مصباح صغير يضيء لك طريق التفوق.</div>
+        <div class="cta"><a class="go" href="branches.html">ابدأ التعلم الآن ←</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
-  const m=document.getElementById('mq'), t=m.querySelector('.track'), first=t.querySelector('.set');
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* الشريط المتحرك */
+  var m=document.getElementById('mq'), t=m.querySelector('.track'), first=t.querySelector('.set');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function build(){
-    t.querySelectorAll('.set.clone').forEach(e=>e.remove());
+    t.querySelectorAll('.set.clone').forEach(function(e){e.remove();});
     if(reduce) return;
-    const w=first.offsetWidth;
+    var w=first.offsetWidth;
     if(!w) return;
-    const n=Math.ceil(m.offsetWidth/w)+1;
-    for(let i=0;i<n;i++){
-      const c=first.cloneNode(true);
+    var n=Math.ceil(m.offsetWidth/w)+1;
+    for(var i=0;i<n;i++){
+      var c=first.cloneNode(true);
       c.classList.add('clone');
       c.setAttribute('aria-hidden','true');
-      c.querySelectorAll('a').forEach(a=>a.tabIndex=-1);
+      c.querySelectorAll('a').forEach(function(a){a.tabIndex=-1;});
       t.appendChild(c);
     }
     t.style.setProperty('--w',w+'px');
@@ -154,10 +241,45 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
   }
   build();
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
-  let r; window.addEventListener('resize',()=>{clearTimeout(r);r=setTimeout(build,200);});
-  let p;
-  m.addEventListener('touchstart',()=>{clearTimeout(p);m.classList.add('paused');},{passive:true});
-  m.addEventListener('touchend',()=>{p=setTimeout(()=>m.classList.remove('paused'),1500);},{passive:true});
+  var r; window.addEventListener('resize',function(){clearTimeout(r);r=setTimeout(build,200);});
+  var p;
+  m.addEventListener('touchstart',function(){clearTimeout(p);m.classList.add('paused');},{passive:true});
+  m.addEventListener('touchend',function(){p=setTimeout(function(){m.classList.remove('paused');},1500);},{passive:true});
+
+  /* نافذة التعريف بالمنصة */
+  var ov=document.getElementById('ov'), openB=document.getElementById('about-open'), closeB=document.getElementById('about-close');
+  var mc=ov.querySelector('.mc'), mb=ov.querySelector('.mb'), opener=null;
+  function openM(){
+    opener=document.activeElement;
+    ov.classList.add('open');
+    ov.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    mb.scrollTop=0;
+    void ov.offsetWidth;
+    ov.classList.add('show');
+    closeB.focus();
+  }
+  function closeM(){
+    ov.classList.remove('show');
+    ov.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    setTimeout(function(){ov.classList.remove('open');},reduce?0:320);
+    if(opener) opener.focus();
+  }
+  openB.addEventListener('click',openM);
+  closeB.addEventListener('click',closeM);
+  ov.addEventListener('click',function(e){if(e.target===ov) closeM();});
+  document.addEventListener('keydown',function(e){
+    if(!ov.classList.contains('open')) return;
+    if(e.key==='Escape'){closeM();return;}
+    if(e.key==='Tab'){
+      var f=mc.querySelectorAll('a,button');
+      if(!f.length) return;
+      var a=f[0], z=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
+      else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
+    }
+  });
 })();
 </script>
 </body>
