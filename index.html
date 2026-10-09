@@ -9,7 +9,7 @@
 :root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--bg:#fff;--soft:#f7f9fb;--card:#fff;--line:#eaeef3}
 @media (prefers-color-scheme:dark){:root{--ink:#f2f5f8;--muted:#9aa7b6;--bg:#0d141c;--soft:#121b25;--card:#16212d;--line:#223041}}
 *{box-sizing:border-box;margin:0}
-body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 header{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;border-bottom:1px solid var(--line)}
@@ -33,13 +33,31 @@ h1 span{color:var(--blue)}
 .mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .mock .g div{height:110px;border-radius:12px}
 .g div:nth-child(1){background:#fff7d6}.g div:nth-child(2){background:#dff6ff}.g div:nth-child(3){background:#dcebff}
-section.f{background:var(--soft);padding:70px 5%;text-align:center}
-section.f h2{font-size:30px}
-section.f>p{color:var(--muted);margin-bottom:36px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;text-align:right}
-.card{background:var(--card);border-radius:14px;padding:26px;border:1px solid var(--line)}
-.card i{width:42px;height:42px;border-radius:10px;background:rgba(10,132,255,.12);display:grid;place-items:center;font-style:normal;font-size:20px;margin-bottom:14px}
-.card h3{margin-bottom:6px}.card p{color:var(--muted);font-size:15px}
+section.f{background:var(--soft);padding:70px 0;text-align:center}
+section.f h2{font-size:30px;padding:0 5%}
+section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
+
+/* الشريط المتحرك */
+.marquee{direction:ltr;overflow:hidden;padding:14px 0 26px;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
+.track{display:flex;width:max-content;animation:mv var(--dur,30s) linear infinite}
+.marquee:hover .track,.marquee:focus-within .track,.marquee.paused .track{animation-play-state:paused}
+.set{display:flex;gap:20px;padding-right:20px;flex:none}
+@keyframes mv{from{transform:translateX(calc(var(--w,0px)*-1))}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+
+/* البطاقة الزرقاء */
+.fc{direction:rtl;text-align:center;width:min(300px,78vw);flex:none;border-radius:22px;padding:26px 22px;color:#fff;background:linear-gradient(135deg,#1e3fa8,#3a68d4);position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(30,63,168,.35);transition:transform .25s}
+.fc:hover{transform:translateY(-5px)}
+.fc::before{content:"";position:absolute;left:-60px;bottom:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.07)}
+.fc>*{position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff7a1a,#e8590c);padding:7px 18px;border-radius:999px;font-weight:800;font-size:15px;box-shadow:0 8px 18px rgba(232,89,12,.4)}
+.num{font-size:56px;font-weight:800;line-height:1.1;margin:14px 0 2px}
+.num small{font-size:18px;font-weight:700;opacity:.85;margin-right:6px}
+.stars{color:#ffa90a;font-size:26px;letter-spacing:4px;direction:ltr;margin-bottom:10px;text-shadow:0 2px 6px rgba(0,0,0,.2)}
+.fc p{color:rgba(255,255,255,.88);font-size:15px;margin-bottom:18px;min-height:52px}
+.go{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1e3fa8;padding:11px 26px;border-radius:999px;font-weight:800;font-size:15px;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.go:hover{background:#eef4ff}
+
 footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 @media (max-width:800px){.hero{grid-template-columns:1fr;padding:40px 5%}nav a.h{display:none}}
 </style>
@@ -77,14 +95,70 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 <section class="f" id="features">
   <h2>ميزات أكاديمية مشكاة</h2>
   <p>نوفر لك كل ما تحتاجه لتحقيق النجاح الدراسي في مكان واحد</p>
-  <div class="cards">
-    <div class="card"><i>📖</i><h3>دروس منظمة</h3><p>محتوى مرتب حسب المادة والوحدة ليسهل عليك المتابعة.</p></div>
-    <div class="card"><i>👥</i><h3>معلمون متميزون</h3><p>نخبة من المعلمين يشرحون لك بأسلوب بسيط وواضح.</p></div>
-    <div class="card"><i>🎥</i><h3>فيديوهات تفاعلية</h3><p>شاهد الدروس في أي وقت وأعد المشاهدة متى شئت.</p></div>
+
+  <div class="marquee" id="mq">
+    <div class="track">
+      <div class="set">
+
+        <div class="fc">
+          <span class="tag">📖 دروس منظمة</span>
+          <div class="num">+1000<small>درس</small></div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>محتوى مرتب حسب المادة والوحدة ليسهل عليك المتابعة.</p>
+          <a class="go" href="branches.html">تصفّح الدروس ←</a>
+        </div>
+
+        <div class="fc">
+          <span class="tag">👥 معلمون متميزون</span>
+          <div class="num">+500<small>معلم</small></div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>نخبة من المعلمين يشرحون لك بأسلوب بسيط وواضح.</p>
+          <a class="go" href="branches.html">ابدأ مع معلمك ←</a>
+        </div>
+
+        <div class="fc">
+          <span class="tag">🎥 فيديوهات تفاعلية</span>
+          <div class="num">24/7<small>متاحة</small></div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>شاهد الدروس في أي وقت وأعد المشاهدة متى شئت.</p>
+          <a class="go" href="branches.html">شاهد الآن ←</a>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
 <footer>© 2026 أكاديمية مشكاة. جميع الحقوق محفوظة.</footer>
+
+<script>
+(function(){
+  const m=document.getElementById('mq'), t=m.querySelector('.track'), first=t.querySelector('.set');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function build(){
+    t.querySelectorAll('.set.clone').forEach(e=>e.remove());
+    if(reduce) return;
+    const w=first.offsetWidth;
+    if(!w) return;
+    const n=Math.ceil(m.offsetWidth/w)+1;
+    for(let i=0;i<n;i++){
+      const c=first.cloneNode(true);
+      c.classList.add('clone');
+      c.setAttribute('aria-hidden','true');
+      c.querySelectorAll('a').forEach(a=>a.tabIndex=-1);
+      t.appendChild(c);
+    }
+    t.style.setProperty('--w',w+'px');
+    t.style.setProperty('--dur',(w/55)+'s');
+  }
+  build();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
+  let r; window.addEventListener('resize',()=>{clearTimeout(r);r=setTimeout(build,200);});
+  let p;
+  m.addEventListener('touchstart',()=>{clearTimeout(p);m.classList.add('paused');},{passive:true});
+  m.addEventListener('touchend',()=>{p=setTimeout(()=>m.classList.remove('paused'),1500);},{passive:true});
+})();
+</script>
 </body>
 </html>
