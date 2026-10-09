@@ -20,6 +20,13 @@ h1{font-size:30px;margin-bottom:6px;color:#101828}
 .b svg{display:inline-block;vertical-align:middle}
 .back{display:inline-block;margin-top:28px;padding:8px 20px;border:1.5px solid #0a84ff;border-radius:999px;background:#fff;color:#0a84ff;font-size:14px;font-weight:700}
 .back:hover,.back:focus-visible{background:#0a84ff;color:#fff}
+.mock{background:#fff;border-radius:16px;padding:24px;margin:34px auto 0;max-width:420px;box-shadow:0 20px 50px rgba(10,132,255,.15)}
+.mock .l{height:10px;border-radius:6px;background:#eaeef3;margin-bottom:12px}
+.mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.mock .g div{height:110px;border-radius:12px}
+.mock .g div:nth-child(1){background:#fff7d6}
+.mock .g div:nth-child(2){background:#dff6ff}
+.mock .g div:nth-child(3){background:#dcebff}
 @media (max-width:420px){.b{font-size:17px;padding:26px 8px}}
 </style>
 </head>
@@ -35,6 +42,13 @@ h1{font-size:30px;margin-bottom:6px;color:#101828}
     <button class="b" data-b="تسيير واقتصاد"><span>📊</span>تسيير واقتصاد</button>
   </div>
   <a class="back" href="index.html">← العودة للرئيسية</a>
+
+  <div class="mock" aria-hidden="true">
+    <div class="l" style="width:70%"></div>
+    <div class="l"></div>
+    <div class="l" style="width:85%"></div>
+    <div class="g"><div></div><div></div><div></div></div>
+  </div>
 </div>
 <script>
 document.querySelectorAll('.b').forEach(b=>{
