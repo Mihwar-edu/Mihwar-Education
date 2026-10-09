@@ -6,17 +6,14 @@
 <title>إنشاء حساب - أكاديمية مشكاة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="auth.css">
-<style>.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}</style>
 </head>
 <body>
 <div class="box">
   <div class="logo">أكاديمية مشكاة</div>
   <p class="sub">أنشئ حسابك وابدأ التعلم</p>
-  <div>
-    <div class="two">
-      <div><label for="n1">الاسم</label><input id="n1" autocomplete="given-name"></div>
-      <div><label for="n2">اللقب</label><input id="n2" autocomplete="family-name"></div>
-    </div>
+  <div id="f">
+    <label for="n">الاسم الكامل</label>
+    <input id="n" autocomplete="name">
     <label for="e">البريد الإلكتروني</label>
     <input id="e" type="email" autocomplete="email">
     <label for="r">نوع الحساب</label>
@@ -30,35 +27,15 @@
 </div>
 <script>
 const $=id=>document.getElementById(id);
-
-function genCode(users){
-  const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  for(;;){
-    const b=new Uint8Array(8);
-    crypto.getRandomValues(b);
-    let s='';
-    for(let i=0;i<8;i++) s+=A[b[i]%A.length];
-    const c='MSH-'+s.slice(0,4)+'-'+s.slice(4);
-    if(!users.some(u=>u.code===c)) return c;
-  }
-}
-
 $('go').onclick=()=>{
-  const first=$('n1').value.trim(), last=$('n2').value.trim();
-  const email=$('e').value.trim().toLowerCase(), pass=$('p').value, role=$('r').value;
-  if(!first||!last||!email||pass.length<6){
-    $('err').textContent='أكمل كل الحقول وتأكد أن كلمة المرور 6 أحرف على الأقل.';
-    return;
-  }
+  const name=$('n').value.trim(), email=$('e').value.trim().toLowerCase(), pass=$('p').value, role=$('r').value;
+  if(!name||!email||pass.length<6){$('err').textContent='أكمل كل الحقول وتأكد أن كلمة المرور 6 أحرف على الأقل.';return;}
   const users=JSON.parse(localStorage.getItem('mishkat_users')||'[]');
-  if(users.some(u=>u.email===email)){
-    $('err').textContent='هذا البريد مسجّل مسبقاً.';
-    return;
-  }
-  users.push({first:first,last:last,name:first+' '+last,email:email,pass:pass,role:role,code:genCode(users),photo:'',created:Date.now()});
+  if(users.some(u=>u.email===email)){$('err').textContent='هذا البريد مسجّل مسبقاً.';return;}
+  users.push({name,email,pass,role});
   localStorage.setItem('mishkat_users',JSON.stringify(users));
   localStorage.setItem('mishkat_session',email);
-  location.href='card.html';
+  location.href='dashboard.html';
 };
 </script>
 </body>
