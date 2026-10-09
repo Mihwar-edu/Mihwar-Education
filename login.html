@@ -6,29 +6,68 @@
 <title>تسجيل الدخول - أكاديمية مشكاة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="auth.css">
+<style>
+.tabs{display:flex;gap:8px;margin-bottom:6px}
+.tabs button{width:auto;flex:1;margin:0;padding:10px 8px;border-radius:999px;background:transparent;color:var(--blue);border:1.5px solid var(--blue);font-size:14px}
+.tabs button.on{background:var(--blue);color:#fff}
+#cd{direction:ltr;text-align:center;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+[hidden]{display:none!important}
+</style>
 </head>
 <body>
 <div class="box">
   <div class="logo">أكاديمية مشكاة</div>
   <p class="sub">مرحباً بعودتك</p>
-  <div>
+
+  <div class="tabs">
+    <button type="button" id="t1" class="on">البريد وكلمة المرور</button>
+    <button type="button" id="t2">كود البطاقة</button>
+  </div>
+
+  <div id="m1">
     <label for="e">البريد الإلكتروني</label>
     <input id="e" type="email" autocomplete="email">
     <label for="p">كلمة المرور</label>
     <input id="p" type="password" autocomplete="current-password">
-    <div class="err" id="err" role="alert"></div>
-    <button id="go">دخول</button>
   </div>
+
+  <div id="m2" hidden>
+    <label for="cd">كود بطاقة الطالب</label>
+    <input id="cd" placeholder="MSH-XXXX-XXXX" autocomplete="off" spellcheck="false">
+  </div>
+
+  <div class="err" id="err" role="alert"></div>
+  <button id="go">دخول</button>
   <p class="alt">ليس لديك حساب؟ <a href="signup.html">أنشئ حساباً</a></p>
 </div>
 <script>
 const $=id=>document.getElementById(id);
+let mode=1;
+function setMode(m){
+  mode=m;
+  $('m1').hidden=(m!==1);
+  $('m2').hidden=(m!==2);
+  $('t1').classList.toggle('on',m===1);
+  $('t2').classList.toggle('on',m===2);
+  $('err').textContent='';
+}
+$('t1').onclick=()=>setMode(1);
+$('t2').onclick=()=>setMode(2);
+
 $('go').onclick=()=>{
-  const email=$('e').value.trim().toLowerCase(), pass=$('p').value;
   const users=JSON.parse(localStorage.getItem('mishkat_users')||'[]');
-  const u=users.find(x=>x.email===email&&x.pass===pass);
-  if(!u){$('err').textContent='البريد أو كلمة المرور غير صحيحة.';return;}
-  localStorage.setItem('mishkat_session',email);
+  let u=null;
+  if(mode===1){
+    const email=$('e').value.trim().toLowerCase(), pass=$('p').value;
+    u=users.find(x=>x.email===email&&x.pass===pass);
+    if(!u){$('err').textContent='البريد أو كلمة المرور غير صحيحة.';return;}
+  }else{
+    let v=$('cd').value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(v.length===8) v='MSH'+v;
+    u=users.find(x=>x.code&&x.code.replace(/[^A-Z0-9]/g,'')===v);
+    if(!u){$('err').textContent='هذا الكود غير صحيح أو غير موجود على هذا الجهاز.';return;}
+  }
+  localStorage.setItem('mishkat_session',u.email);
   location.href='dashboard.html';
 };
 </script>
