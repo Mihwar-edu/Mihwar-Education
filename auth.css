@@ -1,0 +1,14 @@
+:root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--bg:#f4f9ff;--card:#fff;--line:#d9e2ec}
+@media (prefers-color-scheme:dark){:root{--ink:#f2f5f8;--muted:#9aa7b6;--bg:#0d141c;--card:#16212d;--line:#223041}}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:center;padding:20px}
+a{color:var(--blue);text-decoration:none;font-weight:700}
+.box{background:var(--card);width:100%;max-width:420px;border-radius:18px;padding:32px;box-shadow:0 20px 50px rgba(10,132,255,.12)}
+.logo{text-align:center;font-weight:800;font-size:20px;margin-bottom:6px}
+.sub{text-align:center;color:var(--muted);margin-bottom:24px}
+label{display:block;font-size:14px;font-weight:700;margin:14px 0 6px}
+input,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--blue);outline-offset:1px}
+button{width:100%;margin-top:22px;padding:13px;border:0;border-radius:999px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.err{color:#d92d20;font-size:14px;margin-top:12px;min-height:20px}
+.alt{text-align:center;margin-top:18px;font-size:14px;color:var(--muted)}
