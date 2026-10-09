@@ -92,9 +92,14 @@ if(branch==='تقني رياضي') document.getElementById('eng').hidden=false;
 
 document.querySelectorAll('[data-s]').forEach(el=>{
   el.onclick=()=>{
-    localStorage.setItem('mishkat_subject',el.dataset.s);
-    const logged=localStorage.getItem('mishkat_session');
-    location.href=logged?'dashboard.html':'signup.html';
+    const s=el.dataset.s;
+    localStorage.setItem('mishkat_subject',s);
+    if(s==='الرياضيات'){
+      location.href='math.html';
+    }else{
+      const logged=localStorage.getItem('mishkat_session');
+      location.href=logged?'dashboard.html':'signup.html';
+    }
   };
 });
 </script>
