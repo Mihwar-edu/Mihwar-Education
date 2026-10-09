@@ -3,18 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>اختر شعبتك - أكاديمية مشكاة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="auth.css">
 <style>
-body{display:block;padding:40px 5%}
+:root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--bg:#f4f9ff;--card:#fff;--line:#eaeef3;color-scheme:light}
+body{display:block;padding:40px 5%;min-height:100vh;background:linear-gradient(135deg,#e3f4ff,#f4fbff 60%,#fffbea);color:#101828}
 .wrap{max-width:640px;margin:0 auto;text-align:center}
-h1{font-size:30px;margin-bottom:6px}
+h1{font-size:30px;margin-bottom:6px;color:#101828}
+.sub{color:#667085}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.b{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:34px 12px;font:inherit;font-size:20px;font-weight:800;color:var(--ink);cursor:pointer;width:100%;margin:0;transition:.15s}
-.b:hover,.b:focus-visible{border-color:var(--blue);transform:translateY(-3px)}
-.b span{display:block;font-size:34px;margin-bottom:8px}
-.back{display:inline-block;margin-top:26px;font-size:14px}
+.b{background:#fff;border:2px solid #eaeef3;border-radius:16px;padding:34px 12px;font:inherit;font-size:20px;font-weight:800;color:#101828;cursor:pointer;width:100%;margin:0;transition:.15s;box-shadow:0 10px 30px rgba(10,132,255,.08)}
+.b:hover,.b:focus-visible{border-color:#0a84ff;transform:translateY(-3px)}
+.b span{display:block;font-size:34px;line-height:40px;height:40px;margin-bottom:10px}
+.b svg{display:inline-block;vertical-align:middle}
+.back{display:inline-block;margin-top:28px;padding:8px 20px;border:1.5px solid #0a84ff;border-radius:999px;background:#fff;color:#0a84ff;font-size:14px;font-weight:700}
+.back:hover,.back:focus-visible{background:#0a84ff;color:#fff}
 @media (max-width:420px){.b{font-size:17px;padding:26px 8px}}
 </style>
 </head>
@@ -25,7 +30,7 @@ h1{font-size:30px;margin-bottom:6px}
   <p class="sub">سنعرض لك الدروس المناسبة لشعبتك</p>
   <div class="grid">
     <button class="b" data-b="علوم تجريبية"><span>🧬</span>علوم تجريبية</button>
-    <button class="b" data-b="رياضيات"><span>📈</span>رياضيات</button>
+    <button class="b" data-b="رياضيات"><span><svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="3" fill="#0a84ff"/><rect x="6.5" y="4.5" width="11" height="4" rx="1" fill="#fff"/><g fill="#fff"><circle cx="8.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="15.5" cy="12" r="1.2"/><circle cx="8.5" cy="15.5" r="1.2"/><circle cx="12" cy="15.5" r="1.2"/><circle cx="15.5" cy="15.5" r="1.2"/><circle cx="8.5" cy="19" r="1.2"/><circle cx="12" cy="19" r="1.2"/><circle cx="15.5" cy="19" r="1.2"/></g></svg></span>رياضيات</button>
     <button class="b" data-b="تقني رياضي"><span>⚙️</span>تقني رياضي</button>
     <button class="b" data-b="تسيير واقتصاد"><span>📊</span>تسيير واقتصاد</button>
   </div>
