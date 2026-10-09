@@ -1,258 +1,181 @@
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="theme-color" content="#1769e0">
-    <meta name="description" content="محور أكاديمي، منصتك التعليمية لتنظيم الدروس والملخصات والتمارين ومرافقتك نحو النجاح الدراسي.">
+  <meta name="theme-color" content="#123b78">
+  <meta name="description" content="محور أكاديمي، منصتك لتنظيم الدروس والملخصات والتمارين والتحضير للبكالوريا.">
 
-    <title>محور أكاديمي | نحو نجاحك الدراسي</title>
+  <title>محور أكاديمي | منصتك التعليمية</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar">
+<header class="header">
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      <span>محور أكاديمي</span>
+    </a>
 
-            <a href="index.html" class="logo" aria-label="محور أكاديمي - الرئيسية">
-                <span class="logo-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </span>
-                <span>محور أكاديمي</span>
-            </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="branches.html">الشعب الدراسية</a></li>
+      <li><a href="subjects.html">المواد</a></li>
+      <li><a href="#about">عن المنصة</a></li>
+    </ul>
+  </nav>
+</header>
 
-            <ul class="nav-links">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="#features">مميزاتنا</a></li>
-                <li><a href="#subjects">الشعب الدراسية</a></li>
-                <li><a href="#about">عن المنصة</a></li>
-            </ul>
+<main>
 
-        </nav>
-    </header>
+  <section class="hero">
+    <div class="hero-content">
 
+      <div class="hero-badge">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>منصتك التعليمية الجزائرية</span>
+      </div>
 
-    <main>
+      <h1>
+        طريقك إلى<br>
+        <span>النجاح يبدأ هنا</span>
+      </h1>
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-content">
+      <p class="hero-subtitle">
+        اكتشف الدروس والملخصات والتمارين ومواضيع البكالوريا،
+        ونظّم رحلتك الدراسية في مكان واحد.
+      </p>
 
-                <div class="hero-badge">
-                    <i class="fa-solid fa-star"></i>
-                    <span>رحلتك التعليمية تبدأ من هنا</span>
-                </div>
+      <div class="hero-actions">
+        <a href="branches.html" class="start-button">
+          اكتشف الشعب الدراسية
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
 
-                <h1>
-                    مرحبًا بك في
-                    <br>
-                    <span>محور أكاديمي</span>
-                </h1>
+        <a href="subjects.html" class="secondary-button">
+          تصفح المواد
+          <i class="fa-solid fa-book-open"></i>
+        </a>
+      </div>
 
-                <p class="hero-subtitle">
-                    تعلّم بذكاء، نظّم وقتك، وطوّر مستواك الدراسي.
-                    اكتشف محتوى تعليميًا منظّمًا يساعدك على التقدّم
-                    خطوة بخطوة نحو أهدافك.
-                </p>
+      <div class="hero-note">
+        <i class="fa-solid fa-circle-check"></i>
+        تعلّم بذكاء، وتقدّم خطوة بخطوة
+      </div>
 
-                <div class="hero-actions">
-                    <a href="technical.html" class="start-button">
-                        <i class="fa-solid fa-book-open"></i>
-                        <span>اكتشف المحتوى الدراسي</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
+    </div>
+  </section>
 
-                    <a href="#features" class="secondary-button">
-                        اكتشف المنصة
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
+  <section class="features section-padding" id="features">
+    <div class="section-heading">
+      <span class="section-kicker">ماذا ستجد هنا؟</span>
+      <h2>كل مواردك الدراسية في مكان واحد</h2>
+      <p>تنقّل بسهولة بين الأقسام للوصول إلى المحتوى الذي تحتاجه.</p>
+    </div>
 
-                <div class="hero-note">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>المعرفة المنظمة تصنع فرقًا في رحلة التعلّم</span>
-                </div>
+    <div class="features-grid">
 
-            </div>
-        </section>
+      <a href="subjects.html" class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h3>الدروس والمواد</h3>
+        <p>انتقل إلى المواد الدراسية واستكشف محتواها.</p>
+      </a>
 
+      <a href="branches.html" class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>الشعب الدراسية</h3>
+        <p>اختر شعبتك للوصول إلى المسار المناسب لك.</p>
+      </a>
 
-        <!-- FEATURES -->
-        <section class="features section-padding" id="features">
+      <a href="subjects.html" class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-file-pdf"></i></div>
+        <h3>الملخصات والتمارين</h3>
+        <p>الوصول إلى الموارد التعليمية المتاحة في المنصة.</p>
+      </a>
 
-            <div class="section-heading">
-                <span class="section-kicker">لماذا محور أكاديمي؟</span>
-                <h2>كل ما تحتاجه لتبدأ <span>رحلتك الدراسية</span></h2>
-                <p>
-                    نعمل على تنظيم المحتوى التعليمي ليكون الوصول إليه
-                    أسهل وأكثر وضوحًا.
-                </p>
-            </div>
+    </div>
+  </section>
 
-            <div class="features-grid">
+  <section class="subjects section-padding" id="subjects">
+    <div class="section-heading">
+      <span class="section-kicker">ابدأ الآن</span>
+      <h2>إلى أين تريد الذهاب؟</h2>
+      <p>اختر القسم الذي تريد تصفحه.</p>
+    </div>
 
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-                    <h3>محتوى منظّم</h3>
-                    <p>
-                        الوصول إلى المواد والدروس وفق الشعب والتخصصات
-                        لتجد ما تبحث عنه بسهولة.
-                    </p>
-                </article>
+    <div class="subjects-grid">
 
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-file-pdf"></i>
-                    </div>
-                    <h3>ملخصات وتمارين</h3>
-                    <p>
-                        مساحة مخصّصة للملخصات والتمارين والموارد
-                        التعليمية التي ستُضاف إلى المنصة.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-laptop-mobile"></i>
-                    </div>
-                    <h3>تجربة سهلة</h3>
-                    <p>
-                        تصميم نعمل على جعله واضحًا ومريحًا
-                        للاستخدام على الهاتف والكمبيوتر.
-                    </p>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- SUBJECTS -->
-        <section class="subjects section-padding" id="subjects">
-
-            <div class="section-heading">
-                <span class="section-kicker">اختر مسارك</span>
-                <h2>ابدأ من <span>شعبتك الدراسية</span></h2>
-                <p>
-                    اختر المسار المناسب لك للوصول إلى الصفحات
-                    التعليمية المتاحة.
-                </p>
-            </div>
-
-            <div class="subjects-grid">
-
-                <a href="technical.html" class="subject-card">
-                    <div class="subject-icon">
-                        <i class="fa-solid fa-gears"></i>
-                    </div>
-
-                    <div class="subject-info">
-                        <span class="subject-label">المسار الدراسي</span>
-                        <h3>شعبة تقني رياضي</h3>
-                        <p>
-                            اكتشف التخصصات والموارد التعليمية
-                            المرتبطة بالشعبة.
-                        </p>
-                    </div>
-
-                    <span class="subject-arrow">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-                </a>
-
-                <!-- أضف الشعب الأخرى هنا عندما تصبح صفحاتها جاهزة -->
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-        <section class="about section-padding" id="about">
-
-            <div class="about-container">
-
-                <div class="about-symbol">
-                    <i class="fa-solid fa-compass"></i>
-                </div>
-
-                <div class="about-content">
-                    <span class="section-kicker">من نحن</span>
-
-                    <h2>محور أكاديمي، طريقك نحو المعرفة</h2>
-
-                    <p>
-                        محور أكاديمي منصة تعليمية تهدف إلى تنظيم
-                        المحتوى الدراسي وتقديمه بطريقة واضحة وعملية،
-                        حتى يتمكّن الطالب من الوصول إلى الموارد التي
-                        يحتاجها ومتابعة رحلته التعليمية بثقة.
-                    </p>
-
-                    <a href="technical.html" class="about-link">
-                        ابدأ رحلتك
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-
-        <div class="footer-content">
-
-            <a href="index.html" class="logo footer-logo">
-                <span class="logo-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </span>
-                <span>محور أكاديمي</span>
-            </a>
-
-            <p>
-                المعرفة بداية كل نجاح، والتعلّم رحلة تستحق أن تبدأ.
-            </p>
-
-            <div class="footer-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="technical.html">تقني رياضي</a>
-                <a href="#about">عن المنصة</a>
-            </div>
-
-            <div class="footer-bottom">
-                <p>
-                    © <span id="current-year">2026</span>
-                    محور أكاديمي — جميع الحقوق محفوظة
-                </p>
-            </div>
-
+      <a href="branches.html" class="subject-card">
+        <div class="subject-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="subject-info">
+          <h3>الشعب الدراسية</h3>
+          <p>تصفح الشعب والمسارات التعليمية.</p>
+          <span class="subject-label">استكشف الشعب</span>
         </div>
+        <span class="subject-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+      </a>
 
-    </footer>
+      <a href="subjects.html" class="subject-card">
+        <div class="subject-icon"><i class="fa-solid fa-book"></i></div>
+        <div class="subject-info">
+          <h3>المواد الدراسية</h3>
+          <p>انتقل إلى صفحة المواد التعليمية.</p>
+          <span class="subject-label">تصفح المواد</span>
+        </div>
+        <span class="subject-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+      </a>
 
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="about section-padding" id="about">
+    <div class="about-container">
+      <div class="about-symbol">
+        <i class="fa-solid fa-compass"></i>
+      </div>
 
+      <div class="about-content">
+        <span class="section-kicker">عن المنصة</span>
+        <h2>محور أكاديمي، رحلتك نحو المعرفة</h2>
+        <p>
+          منصة تعليمية تهدف إلى تنظيم الموارد الدراسية وتسهيل الوصول
+          إليها من خلال صفحات واضحة وتجربة استخدام مريحة.
+        </p>
+        <a href="branches.html" class="about-link">
+          ابدأ رحلتك <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <a href="index.html" class="footer-logo">محور أكاديمي</a>
+
+    <div class="footer-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="branches.html">الشعب الدراسية</a>
+      <a href="subjects.html">المواد</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="current-year">2026</span> محور أكاديمي — جميع الحقوق محفوظة
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
