@@ -62,8 +62,7 @@ h1{font-size:30px;margin-bottom:6px}
 <script>
 const root=document.documentElement, modeBtn=document.getElementById('mode');
 function paint(){
-  const dark=root.getAttribute('data-theme')==='dark';
-  modeBtn.textContent=dark?'☀️ الوضع النهاري':'🌙 الوضع الليلي';
+  modeBtn.textContent=root.getAttribute('data-theme')==='dark'?'☀️ الوضع النهاري':'🌙 الوضع الليلي';
 }
 paint();
 modeBtn.onclick=()=>{
@@ -74,9 +73,14 @@ modeBtn.onclick=()=>{
 };
 document.querySelectorAll('.b').forEach(b=>{
   b.onclick=()=>{
-    localStorage.setItem('mishkat_branch',b.dataset.b);
-    const logged=localStorage.getItem('mishkat_session');
-    location.href=logged?'dashboard.html':'signup.html';
+    const br=b.dataset.b;
+    localStorage.setItem('mishkat_branch',br);
+    if(br==='تسيير واقتصاد'){
+      const logged=localStorage.getItem('mishkat_session');
+      location.href=logged?'dashboard.html':'signup.html';
+    }else{
+      location.href='subjects.html';
+    }
   };
 });
 </script>
