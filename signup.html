@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إنشاء حساب - أكاديمية مشكاة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<div class="box">
+  <div class="logo">أكاديمية مشكاة</div>
+  <p class="sub">أنشئ حسابك وابدأ التعلم</p>
+  <div id="f">
+    <label for="n">الاسم الكامل</label>
+    <input id="n" autocomplete="name">
+    <label for="e">البريد الإلكتروني</label>
+    <input id="e" type="email" autocomplete="email">
+    <label for="r">نوع الحساب</label>
+    <select id="r"><option value="student">طالب</option><option value="teacher">معلم</option></select>
+    <label for="p">كلمة المرور (6 أحرف على الأقل)</label>
+    <input id="p" type="password" autocomplete="new-password">
+    <div class="err" id="err" role="alert"></div>
+    <button id="go">إنشاء الحساب</button>
+  </div>
+  <p class="alt">لديك حساب؟ <a href="login.html">تسجيل الدخول</a></p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+$('go').onclick=()=>{
+  const name=$('n').value.trim(), email=$('e').value.trim().toLowerCase(), pass=$('p').value, role=$('r').value;
+  if(!name||!email||pass.length<6){$('err').textContent='أكمل كل الحقول وتأكد أن كلمة المرور 6 أحرف على الأقل.';return;}
+  const users=JSON.parse(localStorage.getItem('mishkat_users')||'[]');
+  if(users.some(u=>u.email===email)){$('err').textContent='هذا البريد مسجّل مسبقاً.';return;}
+  users.push({name,email,pass,role});
+  localStorage.setItem('mishkat_users',JSON.stringify(users));
+  localStorage.setItem('mishkat_session',email);
+  location.href='dashboard.html';
+};
+</script>
+</body>
+</html>
