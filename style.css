@@ -1,14 +1,24 @@
-/* =========================================================
-   محور أكاديمي
-   PREMIUM NAVY + PURPLE DESIGN
-   Cyan + Dark Green Luminous Borders
-========================================================= */
 
+/* =========================================
+   MAHWAR ACADEMY — محور أكاديمي
+   Premium White & Blue Design
+========================================= */
 
-/* =========================
-   RESET
-========================= */
+:root {
+    --blue: #1769e0;
+    --blue-dark: #1049a5;
+    --blue-light: #eaf3ff;
+    --sky: #55b5ff;
+    --navy: #142b4d;
+    --text: #243b5a;
+    --muted: #70819a;
+    --white: #ffffff;
+    --page: #f5f8fe;
+    --border: #e0e9f5;
+    --shadow: 0 15px 40px rgba(29, 78, 137, 0.09);
+}
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -17,1796 +27,711 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
-    font-family: "Cairo", sans-serif;
+    font-family: Arial, Tahoma, sans-serif;
+    direction: rtl;
+    color: var(--text);
+    background: var(--page);
+    line-height: 1.8;
     overflow-x: hidden;
-    background: #030712;
-    color: #ffffff;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
+button {
+    font: inherit;
+}
 
-/* =========================================================
-   HEADER
-========================================================= */
+::selection {
+    background: var(--blue);
+    color: white;
+}
 
+/* HEADER */
 .header {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-
     z-index: 1000;
-
-    background: rgba(3, 7, 18, 0.82);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom:
-        1px solid rgba(99, 102, 241, 0.12);
-
-    transition: 0.35s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s ease;
 }
-
 
 .navbar {
-    max-width: 1250px;
-
-    min-height: 78px;
-
+    width: min(1200px, 100%);
+    min-height: 76px;
     margin: auto;
-
-    padding: 0 30px;
-
+    padding: 12px 25px;
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
+    gap: 20px;
 }
-
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 .logo {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
-    color: #ffffff;
-
-    font-size: 1.25rem;
-
+    color: var(--navy);
+    font-size: 1.2rem;
     font-weight: 900;
 }
 
-
 .logo-icon {
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #17104a,
-            #31206f,
-            #172554
-        );
-
-    border:
-        1px solid rgba(139, 92, 246, 0.35);
-
-    box-shadow:
-        0 0 25px rgba(79, 70, 229, 0.22);
-
-    color: #ffffff;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    border-radius: 15px;
+    box-shadow: 0 7px 20px rgba(23, 105, 224, 0.2);
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 .nav-links {
     display: flex;
-
     align-items: center;
-
-    gap: 38px;
-
+    gap: 28px;
     list-style: none;
 }
 
-
 .nav-links a {
-    color: #cbd5e1;
-
+    color: #526782;
     font-size: 0.95rem;
-
     font-weight: 700;
-
-    transition: 0.3s ease;
+    transition: color 0.25s ease;
 }
-
 
 .nav-links a:hover {
-    color: #ffffff;
-
-    text-shadow:
-        0 0 15px rgba(56, 189, 248, 0.45);
+    color: var(--blue);
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
-
+/* HOMEPAGE HERO */
 .hero {
-
     min-height: 100vh;
-
+    min-height: 100svh;
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    padding:
-        130px
-        30px
-        100px;
-
+    padding: 130px 24px 90px;
     overflow: hidden;
-
     background:
-
         radial-gradient(
             circle at 15% 20%,
-            rgba(76, 29, 149, 0.25),
+            rgba(85, 181, 255, 0.18),
             transparent 32%
         ),
-
         radial-gradient(
-            circle at 85% 75%,
-            rgba(30, 64, 175, 0.16),
-            transparent 34%
+            circle at 90% 80%,
+            rgba(23, 105, 224, 0.09),
+            transparent 32%
         ),
-
-        linear-gradient(
-            135deg,
-            #020617,
-            #071126 48%,
-            #160d36
-        );
+        linear-gradient(140deg, #ffffff, #f0f6ff);
 }
-
-
-/* =========================================================
-   HERO GLOW
-========================================================= */
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 440px;
-    height: 440px;
-
-    top: -150px;
-    right: -100px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(91, 33, 182, 0.17);
-
-    filter: blur(100px);
-}
-
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    bottom: -180px;
-    left: -120px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(15, 118, 110, 0.10);
-
-    filter: blur(100px);
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
 
 .hero-content {
-
+    width: min(900px, 100%);
     position: relative;
-
-    z-index: 3;
-
-    max-width: 950px;
-
+    z-index: 1;
     text-align: center;
-
-    animation:
-        heroEntrance
-        1s
-        ease
-        both;
+    animation: appear 0.8s ease both;
 }
 
-
-@keyframes heroEntrance {
-
+@keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(35px);
+        transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.hero-badge {
-
+.hero-badge,
+.technical-badge {
     display: inline-flex;
-
     align-items: center;
-
+    justify-content: center;
     gap: 9px;
-
-    padding:
-        9px
-        19px;
-
-    margin-bottom: 27px;
-
+    padding: 9px 18px;
+    margin-bottom: 25px;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    border: 1px solid #d6e7ff;
     border-radius: 50px;
-
-    color: #ddd6fe;
-
-    background:
-        rgba(76, 29, 149, 0.12);
-
-    border:
-        1px solid rgba(139, 92, 246, 0.25);
-
-    box-shadow:
-        0 0 30px
-        rgba(76, 29, 149, 0.10);
+    font-size: 0.9rem;
+    font-weight: 800;
 }
-
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
 
 .hero h1 {
-
-    color: #ffffff;
-
-    font-size:
-        clamp(
-            3rem,
-            7vw,
-            5.8rem
-        );
-
-    line-height: 1.2;
-
+    margin-bottom: 22px;
+    color: var(--navy);
+    font-size: clamp(2.6rem, 7vw, 5.3rem);
     font-weight: 900;
-
-    margin-bottom: 25px;
-
+    line-height: 1.35;
     letter-spacing: -1px;
 }
 
-
-.hero h1 span {
-
-    display: inline-block;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #c4b5fd,
-            #8b5cf6
-        );
-
+.hero h1 span,
+.technical-content h1 span,
+.branches-content h1 span {
+    color: var(--blue);
+    background: linear-gradient(90deg, #1254bd, #36a0fa);
     -webkit-background-clip: text;
     background-clip: text;
-
-    color: transparent;
-
-    filter:
-        drop-shadow(
-            0 0 18px
-            rgba(139, 92, 246, 0.15)
-        );
+    -webkit-text-fill-color: transparent;
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
 
 .hero-subtitle {
-
-    max-width: 700px;
-
-    margin:
-        0
-        auto
-        38px;
-
-    color: #aebbd0;
-
-    font-size: 1.08rem;
-
-    line-height: 2;
+    max-width: 650px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 2.1;
 }
 
-
-/* =========================================================
-   START BUTTON
-========================================================= */
-
-.start-button {
-
+.start-button,
+.choose-branch-button {
+    min-height: 54px;
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
-    gap: 13px;
-
-    min-width: 220px;
-
-    padding:
-        16px
-        30px;
-
-    border-radius: 17px;
-
+    gap: 10px;
+    padding: 14px 29px;
     color: white;
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            135deg,
-            #241052,
-            #4c1d95,
-            #171044
-        );
-
-    border:
-        1px solid
-        rgba(139, 92, 246, 0.38);
-
-    box-shadow:
-
-        0 15px 45px
-        rgba(37, 16, 82, 0.42),
-
-        0 0 30px
-        rgba(76, 29, 149, 0.12);
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+    background: linear-gradient(115deg, #1557c0, #2789f0);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 26px rgba(23, 105, 224, 0.22);
+    font-weight: 800;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
-
-.start-button:hover {
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-
-        0 22px 55px
-        rgba(37, 16, 82, 0.52),
-
-        0 0 35px
-        rgba(56, 189, 248, 0.12);
+.start-button:hover,
+.choose-branch-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(23, 105, 224, 0.28);
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
+/* ABOUT */
 .about {
-
-    padding:
-        100px
-        25px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #071126,
-            #030712
-        );
+    padding: 85px 24px;
+    background: #f1f7ff;
 }
-
 
 .about-container {
-
-    max-width: 850px;
-
+    width: min(850px, 100%);
     margin: auto;
-
-    padding:
-        50px
-        35px;
-
+    padding: 42px 32px;
     text-align: center;
-
-    background:
-        rgba(8, 15, 35, 0.72);
-
-    border:
-        1px solid
-        rgba(139, 92, 246, 0.18);
-
-    border-radius: 28px;
-
-    backdrop-filter:
-        blur(15px);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.30);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
 }
-
 
 .about h2 {
-
-    margin-bottom: 18px;
-
-    color: white;
-
-    font-size: 2rem;
-
+    margin-bottom: 14px;
+    color: var(--navy);
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
     font-weight: 900;
 }
-
 
 .about p {
-
-    color: #9fb0c5;
-
-    line-height: 2;
+    color: var(--muted);
+    line-height: 2.1;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
+/* FOOTER */
 footer {
-
-    padding:
-        25px
-        20px;
-
+    padding: 24px 16px;
     text-align: center;
-
-    background: #020617;
-
-    color: #8091a7;
-
-    font-size: 0.85rem;
+    color: var(--muted);
+    background: white;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
 }
 
-
-/* =========================================================
-   TECHNICAL PAGE
-========================================================= */
-
-.technical-page {
-
-    min-height: 100vh;
-
-    background: #030712;
-
-    color: white;
-}
-
-
-.technical-background {
-
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(76,29,149,0.27),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(15,118,110,0.11),
-            transparent 32%
-        ),
-
-        linear-gradient(
-            135deg,
-            #020617,
-            #071126,
-            #160d36
-        );
-}
-
-
-/* =========================================================
-   TECHNICAL GLOW
-========================================================= */
-
-.glow {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(85px);
-
-    pointer-events: none;
-
-    animation:
-        glowMove
-        8s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-
-.glow-one {
-
-    width: 330px;
-    height: 330px;
-
-    top: 0;
-    right: 5%;
-
-    background:
-        rgba(91,33,182,0.20);
-}
-
-
-.glow-two {
-
-    width: 300px;
-    height: 300px;
-
-    bottom: 0;
-    left: 5%;
-
-    background:
-        rgba(15,118,110,0.13);
-
-    animation-delay:
-        2s;
-}
-
-
-.glow-three {
-
-    width: 180px;
-    height: 180px;
-
-    top: 45%;
-    left: 45%;
-
-    background:
-        rgba(76,29,149,0.12);
-
-    animation-delay:
-        4s;
-}
-
-
-@keyframes glowMove {
-
-    from {
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-
-    to {
-        transform:
-            translate(25px,-20px)
-            scale(1.12);
-    }
-
-}
-
-
-/* =========================================================
-   TECHNICAL CONTENT
-========================================================= */
-
-.technical-content {
-
-    position: relative;
-
-    z-index: 5;
-
-    width:
-        min(
-            950px,
-            92%
-        );
-
-    text-align: center;
-
-    animation:
-        pageAppear
-        0.9s
-        ease
-        both;
-}
-
-
-@keyframes pageAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.98);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.technical-badge {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding:
-        9px
-        19px;
-
-    margin-bottom: 30px;
-
-    border-radius: 50px;
-
-    color: #ddd6fe;
-
-    background:
-        rgba(76,29,149,0.10);
-
-    border:
-        1px solid
-        rgba(139,92,246,0.28);
-}
-
-
-.pulse-dot {
-
-    width: 9px;
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: #38bdf8;
-
-    box-shadow:
-        0 0 0
-        rgba(56,189,248,0.6);
-
-    animation:
-        pulse
-        2s
-        infinite;
-}
-
-
-@keyframes pulse {
-
-    70% {
-
-        box-shadow:
-            0 0 0 10px
-            rgba(56,189,248,0);
-    }
-
-    100% {
-
-        box-shadow:
-            0 0 0 0
-            rgba(56,189,248,0);
-    }
-
-}
-
-
-/* =========================================================
-   TECHNICAL ICON
-========================================================= */
-
-.technical-icon {
-
-    width: 105px;
-    height: 105px;
-
-    margin:
-        0
-        auto
-        30px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #241052,
-            #4c1d95,
-            #171044
-        );
-
-    border:
-        1px solid
-        rgba(139,92,246,0.35);
-
-    color: white;
-
-    font-size: 2.8rem;
-
-    box-shadow:
-
-        0 20px 55px
-        rgba(37,16,82,0.42),
-
-        0 0 35px
-        rgba(56,189,248,0.08);
-
-    animation:
-        iconFloat
-        4s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes iconFloat {
-
-    0%,100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-10px);
-    }
-
-}
-
-
-/* =========================================================
-   TECHNICAL TITLE
-========================================================= */
-
-.technical-content h1 {
-
-    color: white;
-
-    font-size:
-        clamp(
-            2.4rem,
-            6vw,
-            4.8rem
-        );
-
-    line-height: 1.35;
-
-    font-weight: 900;
-
-    margin-bottom: 20px;
-}
-
-
-.technical-content h1 span {
-
-    display: block;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #c4b5fd,
-            #8b5cf6
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-
-.technical-text {
-
-    max-width: 680px;
-
-    margin:
-        0
-        auto
-        38px;
-
-    color: #aebbd0;
-
-    line-height: 2;
-
-    font-size: 1.05rem;
-}
-
-
-/* =========================================================
-   CHOOSE BUTTON
-========================================================= */
-
-.choose-branch-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    padding:
-        17px
-        32px;
-
-    border-radius: 17px;
-
-    color: white;
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            135deg,
-            #241052,
-            #4c1d95,
-            #171044
-        );
-
-    border:
-        1px solid
-        rgba(139,92,246,0.32);
-
-    box-shadow:
-
-        0 18px 45px
-        rgba(37,16,82,0.38);
-
-    transition: 0.35s ease;
-}
-
-
-.choose-branch-button:hover {
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-
-        0 25px 60px
-        rgba(37,16,82,0.48),
-
-        0 0 35px
-        rgba(56,189,248,0.12);
-}
-
-
-/* =========================================================
-   BACK BUTTON
-========================================================= */
-
-.back-home {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 9px;
-
-    width: fit-content;
-
-    margin:
-        27px
-        auto
-        0;
-
-    padding:
-        11px
-        22px;
-
-    border-radius: 15px;
-
-    color: #dbeafe;
-
-    background:
-        rgba(5,10,25,0.82);
-
-    overflow: hidden;
-
-    transition: 0.35s ease;
-}
-
-
-.back-home::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    padding: 1.5px;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            120deg,
-            #0ea5e9,
-            #166534,
-            #38bdf8,
-            #14532d,
-            #0ea5e9
-        );
-
-    background-size:
-        300% 300%;
-
-    animation:
-        borderMove
-        5s
-        linear
-        infinite;
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0)
-        content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite:
-        xor;
-
-    mask-composite:
-        exclude;
-
-    pointer-events: none;
-}
-
-
-@keyframes borderMove {
-
-    0% {
-        background-position:
-            0% 50%;
-    }
-
-    50% {
-        background-position:
-            100% 50%;
-    }
-
-    100% {
-        background-position:
-            0% 50%;
-    }
-
-}
-
-
-.back-home:hover {
-
-    color: white;
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-
-        0 0 25px
-        rgba(56,189,248,0.15),
-
-        0 0 30px
-        rgba(22,101,52,0.15);
-}
-
-
-/* =========================================================
-   BRANCHES PAGE
-========================================================= */
-
+/* TECHNICAL AND BRANCHES PAGES */
+.technical-page,
 .branches-page {
-
     min-height: 100vh;
-
-    background:
-        #030712;
-
-    color: white;
+    min-height: 100svh;
+    color: var(--text);
+    background: var(--page);
 }
 
-
+.technical-background,
 .branches-background {
-
     min-height: 100vh;
-
+    min-height: 100svh;
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    padding:
-        115px
-        30px
-        70px;
-
+    padding: 115px 24px 60px;
     overflow: hidden;
-
     background:
-
         radial-gradient(
-            circle at 8% 12%,
-            rgba(76,29,149,0.30),
-            transparent 32%
+            circle at 8% 10%,
+            rgba(85, 181, 255, 0.15),
+            transparent 30%
         ),
-
         radial-gradient(
             circle at 92% 85%,
-            rgba(15,118,110,0.12),
-            transparent 34%
+            rgba(23, 105, 224, 0.09),
+            transparent 30%
         ),
-
-        linear-gradient(
-            135deg,
-            #020617,
-            #071126 50%,
-            #160d36
-        );
+        linear-gradient(140deg, white, #f0f6ff);
 }
 
+/* DECORATIVE LIGHTS */
+.glow {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+}
 
-/* =========================================================
-   BRANCH CONTENT
-========================================================= */
+.glow-one {
+    width: 250px;
+    height: 250px;
+    top: 0;
+    right: 5%;
+    background: rgba(85, 181, 255, 0.13);
+}
 
-.branches-content {
+.glow-two {
+    width: 230px;
+    height: 230px;
+    bottom: 0;
+    left: 5%;
+    background: rgba(23, 105, 224, 0.09);
+}
 
+.glow-three {
+    width: 150px;
+    height: 150px;
+    top: 45%;
+    left: 45%;
+    background: rgba(85, 181, 255, 0.08);
+}
+
+/* TECHNICAL CONTENT */
+.technical-content {
     position: relative;
-
-    z-index: 5;
-
-    width:
-        min(
-            1120px,
-            94%
-        );
-
+    z-index: 1;
+    width: min(850px, 100%);
     text-align: center;
-
-    animation:
-        pageAppear
-        0.9s
-        ease
-        both;
+    animation: appear 0.8s ease both;
 }
 
+.pulse-dot {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 5px rgba(23, 105, 224, 0.1);
+}
 
-/* =========================================================
-   BRANCH TITLE
-========================================================= */
+.technical-icon {
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 26px;
+    color: white;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    border-radius: 28px;
+    box-shadow: 0 15px 35px rgba(23, 105, 224, 0.2);
+    font-size: 2.6rem;
+}
+
+.technical-content h1 {
+    margin-bottom: 18px;
+    color: var(--navy);
+    font-size: clamp(2.2rem, 6vw, 4.3rem);
+    line-height: 1.4;
+    font-weight: 900;
+}
+
+.technical-content h1 span {
+    display: block;
+}
+
+.technical-text {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 2.1;
+}
+
+.back-home {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: 24px auto 0;
+    padding: 10px 20px;
+    color: var(--blue-dark);
+    background: white;
+    border: 1px solid #d5e4f6;
+    border-radius: 13px;
+    transition: 0.25s ease;
+}
+
+.back-home:hover {
+    color: var(--blue);
+    border-color: #9cc7ff;
+    transform: translateY(-2px);
+}
+
+/* BRANCHES HEADING */
+.branches-content {
+    position: relative;
+    z-index: 1;
+    width: min(1050px, 100%);
+    text-align: center;
+    animation: appear 0.8s ease both;
+}
 
 .branches-content h1 {
-
-    color: #ffffff;
-
-    font-size:
-        clamp(
-            2.7rem,
-            6vw,
-            4.8rem
-        );
-
-    font-weight: 900;
-
     margin-bottom: 12px;
+    color: var(--navy);
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    font-weight: 900;
 }
-
-
-.branches-content h1 span {
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #c4b5fd,
-            #8b5cf6
-        );
-
-    -webkit-background-clip: text;
-
-    background-clip: text;
-
-    color: transparent;
-}
-
 
 .branches-subtitle {
-
-    color: #9caec5;
-
-    margin-bottom: 55px;
-
+    margin-bottom: 38px;
+    color: var(--muted);
     font-size: 1rem;
 }
 
-
-/* =========================================================
-   BRANCH GRID
-========================================================= */
-
+/* BRANCH CARDS GRID */
 .branch-grid {
-
+    width: min(900px, 100%);
+    margin: 0 auto;
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(300px, 1fr));
-
-    gap:
-        30px;
-
-    max-width:
-        920px;
-
-    margin:
-        0
-        auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 }
 
-
-/* =========================================================
-   BRANCH CARD
-========================================================= */
-
+/* INDIVIDUAL CARD */
 .branch-card {
-
     position: relative;
-
-    min-height: 300px;
-
-    padding:
-        42px
-        35px;
-
+    min-width: 0;
+    min-height: 275px;
+    padding: 32px 24px;
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
-
-    border-radius: 28px;
-
-    background:
-        #081225;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.055);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    box-shadow:
-
-        0 25px 70px
-        rgba(0,0,0,0.38);
-
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(29, 78, 137, 0.07);
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
-
-
-/* =========================================================
-   LUMINOUS BORDER
-   CYAN + DARK GREEN
-========================================================= */
 
 .branch-card::before {
-
     content: "";
-
     position: absolute;
-
-    inset: -2px;
-
-    z-index: -1;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            120deg,
-
-            #075985,
-
-            #0ea5e9,
-
-            #14532d,
-
-            #22c55e,
-
-            #0ea5e9,
-
-            #075985
-        );
-
-    background-size:
-        400% 400%;
-
-    animation:
-        cardBorder
-        6s
-        linear
-        infinite;
-
-    opacity: 0.95;
-
-    filter:
-
-        drop-shadow(
-            0 0 5px
-            rgba(14,165,233,0.55)
-        )
-
-        drop-shadow(
-            0 0 8px
-            rgba(20,83,45,0.45)
-        );
+    top: -90px;
+    right: -65px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(85, 181, 255, 0.11);
+    transition: transform 0.35s ease;
+    pointer-events: none;
 }
-
-
-@keyframes cardBorder {
-
-    0% {
-        background-position:
-            0% 50%;
-    }
-
-    50% {
-        background-position:
-            100% 50%;
-    }
-
-    100% {
-        background-position:
-            0% 50%;
-    }
-
-}
-
-
-/* =========================================================
-   CARD INNER BACKGROUND
-========================================================= */
-
-.branch-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 2px;
-
-    z-index: -1;
-
-    border-radius: 26px;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(76,29,149,0.17),
-            transparent 48%
-        ),
-
-        linear-gradient(
-            145deg,
-            #0a1730,
-            #060e20
-        );
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
 
 .branch-card:hover {
-
-    transform:
-        translateY(-10px);
-
-    box-shadow:
-
-        0 30px 80px
-        rgba(0,0,0,0.48),
-
-        0 0 35px
-        rgba(14,165,233,0.13),
-
-        0 0 35px
-        rgba(20,83,45,0.12);
+    transform: translateY(-6px);
+    border-color: #bfd9ff;
+    box-shadow: 0 20px 42px rgba(29, 78, 137, 0.12);
 }
 
-
-/* =========================================================
-   THIRD CARD CENTER
-========================================================= */
-
-.branch-card:nth-child(3) {
-
-    grid-column:
-        1 / 3;
-
-    width:
-        min(
-            430px,
-            100%
-        );
-
-    justify-self:
-        center;
+.branch-card:hover::before {
+    transform: scale(1.4);
 }
-
-
-/* =========================================================
-   BRANCH ICON
-========================================================= */
 
 .branch-icon {
-
-    width: 82px;
-    height: 82px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 23px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1b0b3d,
-            #30156b,
-            #0b2840
-        );
-
-    border:
-        1px solid
-        rgba(139,92,246,0.25);
-
-    color: #ffffff;
-
-    font-size: 2rem;
-
-    box-shadow:
-
-        0 15px 40px
-        rgba(0,0,0,0.38),
-
-        0 0 20px
-        rgba(76,29,149,0.18);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    color: var(--blue);
+    background: linear-gradient(135deg, #edf5ff, #dcecff);
+    border: 1px solid #d8e8ff;
+    border-radius: 22px;
+    font-size: 1.9rem;
+    transition: transform 0.3s ease;
 }
-
 
 .branch-card:hover .branch-icon {
-
-    transform:
-        translateY(-7px)
-        scale(1.05);
-
-    box-shadow:
-
-        0 20px 50px
-        rgba(0,0,0,0.45),
-
-        0 0 30px
-        rgba(56,189,248,0.13);
+    transform: translateY(-3px);
 }
-
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
 
 .branch-card h2 {
-
-    color: #ffffff;
-
-    font-size: 1.45rem;
-
+    margin-bottom: 10px;
+    color: #17365f;
+    font-size: 1.25rem;
     font-weight: 900;
-
-    margin-bottom: 12px;
 }
 
-
-/* =========================================================
-   CARD DESCRIPTION
-========================================================= */
-
 .branch-card p {
-
-    max-width: 300px;
-
-    color: #9baec5;
-
-    font-size: 0.92rem;
-
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
     line-height: 1.9;
 }
 
-
-/* =========================================================
-   ARROW
-========================================================= */
-
 .branch-arrow {
-
-    position: absolute;
-
-    bottom: 20px;
-
-    left: 22px;
-
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 13px;
-
-    color: #38bdf8;
-
-    background:
-        rgba(14,165,233,0.06);
-
-    border:
-        1px solid
-        rgba(14,165,233,0.14);
-
-    transition:
-        0.35s ease;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: var(--blue);
+    background: #eef5ff;
+    border: 1px solid #d9e8ff;
+    border-radius: 12px;
+    transition: 0.25s ease;
 }
-
 
 .branch-card:hover .branch-arrow {
-
     color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #31206f,
-            #075985
-        );
-
-    box-shadow:
-        0 0 20px
-        rgba(14,165,233,0.20);
-
-    transform:
-        translateX(-5px);
+    background: var(--blue);
 }
 
+/* CENTER THE THIRD CARD */
+.branch-card:nth-child(3) {
+    grid-column: 1 / -1;
+    width: calc(50% - 12px);
+    justify-self: center;
+}
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ACCESSIBILITY */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--sky);
+    outline-offset: 4px;
+}
 
+/* TABLETS */
 @media (max-width: 800px) {
+    .navbar {
+        padding: 12px 18px;
+    }
 
-    .navbar {
+    .nav-links {
+        gap: 16px;
+    }
 
-        padding:
-            0
-            20px;
-    }
+    .hero {
+        padding-top: 120px;
+    }
 
+    .branch-grid {
+        gap: 15px;
+    }
 
-    .nav-links {
-
-        gap:
-            20px;
-    }
-
-
-    .branch-grid {
-
-        grid-template-columns:
-            1fr;
-
-        max-width:
-            500px;
-    }
-
-
-    .branch-card:nth-child(3) {
-
-        grid-column:
-            auto;
-
-        width:
-            100%;
-    }
-
+    .branch-card {
+        padding: 28px 16px;
+    }
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
+/* MOBILE */
 @media (max-width: 520px) {
+    .navbar {
+        min-height: 68px;
+        padding: 10px 14px;
+        gap: 10px;
+    }
 
-    .navbar {
+    .logo {
+        gap: 8px;
+        font-size: 1rem;
+    }
 
-        min-height:
-            68px;
+    .logo-icon {
+        width: 39px;
+        height: 39px;
+        border-radius: 12px;
+    }
 
-        padding:
-            0
-            15px;
-    }
+    .nav-links {
+        gap: 12px;
+    }
 
+    .nav-links a {
+        font-size: 0.8rem;
+    }
 
-    .logo {
+    .hero {
+        padding: 110px 18px 70px;
+    }
 
-        font-size:
-            1rem;
-    }
+    .hero-badge,
+    .technical-badge {
+        font-size: 0.78rem;
+        padding: 8px 13px;
+    }
 
+    .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+        letter-spacing: 0;
+    }
 
-    .logo-icon {
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
 
-        width: 37px;
-        height: 37px;
-    }
+    .start-button,
+    .choose-branch-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 13px 20px;
+    }
 
+    .about {
+        padding: 55px 16px;
+    }
 
-    .nav-links {
+    .about-container {
+        padding: 30px 20px;
+    }
 
-        gap:
-            12px;
-    }
+    .technical-background,
+    .branches-background {
+        padding: 100px 15px 45px;
+    }
 
+    .technical-icon {
+        width: 82px;
+        height: 82px;
+        font-size: 2.1rem;
+        border-radius: 23px;
+    }
 
-    .nav-links a {
+    .technical-content h1 {
+        font-size: 2.25rem;
+    }
 
-        font-size:
-            0.78rem;
-    }
+    .technical-text {
+        font-size: 0.93rem;
+    }
 
+    .branches-content h1 {
+        font-size: 2.2rem;
+    }
 
-    .hero {
+    .branches-subtitle {
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+    }
 
-        padding:
-            110px
-            18px
-            70px;
-    }
+    .branch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
 
+    .branch-card {
+        min-height: 235px;
+        padding: 24px 10px;
+        border-radius: 19px;
+    }
 
-    .hero h1 {
+    .branch-card:nth-child(3) {
+        grid-column: 1 / -1;
+        width: 75%;
+    }
 
-        font-size:
-            2.5rem;
-    }
+    .branch-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 14px;
+        border-radius: 18px;
+        font-size: 1.55rem;
+    }
 
+    .branch-card h2 {
+        font-size: 0.95rem;
+    }
 
-    .hero-subtitle {
+    .branch-card p {
+        font-size: 0.78rem;
+        margin-bottom: 14px;
+    }
 
-        font-size:
-            0.92rem;
-    }
+    .branch-arrow {
+        width: 33px;
+        height: 33px;
+    }
+}
 
+/* VERY SMALL PHONES */
+@media (max-width: 360px) {
+    .logo {
+        font-size: 0.88rem;
+    }
 
-    .start-button,
-    .choose-branch-button {
+    .nav-links {
+        gap: 8px;
+    }
 
-        width:
-            100%;
+    .nav-links a {
+        font-size: 0.73rem;
+    }
 
-        max-width:
-            310px;
-    }
+    .branch-grid {
+        gap: 9px;
+    }
 
+    .branch-card {
+        padding: 20px 7px;
+    }
 
-    .technical-icon {
+    .branch-card h2 {
+        font-size: 0.85rem;
+    }
 
-        width:
-            88px;
+    .branch-card p {
+        font-size: 0.72rem;
+    }
+}
 
-        height:
-            88px;
-
-        font-size:
-            2.3rem;
-    }
-
-
-    .technical-content h1 {
-
-        font-size:
-            2.15rem;
-    }
-
-
-    .technical-text {
-
-        font-size:
-            0.9rem;
-    }
-
-
-    .branches-background {
-
-        padding:
-            100px
-            15px
-            50px;
-    }
-
-
-    .branches-content h1 {
-
-        font-size:
-            2.5rem;
-    }
-
-
-    .branches-subtitle {
-
-        margin-bottom:
-            35px;
-    }
-
-
-    .branch-card {
-
-        min-height:
-            275px;
-
-        padding:
-            35px
-            20px;
-    }
-
-
-    .branch-card h2 {
-
-        font-size:
-            1.3rem;
-    }
-
-} 
+/* REDUCE ANIMATION WHEN REQUESTED */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
