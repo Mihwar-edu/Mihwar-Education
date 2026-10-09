@@ -41,7 +41,7 @@
   if(!mock||document.getElementById('about-card'))return;
 
   /* ألوان البطاقة: غيّرها من هنا فقط */
-  var C1='#0b8fb4',C2='#1bb0d0',C3='#12a0c4',GOLD1='#ffc233',GOLD2='#ff9f1c',GOLDINK='#4a3000',GLOW='rgba(8,145,178,.35)';
+  var C1='#0a7ba0',C2='#0f9bbd',C3='#0b8cae',GOLD1='#ffc233',GOLD2='#ff9f1c',GOLDINK='#4a3000',GLOW='rgba(6,120,150,.38)';
 
   var css=''
   +'.ab{direction:rtl;text-align:right;max-width:420px;margin:22px auto 0;padding:26px 22px;border-radius:22px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(120deg,'+C1+','+C2+','+C3+','+C1+');background-size:300% 300%;animation:abbg 10s ease infinite;box-shadow:0 18px 40px '+GLOW+'}'
@@ -77,7 +77,7 @@
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
   +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة ومنظمة.</span></li>'
-  +'<li><i>📚</i><span>دروس وتمارين مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
+  +'<li><i>📚</i><span>دروس مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
   +'</ul>';
