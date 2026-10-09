@@ -1,24 +1,63 @@
 
-/* =========================================
-   MAHWAR ACADEMY — محور أكاديمي
-   Premium White & Blue Design
-========================================= */
+/* =====================================================
+   MIHWER | منصة محور
+   PREMIUM EDUCATIONAL PLATFORM
+   Sky Blue + Green + Black + Purple
+   Responsive: Desktop + Tablet + Mobile
+===================================================== */
+
+
+/* =====================================================
+   1. VARIABLES
+===================================================== */
 
 :root {
-    --blue: #1769e0;
-    --blue-dark: #1049a5;
-    --blue-light: #eaf3ff;
-    --sky: #55b5ff;
-    --navy: #142b4d;
-    --text: #243b5a;
-    --muted: #70819a;
-    --white: #ffffff;
-    --page: #f5f8fe;
-    --border: #e0e9f5;
-    --shadow: 0 15px 40px rgba(29, 78, 137, 0.09);
+    --sky: #38BDF8;
+    --sky-light: #BAE6FD;
+    --sky-dark: #0284C7;
+
+    --green: #22C55E;
+    --green-light: #86EFAC;
+    --green-dark: #15803D;
+
+    --purple: #8B5CF6;
+    --purple-dark: #5B21B6;
+
+    --black: #080D1A;
+    --dark: #111827;
+    --dark-blue: #172554;
+
+    --white: #F8FAFC;
+    --text: #1E293B;
+    --muted: #64748B;
+
+    --radius: 22px;
+
+    --shadow:
+        0 15px 40px rgba(8, 13, 26, 0.16);
+
+    --gradient-main:
+        linear-gradient(
+            120deg,
+            #0284C7,
+            #7C3AED,
+            #16A34A
+        );
+
+    --gradient-dark:
+        linear-gradient(
+            135deg,
+            #080D1A,
+            #111827,
+            #312E81
+        );
 }
 
-/* RESET */
+
+/* =====================================================
+   2. RESET
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -27,1137 +66,1458 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 85px;
 }
 
 body {
     font-family: Arial, Tahoma, sans-serif;
-    direction: rtl;
+    background: #F0F9FF;
     color: var(--text);
-    background: var(--page);
-    line-height: 1.8;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
+button,
+input,
+textarea,
+select {
     font: inherit;
 }
 
-::selection {
-    background: var(--blue);
-    color: white;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* HEADER */
-.header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-    transition: box-shadow 0.3s ease;
+button {
+    cursor: pointer;
 }
 
-.navbar {
-    width: min(1200px, 100%);
-    min-height: 76px;
-    margin: auto;
-    padding: 12px 25px;
+img,
+svg {
+    max-width: 100%;
+}
+
+a {
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+   3. HEADER
+===================================================== */
+
+header {
+    width: 100%;
+    min-height: 80px;
+    padding: 15px 5%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 25px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #080D1A,
+            #172554,
+            #312E81
+        );
+
+    color: white;
+
+    box-shadow:
+        0 5px 25px rgba(8, 13, 26, 0.25);
+
+    position: relative;
+    z-index: 100;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--navy);
-    font-size: 1.2rem;
+
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.logo div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.2;
+}
+
+.logo strong {
+    color: white;
+    font-size: 21px;
     font-weight: 900;
 }
 
-.logo-icon {
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    color: white;
-    background: linear-gradient(135deg, var(--blue), var(--sky));
-    border-radius: 15px;
-    box-shadow: 0 7px 20px rgba(23, 105, 224, 0.2);
+.logo span {
+    color: var(--sky);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: #526782;
-    font-size: 0.95rem;
-    font-weight: 700;
-    transition: color 0.25s ease;
-}
-
-.nav-links a:hover {
-    color: var(--blue);
-}
-
-/* HOMEPAGE HERO */
-.hero {
-    min-height: 100vh;
-    min-height: 100svh;
-    position: relative;
+nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 130px 24px 90px;
-    overflow: hidden;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+nav a {
+    color: #E0F2FE;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--green-light);
+}
+
+
+/* =====================================================
+   4. HOME HERO
+===================================================== */
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    isolation: isolate;
+
+    text-align: center;
+    color: white;
+
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(85, 181, 255, 0.18),
+            circle at 15% 35%,
+            rgba(56, 189, 248, 0.22),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(34, 197, 94, 0.15),
             transparent 32%
         ),
         radial-gradient(
-            circle at 90% 80%,
-            rgba(23, 105, 224, 0.09),
-            transparent 32%
+            circle at 50% 100%,
+            rgba(124, 58, 237, 0.2),
+            transparent 40%
         ),
-        linear-gradient(140deg, #ffffff, #f0f6ff);
+        var(--gradient-dark);
 }
 
-.hero-content {
-    width: min(900px, 100%);
+.hero-text {
+    width: 100%;
+    max-width: 1100px;
+    padding: 65px 25px;
     position: relative;
-    z-index: 1;
-    text-align: center;
-    animation: appear 0.8s ease both;
+    z-index: 2;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-badge,
-.technical-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    padding: 9px 18px;
-    margin-bottom: 25px;
-    color: var(--blue-dark);
-    background: var(--blue-light);
-    border: 1px solid #d6e7ff;
-    border-radius: 50px;
-    font-size: 0.9rem;
+.welcome {
+    color: var(--sky);
+    font-size: clamp(25px, 4vw, 38px);
     font-weight: 800;
+    margin-bottom: 18px;
 }
 
 .hero h1 {
-    margin-bottom: 22px;
-    color: var(--navy);
-    font-size: clamp(2.6rem, 7vw, 5.3rem);
-    font-weight: 900;
-    line-height: 1.35;
-    letter-spacing: -1px;
-}
-
-.hero h1 span,
-.technical-content h1 span,
-.branches-content h1 span {
-    color: var(--blue);
-    background: linear-gradient(90deg, #1254bd, #36a0fa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    max-width: 650px;
-    margin: 0 auto 32px;
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 2.1;
-}
-
-.start-button,
-.choose-branch-button {
-    min-height: 54px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 29px;
     color: white;
-    background: linear-gradient(115deg, #1557c0, #2789f0);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 26px rgba(23, 105, 224, 0.22);
-    font-weight: 800;
-    transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.start-button:hover,
-.choose-branch-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(23, 105, 224, 0.28);
-}
-
-/* ABOUT */
-.about {
-    padding: 85px 24px;
-    background: #f1f7ff;
-}
-
-.about-container {
-    width: min(850px, 100%);
-    margin: auto;
-    padding: 42px 32px;
-    text-align: center;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    box-shadow: var(--shadow);
-}
-
-.about h2 {
-    margin-bottom: 14px;
-    color: var(--navy);
-    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: 1.15;
+    margin-bottom: 25px;
     font-weight: 900;
 }
 
-.about p {
-    color: var(--muted);
-    line-height: 2.1;
-}
-
-/* FOOTER */
-footer {
-    padding: 24px 16px;
-    text-align: center;
-    color: var(--muted);
-    background: white;
-    border-top: 1px solid var(--border);
-    font-size: 0.9rem;
-}
-
-/* TECHNICAL AND BRANCHES PAGES */
-.technical-page,
-.branches-page {
-    min-height: 100vh;
-    min-height: 100svh;
-    color: var(--text);
-    background: var(--page);
-}
-
-.technical-background,
-.branches-background {
-    min-height: 100vh;
-    min-height: 100svh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 115px 24px 60px;
-    overflow: hidden;
-    background:
-        radial-gradient(
-            circle at 8% 10%,
-            rgba(85, 181, 255, 0.15),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 92% 85%,
-            rgba(23, 105, 224, 0.09),
-            transparent 30%
-        ),
-        linear-gradient(140deg, white, #f0f6ff);
-}
-
-/* DECORATIVE LIGHTS */
-.glow {
-    position: absolute;
-    z-index: 0;
-    border-radius: 50%;
-    filter: blur(70px);
-    pointer-events: none;
-}
-
-.glow-one {
-    width: 250px;
-    height: 250px;
-    top: 0;
-    right: 5%;
-    background: rgba(85, 181, 255, 0.13);
-}
-
-.glow-two {
-    width: 230px;
-    height: 230px;
-    bottom: 0;
-    left: 5%;
-    background: rgba(23, 105, 224, 0.09);
-}
-
-.glow-three {
-    width: 150px;
-    height: 150px;
-    top: 45%;
-    left: 45%;
-    background: rgba(85, 181, 255, 0.08);
-}
-
-/* TECHNICAL CONTENT */
-.technical-content {
-    position: relative;
-    z-index: 1;
-    width: min(850px, 100%);
-    text-align: center;
-    animation: appear 0.8s ease both;
-}
-
-.pulse-dot {
-    width: 9px;
-    height: 9px;
-    display: inline-block;
-    border-radius: 50%;
-    background: var(--blue);
-    box-shadow: 0 0 0 5px rgba(23, 105, 224, 0.1);
-}
-
-.technical-icon {
-    width: 100px;
-    height: 100px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 26px;
-    color: white;
-    background: linear-gradient(135deg, var(--blue), var(--sky));
-    border-radius: 28px;
-    box-shadow: 0 15px 35px rgba(23, 105, 224, 0.2);
-    font-size: 2.6rem;
-}
-
-.technical-content h1 {
-    margin-bottom: 18px;
-    color: var(--navy);
-    font-size: clamp(2.2rem, 6vw, 4.3rem);
-    line-height: 1.4;
-    font-weight: 900;
-}
-
-.technical-content h1 span {
+.hero h1 span {
     display: block;
+    color: var(--sky);
+    font-style: normal;
 }
 
-.technical-text {
-    max-width: 650px;
-    margin: 0 auto 30px;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 2.1;
+.hero h2 {
+    color: var(--green-light);
+    font-size: clamp(23px, 4vw, 36px);
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-.back-home {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin: 24px auto 0;
-    padding: 10px 20px;
-    color: var(--blue-dark);
-    background: white;
-    border: 1px solid #d5e4f6;
-    border-radius: 13px;
-    transition: 0.25s ease;
+.subtitle {
+    color: #DCEAF8;
+    font-size: clamp(16px, 2.3vw, 23px);
+    line-height: 1.9;
+    margin-bottom: 30px;
 }
 
-.back-home:hover {
-    color: var(--blue);
-    border-color: #9cc7ff;
-    transform: translateY(-2px);
-}
 
-/* BRANCHES HEADING */
-.branches-content {
-    position: relative;
-    z-index: 1;
-    width: min(1050px, 100%);
-    text-align: center;
-    animation: appear 0.8s ease both;
-}
+/* =====================================================
+   5. SOCIAL BUTTON
+===================================================== */
 
-.branches-content h1 {
-    margin-bottom: 12px;
-    color: var(--navy);
-    font-size: clamp(2.3rem, 6vw, 4rem);
-    font-weight: 900;
-}
-
-.branches-subtitle {
-    margin-bottom: 38px;
-    color: var(--muted);
-    font-size: 1rem;
-}
-
-/* BRANCH CARDS GRID */
-.branch-grid {
-    width: min(900px, 100%);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-
-/* INDIVIDUAL CARD */
-.branch-card {
-    position: relative;
-    min-width: 0;
-    min-height: 275px;
-    padding: 32px 24px;
+.social-button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    box-shadow: 0 12px 32px rgba(29, 78, 137, 0.07);
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    margin: 25px auto;
 }
 
-.branch-card::before {
-    content: "";
-    position: absolute;
-    top: -90px;
-    right: -65px;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: rgba(85, 181, 255, 0.11);
-    transition: transform 0.35s ease;
-    pointer-events: none;
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    min-width: 290px;
+    max-width: 100%;
+    padding: 16px 28px;
+
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            120deg,
+            #0369A1,
+            #5B21B6,
+            #15803D
+        );
+
+    box-shadow:
+        0 10px 30px rgba(56, 189, 248, 0.18);
 }
 
-.branch-card:hover {
-    transform: translateY(-6px);
-    border-color: #bfd9ff;
-    box-shadow: 0 20px 42px rgba(29, 78, 137, 0.12);
-}
-
-.branch-card:hover::before {
-    transform: scale(1.4);
-}
-
-.branch-icon {
-    width: 75px;
-    height: 75px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    margin-bottom: 18px;
-    color: var(--blue);
-    background: linear-gradient(135deg, #edf5ff, #dcecff);
-    border: 1px solid #d8e8ff;
-    border-radius: 22px;
-    font-size: 1.9rem;
-    transition: transform 0.3s ease;
-}
-
-.branch-card:hover .branch-icon {
+.social-button:hover {
     transform: translateY(-3px);
+    box-shadow:
+        0 14px 35px rgba(56, 189, 248, 0.3);
 }
 
-.branch-card h2 {
-    margin-bottom: 10px;
-    color: #17365f;
-    font-size: 1.25rem;
+#socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#socialIcon svg {
+    width: 32px;
+    height: 32px;
+}
+
+#socialText {
+    white-space: nowrap;
+}
+
+.social-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin: 14px auto 20px;
+}
+
+.social-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+
+.social-dot.active {
+    width: 11px;
+    height: 11px;
+    background: var(--green);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+
+/* =====================================================
+   6. MAIN BUTTON
+===================================================== */
+
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 16px 45px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+
+    background: var(--gradient-main);
+    color: white;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 28px rgba(56, 189, 248, 0.22);
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 35px rgba(124, 58, 237, 0.3);
+}
+
+
+/* =====================================================
+   7. STATISTICS
+===================================================== */
+
+.stats-box {
+    width: min(92%, 950px);
+    margin: 42px auto 15px;
+    padding: 24px 18px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(186, 230, 253, 0.3);
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(12px);
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 170px;
+    padding: 12px 10px;
+    text-align: center;
+}
+
+.stat-icon {
+    display: none;
+}
+
+.stat-title {
+    color: #D7EAFE;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 7px;
+}
+
+.stat-number {
+    color: var(--sky);
+    font-size: clamp(24px, 3vw, 34px);
     font-weight: 900;
 }
 
-.branch-card p {
+.stat-subtitle {
+    color: var(--green-light);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.stats-message {
+    display: none;
+}
+
+
+/* =====================================================
+   8. BRANCH SCENE
+===================================================== */
+
+#branchScene {
+    display: none !important;
+}
+
+#branchScene.show-branches {
+    display: flex !important;
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    padding: 30px 20px 40px !important;
+
+    z-index: 99999 !important;
+
+    color: white !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(56, 189, 248, 0.18),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(34, 197, 94, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(124, 58, 237, 0.2),
+            transparent 35%
+        ),
+        var(--gradient-dark) !important;
+}
+
+#branchScene .scene-lamp,
+#branchScene .scene-curtain {
+    display: none !important;
+}
+
+#branchScene::before {
+    display: none !important;
+}
+
+#branchScene::after {
+    content: "✦";
+    position: absolute;
+    left: 25px;
+    bottom: 15px;
+    color: var(--sky);
+    font-size: 100px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+#branchScene .branch-content {
+    position: relative !important;
+    z-index: 10 !important;
+
+    width: min(100%, 1100px) !important;
+    max-width: 1100px !important;
+
+    margin: 0 auto !important;
+    padding: 15px 0 30px !important;
+
+    text-align: center !important;
+
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+
+/* =====================================================
+   9. BRANCH HEADING
+===================================================== */
+
+#branchScene .branch-heading {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+
+    margin: 10px 0 12px !important;
+}
+
+#branchScene .branch-heading i {
+    color: var(--sky) !important;
+    font-size: 34px !important;
+}
+
+#branchScene .branch-heading h1 {
+    margin: 0 !important;
+    color: white !important;
+    font-size: clamp(30px, 5vw, 48px) !important;
+    font-weight: 900 !important;
+    line-height: 1.4 !important;
+}
+
+#branchScene .branch-content > p {
+    max-width: 750px !important;
+    margin: 0 auto 30px !important;
+    color: #DCEAF8 !important;
+    font-size: 17px !important;
+    line-height: 1.9 !important;
+}
+
+
+/* =====================================================
+   10. BRANCH CARDS
+===================================================== */
+
+#branchScene .branch-cards {
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    align-items: stretch !important;
+    gap: 24px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    direction: rtl !important;
+}
+
+#branchScene .branch-card {
+    position: relative !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 315px !important;
+
+    margin: 0 !important;
+    padding: 28px 22px 24px !important;
+
+    background: #F8FAFC !important;
+
+    border: 1px solid #D8E8F5 !important;
+    border-top: 5px solid var(--sky) !important;
+    border-radius: var(--radius) !important;
+
+    box-shadow: var(--shadow) !important;
+
+    overflow: hidden !important;
+    text-align: center !important;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+#branchScene .branch-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow:
+        0 22px 45px rgba(8, 13, 26, 0.2) !important;
+}
+
+#branchScene .branch-card.science {
+    border-top-color: var(--green) !important;
+}
+
+#branchScene .branch-card.maths {
+    border-top-color: var(--purple) !important;
+}
+
+
+/* =====================================================
+   11. BRANCH ICONS
+===================================================== */
+
+#branchScene .branch-icon {
+    flex-shrink: 0 !important;
+
+    width: 76px !important;
+    height: 76px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 auto 18px !important;
+
+    border-radius: 22px !important;
+
+    color: white !important;
+    font-size: 32px !important;
+
+    box-shadow:
+        0 10px 22px rgba(8, 13, 26, 0.12);
+}
+
+#branchScene .branch-card.science .branch-icon {
+    background:
+        linear-gradient(135deg, #15803D, #22C55E) !important;
+}
+
+#branchScene .branch-card.maths .branch-icon {
+    background:
+        linear-gradient(135deg, #5B21B6, #8B5CF6) !important;
+}
+
+
+/* =====================================================
+   12. BRANCH TEXT
+===================================================== */
+
+#branchScene .branch-card h2 {
+    width: 100% !important;
+
+    margin: 0 0 12px !important;
+
+    color: #172554 !important;
+    font-size: 25px !important;
+    font-weight: 900 !important;
+    line-height: 1.5 !important;
+}
+
+#branchScene .branch-card p {
+    width: 100% !important;
+
+    min-height: 55px !important;
+    margin: 0 0 22px !important;
+
+    color: #526176 !important;
+    font-size: 15px !important;
+    line-height: 1.9 !important;
+}
+
+
+/* =====================================================
+   13. BRANCH BUTTONS
+===================================================== */
+
+#branchScene .branch-card button {
+    width: 90% !important;
+    min-width: 0 !important;
+
+    margin-top: auto !important;
+    padding: 14px 12px !important;
+
+    border: none !important;
+    border-radius: 13px !important;
+
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+
+    transition: 0.25s !important;
+}
+
+#branchScene .branch-card.science button {
+    background:
+        linear-gradient(100deg, #15803D, #22C55E) !important;
+
+    box-shadow:
+        0 7px 18px rgba(34, 197, 94, 0.2);
+}
+
+#branchScene .branch-card.maths button {
+    background:
+        linear-gradient(100deg, #5B21B6, #8B5CF6) !important;
+
+    box-shadow:
+        0 7px 18px rgba(124, 58, 237, 0.2);
+}
+
+#branchScene .branch-card button:hover {
+    transform: translateY(-3px) !important;
+    filter: brightness(1.08);
+}
+
+
+/* =====================================================
+   14. BRANCH QUOTE
+===================================================== */
+
+#branchScene .branch-quote {
+    width: 100% !important;
+
+    margin: 26px auto 0 !important;
+    padding: 0 10px !important;
+
+    color: var(--sky-light) !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    line-height: 1.9 !important;
+
+    text-align: center !important;
+}
+
+
+/* =====================================================
+   15. BRANCH EXTRA INFORMATION
+===================================================== */
+
+.branch-extra {
+    width: 100%;
+    margin: 30px auto 0;
+    padding: 24px 16px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+
+    background: rgba(248, 250, 252, 0.97);
+    border: 1px solid rgba(186, 230, 253, 0.7);
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+.extra-item {
+    padding: 8px 12px;
+    text-align: center;
+    border-left: 1px solid #DCE5F0;
+}
+
+.extra-item:last-child {
+    border-left: none;
+}
+
+.extra-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 10px;
+    border-radius: 17px;
+
+    color: white;
+    font-size: 21px;
+}
+
+.extra-icon.pink {
+    background: linear-gradient(135deg, #0284C7, #38BDF8);
+}
+
+.extra-icon.green {
+    background: linear-gradient(135deg, #15803D, #22C55E);
+}
+
+.extra-icon.purple {
+    background: linear-gradient(135deg, #5B21B6, #8B5CF6);
+}
+
+.extra-item h3 {
+    margin: 5px 0 8px;
+    color: #172554;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.extra-item p {
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   16. HOME RETURN BUTTON
+===================================================== */
+
+#branchScene .home-return {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 235px !important;
+    min-height: 52px !important;
+
+    margin: 24px auto 0 !important;
+    padding: 12px 18px !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(100deg, #0284C7, #5B21B6, #15803D) !important;
+
+    color: white !important;
+    text-decoration: none !important;
+
+    font-size: 16px !important;
+    font-weight: 900 !important;
+
+    box-shadow:
+        0 8px 25px rgba(56, 189, 248, 0.18);
+}
+
+#branchScene .home-return:hover {
+    transform: translateY(-3px) !important;
+}
+
+
+/* =====================================================
+   17. GENERAL CONTENT CARDS
+===================================================== */
+
+.cards-section {
+    width: 100%;
+    padding: 65px 5%;
+    background: #F0F9FF;
+    text-align: center;
+}
+
+.cards {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 35px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    padding: 28px 22px;
+
+    border: 1px solid #D7EAFE;
+    border-top: 4px solid var(--sky);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(145deg, #FFFFFF, #EFF6FF);
+
+    box-shadow:
+        0 10px 30px rgba(23, 37, 84, 0.08);
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 18px 35px rgba(23, 37, 84, 0.14);
+}
+
+.card h3 {
+    color: #172554;
+    font-size: 21px;
+    line-height: 1.6;
+    margin: 18px 0 12px;
+}
+
+.card p {
+    color: #526176;
+    font-size: 15px;
+    line-height: 1.9;
     margin-bottom: 20px;
-    color: var(--muted);
-    font-size: 0.9rem;
+}
+
+.card a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 25px;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(100deg, #0284C7, #5B21B6);
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background:
+        linear-gradient(100deg, #15803D, #0284C7);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   18. BAC PAGE
+===================================================== */
+
+.bac-page {
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 50px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(56, 189, 248, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(34, 197, 94, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #080D1A,
+            #111827,
+            #312E81
+        );
+
+    overflow-x: hidden;
+}
+
+.bac-page h1,
+.bac-page h2 {
+    color: white;
+    line-height: 1.6;
+}
+
+.bac-page a {
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   19. FOOTER
+===================================================== */
+
+footer {
+    width: 100%;
+    padding: 40px 20px;
+
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(
+            120deg,
+            #080D1A,
+            #172554,
+            #312E81
+        );
+
+    border-top: 2px solid rgba(56, 189, 248, 0.3);
+}
+
+footer p {
+    margin: 8px;
+    color: #DCEAF8;
+    font-size: 14px;
     line-height: 1.9;
 }
 
-.branch-arrow {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    color: var(--blue);
-    background: #eef5ff;
-    border: 1px solid #d9e8ff;
-    border-radius: 12px;
-    transition: 0.25s ease;
+footer a {
+    color: var(--sky);
+    text-decoration: none;
 }
 
-.branch-card:hover .branch-arrow {
-    color: white;
-    background: var(--blue);
+footer a:hover {
+    color: var(--green-light);
 }
 
-/* CENTER THE THIRD CARD */
-.branch-card:nth-child(3) {
-    grid-column: 1 / -1;
-    width: calc(50% - 12px);
-    justify-self: center;
+
+/* =====================================================
+   20. TABLET
+===================================================== */
+
+@media (min-width: 701px) and (max-width: 1000px) {
+
+    header {
+        padding: 15px 3%;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero-text {
+        padding: 50px 25px;
+    }
+
+    #branchScene .branch-content {
+        width: 96% !important;
+    }
+
+    #branchScene .branch-cards {
+        gap: 16px !important;
+    }
+
+    #branchScene .branch-card {
+        padding: 24px 15px !important;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
-/* ACCESSIBILITY */
+
+/* =====================================================
+   21. MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        min-height: 70px;
+        padding: 12px 15px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 15px;
+        gap: 7px;
+    }
+
+    .logo strong {
+        font-size: 17px;
+    }
+
+    .logo span {
+        font-size: 11px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    /* HOME */
+
+    .hero {
+        min-height: calc(100vh - 70px);
+    }
+
+    .hero-text {
+        padding: 45px 15px 35px;
+    }
+
+    .welcome {
+        font-size: 27px;
+        line-height: 1.5;
+    }
+
+    .hero h1 {
+        font-size: clamp(35px, 9vw, 48px);
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+        line-height: 1.6;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+
+    /* SOCIAL */
+
+    .social-button {
+        width: min(90%, 340px);
+        min-width: 0;
+        padding: 14px 15px;
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    #socialIcon svg {
+        width: 27px;
+        height: 27px;
+    }
+
+
+    /* MAIN BUTTON */
+
+    .main-button {
+        padding: 14px 30px;
+        font-size: 18px;
+    }
+
+
+    /* STATS */
+
+    .stats-box {
+        width: 94%;
+        margin-top: 30px;
+        padding: 14px 5px;
+        gap: 0;
+    }
+
+    .stat-item {
+        min-width: 0;
+        width: 33.333%;
+        padding: 8px 3px;
+    }
+
+    .stat-title {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .stat-subtitle {
+        font-size: 10px;
+    }
+
+
+    /* BRANCH SCENE */
+
+    #branchScene.show-branches {
+        padding: 0 0 25px !important;
+        align-items: flex-start !important;
+    }
+
+    #branchScene .branch-content {
+        width: 94% !important;
+        max-width: none !important;
+        padding: 22px 0 25px !important;
+    }
+
+    #branchScene .branch-heading {
+        gap: 8px !important;
+        margin: 4px 0 8px !important;
+    }
+
+    #branchScene .branch-heading i {
+        font-size: 25px !important;
+    }
+
+    #branchScene .branch-heading h1 {
+        font-size: clamp(23px, 6vw, 30px) !important;
+    }
+
+    #branchScene .branch-content > p {
+        max-width: 400px !important;
+        margin-bottom: 20px !important;
+        font-size: 13px !important;
+        line-height: 1.8 !important;
+    }
+
+
+    /* TWO CARDS SIDE BY SIDE */
+
+    #branchScene .branch-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    #branchScene .branch-card {
+        min-height: 265px !important;
+        padding: 18px 8px 15px !important;
+        border-radius: 18px !important;
+    }
+
+    #branchScene .branch-icon {
+        width: 55px !important;
+        height: 55px !important;
+        margin-bottom: 10px !important;
+        border-radius: 16px !important;
+        font-size: 23px !important;
+    }
+
+    #branchScene .branch-card h2 {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 7px !important;
+    }
+
+    #branchScene .branch-card p {
+        min-height: 62px !important;
+        margin-bottom: 12px !important;
+        font-size: 11px !important;
+        line-height: 1.8 !important;
+    }
+
+    #branchScene .branch-card button {
+        width: 100% !important;
+        padding: 10px 3px !important;
+        font-size: 11px !important;
+        line-height: 1.6 !important;
+        border-radius: 10px !important;
+    }
+
+
+    /* EXTRA INFORMATION */
+
+    .branch-extra {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px 5px;
+        margin-top: 22px;
+        padding: 18px 8px;
+        border-radius: 18px;
+    }
+
+    .extra-item {
+        padding: 7px 5px;
+        border-left: none;
+    }
+
+    .extra-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 7px;
+        font-size: 17px;
+        border-radius: 14px;
+    }
+
+    .extra-item h3 {
+        font-size: 13px;
+    }
+
+    .extra-item p {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+
+    /* QUOTE */
+
+    #branchScene .branch-quote {
+        margin-top: 18px !important;
+        font-size: 12px !important;
+        line-height: 1.8 !important;
+    }
+
+
+    /* RETURN */
+
+    #branchScene .home-return {
+        width: 205px !important;
+        min-height: 47px !important;
+        margin-top: 17px !important;
+        font-size: 14px !important;
+    }
+
+
+    /* GENERAL CARDS */
+
+    .cards-section {
+        padding: 40px 15px;
+    }
+
+    .cards {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 25px auto;
+    }
+
+    .card {
+        padding: 20px 12px;
+        border-radius: 16px;
+    }
+
+    .card h3 {
+        font-size: 17px;
+    }
+
+    .card p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .card a {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+}
+
+
+/* =====================================================
+   22. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    header {
+        padding: 10px;
+        gap: 7px;
+    }
+
+    .logo strong {
+        font-size: 15px;
+    }
+
+    .logo span {
+        font-size: 10px;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero-text {
+        padding: 35px 10px;
+    }
+
+    .welcome {
+        font-size: 24px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .social-button {
+        width: 94%;
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+
+    .main-button {
+        padding: 13px 25px;
+        font-size: 16px;
+    }
+
+    .stat-title {
+        font-size: 10px;
+    }
+
+    .stat-number {
+        font-size: 21px;
+    }
+
+    #branchScene .branch-content {
+        width: 96% !important;
+    }
+
+    #branchScene .branch-heading h1 {
+        font-size: 23px !important;
+    }
+
+    #branchScene .branch-heading i {
+        font-size: 21px !important;
+    }
+
+    #branchScene .branch-content > p {
+        font-size: 12px !important;
+    }
+
+    #branchScene .branch-cards {
+        gap: 7px !important;
+    }
+
+    #branchScene .branch-card {
+        min-height: 245px !important;
+        padding: 15px 5px 12px !important;
+    }
+
+    #branchScene .branch-icon {
+        width: 47px !important;
+        height: 47px !important;
+        font-size: 20px !important;
+    }
+
+    #branchScene .branch-card h2 {
+        font-size: 15px !important;
+    }
+
+    #branchScene .branch-card p {
+        min-height: 60px !important;
+        font-size: 10px !important;
+    }
+
+    #branchScene .branch-card button {
+        font-size: 10px !important;
+        padding: 9px 2px !important;
+    }
+
+    .extra-item h3 {
+        font-size: 12px;
+    }
+
+    .extra-item p {
+        font-size: 10px;
+    }
+
+    .cards {
+        gap: 8px;
+    }
+
+    .card {
+        padding: 16px 8px;
+    }
+
+    .card h3 {
+        font-size: 15px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   23. ACCESSIBILITY
+===================================================== */
+
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid var(--sky);
     outline-offset: 4px;
 }
 
-/* TABLETS */
-@media (max-width: 800px) {
-    .navbar {
-        padding: 12px 18px;
-    }
-
-    .nav-links {
-        gap: 16px;
-    }
-
-    .hero {
-        padding-top: 120px;
-    }
-
-    .branch-grid {
-        gap: 15px;
-    }
-
-    .branch-card {
-        padding: 28px 16px;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 520px) {
-    .navbar {
-        min-height: 68px;
-        padding: 10px 14px;
-        gap: 10px;
-    }
-
-    .logo {
-        gap: 8px;
-        font-size: 1rem;
-    }
-
-    .logo-icon {
-        width: 39px;
-        height: 39px;
-        border-radius: 12px;
-    }
-
-    .nav-links {
-        gap: 12px;
-    }
-
-    .nav-links a {
-        font-size: 0.8rem;
-    }
-
-    .hero {
-        padding: 110px 18px 70px;
-    }
-
-    .hero-badge,
-    .technical-badge {
-        font-size: 0.78rem;
-        padding: 8px 13px;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.2rem, 10vw, 3.2rem);
-        letter-spacing: 0;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .start-button,
-    .choose-branch-button {
-        width: 100%;
-        max-width: 300px;
-        padding: 13px 20px;
-    }
-
-    .about {
-        padding: 55px 16px;
-    }
-
-    .about-container {
-        padding: 30px 20px;
-    }
-
-    .technical-background,
-    .branches-background {
-        padding: 100px 15px 45px;
-    }
-
-    .technical-icon {
-        width: 82px;
-        height: 82px;
-        font-size: 2.1rem;
-        border-radius: 23px;
-    }
-
-    .technical-content h1 {
-        font-size: 2.25rem;
-    }
-
-    .technical-text {
-        font-size: 0.93rem;
-    }
-
-    .branches-content h1 {
-        font-size: 2.2rem;
-    }
-
-    .branches-subtitle {
-        margin-bottom: 25px;
-        font-size: 0.9rem;
-    }
-
-    .branch-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .branch-card {
-        min-height: 235px;
-        padding: 24px 10px;
-        border-radius: 19px;
-    }
-
-    .branch-card:nth-child(3) {
-        grid-column: 1 / -1;
-        width: 75%;
-    }
-
-    .branch-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 14px;
-        border-radius: 18px;
-        font-size: 1.55rem;
-    }
-
-    .branch-card h2 {
-        font-size: 0.95rem;
-    }
-
-    .branch-card p {
-        font-size: 0.78rem;
-        margin-bottom: 14px;
-    }
-
-    .branch-arrow {
-        width: 33px;
-        height: 33px;
-    }
-}
-
-/* VERY SMALL PHONES */
-@media (max-width: 360px) {
-    .logo {
-        font-size: 0.88rem;
-    }
-
-    .nav-links {
-        gap: 8px;
-    }
-
-    .nav-links a {
-        font-size: 0.73rem;
-    }
-
-    .branch-grid {
-        gap: 9px;
-    }
-
-    .branch-card {
-        padding: 20px 7px;
-    }
-
-    .branch-card h2 {
-        font-size: 0.85rem;
-    }
-
-    .branch-card p {
-        font-size: 0.72rem;
-    }
-}
-
-/* REDUCE ANIMATION WHEN REQUESTED */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
-        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
 }
 
-
-/* ==========================================
-   محور أكاديمي | تنسيق الصفحة الرئيسية
-   إضافة جديدة إلى نهاية style.css
-   ========================================== */
-
-:root {
-    --section-width: 1120px;
-}
-
-.section-padding {
-    padding: 75px 22px;
-}
-
-.section-heading {
-    max-width: 680px;
-    margin: 0 auto 38px;
-    text-align: center;
-}
-
-.section-kicker {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.section-heading h2 {
-    margin-bottom: 14px;
-    color: var(--navy);
-    font-size: clamp(26px, 4vw, 38px);
-    line-height: 1.5;
-}
-
-.section-heading p {
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-/* أزرار الواجهة الرئيسية */
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 28px;
-}
-
-.hero-actions .start-button,
-.hero-actions .secondary-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-    min-height: 52px;
-    padding: 13px 25px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-weight: 800;
-    transition: transform 0.25s, box-shadow 0.25s,
-                background 0.25s;
-}
-
-.hero-actions .start-button:hover,
-.hero-actions .secondary-button:hover {
-    transform: translateY(-3px);
-}
-
-.hero-actions .secondary-button {
-    color: var(--blue-dark);
-    background: var(--white);
-    border: 1px solid var(--border);
-}
-
-.hero-actions .secondary-button:hover {
-    box-shadow: var(--shadow);
-}
-
-.hero-note {
-    margin-top: 20px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.9;
-}
-
-/* قسم المميزات */
-
-.features {
-    background: var(--white);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    max-width: var(--section-width);
-    margin: 0 auto;
-}
-
-.feature-card {
-    padding: 28px 24px;
-    background: var(--page);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    transition: transform 0.25s, box-shadow 0.25s,
-                border-color 0.25s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--sky);
-    box-shadow: var(--shadow);
-}
-
-.feature-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 56px;
-    height: 56px;
-    margin-bottom: 20px;
-    color: var(--blue);
-    background: var(--blue-light);
-    border-radius: 17px;
-    font-size: 24px;
-}
-
-.feature-card h3 {
-    margin-bottom: 12px;
-    color: var(--navy);
-    font-size: 19px;
-}
-
-.feature-card p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 2;
-}
-
-/* قسم الشعب الدراسية */
-
-.subjects {
-    background: var(--page);
-}
-
-.subjects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    max-width: var(--section-width);
-    margin: 0 auto;
-}
-
-.subject-card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 17px;
-    min-width: 0;
-    padding: 24px 20px;
-    color: inherit;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    text-decoration: none;
-    transition: transform 0.25s, box-shadow 0.25s,
-                border-color 0.25s;
-}
-
-.subject-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--sky);
-    box-shadow: var(--shadow);
-}
-
-.subject-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 54px;
-    width: 54px;
-    height: 54px;
-    color: var(--blue);
-    background: var(--blue-light);
-    border-radius: 16px;
-    font-size: 23px;
-}
-
-.subject-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.subject-info h3 {
-    margin-bottom: 8px;
-    color: var(--navy);
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.subject-info p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.subject-label {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    color: var(--blue-dark);
-    background: var(--blue-light);
-    border-radius: 8px;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.subject-arrow {
-    flex: 0 0 auto;
-    color: var(--blue);
-    font-size: 20px;
-    transition: transform 0.25s;
-}
-
-.subject-card:hover .subject-arrow {
-    transform: translateX(-4px);
-}
-
-/* عن المنصة */
-
-.about {
-    background: var(--white);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 42px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 38px;
-    background: var(--page);
-    border: 1px solid var(--border);
-    border-radius: 26px;
-}
-
-.about-symbol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 150px;
-    width: 150px;
-    height: 150px;
-    color: var(--blue);
-    background: var(--blue-light);
-    border-radius: 35px;
-    font-size: 58px;
-}
-
-.about-content {
-    flex: 1;
-}
-
-.about-content h2 {
-    margin-bottom: 15px;
-    color: var(--navy);
-    font-size: clamp(23px, 3vw, 32px);
-    line-height: 1.6;
-}
-
-.about-content p {
-    margin-bottom: 14px;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 2.1;
-}
-
-.about-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    margin-top: 8px;
-    color: var(--blue);
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.about-link:hover {
-    color: var(--blue-dark);
-}
-
-/* تذييل الموقع */
-
-.site-footer {
-    padding: 38px 22px 18px;
-    color: var(--white);
-    background: var(--navy);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    max-width: var(--section-width);
-    margin: 0 auto;
-}
-
-.footer-logo {
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 900;
-    text-decoration: none;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: #dce9ff;
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: var(--sky);
-}
-
-.footer-bottom {
-    max-width: var(--section-width);
-    margin: 28px auto 0;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    color: #c8d6ed;
-    font-size: 12px;
-    line-height: 1.9;
-    text-align: center;
-}
-
-/* تحسين الهاتف والتابلت */
-
-@media (max-width: 900px) {
-    .features-grid,
-    .subjects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .about-container {
-        gap: 25px;
-        padding: 28px;
-    }
-
-    .about-symbol {
-        flex-basis: 110px;
-        width: 110px;
-        height: 110px;
-        font-size: 44px;
-    }
-}
-
-@media (max-width: 600px) {
-    .section-padding {
-        padding: 52px 16px;
-    }
-
-    .features-grid,
-    .subjects-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .feature-card {
-        padding: 23px 20px;
-    }
-
-    .subject-card {
-        padding: 19px 16px;
-    }
-
-    .about-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 22px;
-        padding: 23px 19px;
-    }
-
-    .about-symbol {
-        align-self: center;
-        flex-basis: auto;
-        width: 100px;
-        height: 100px;
-        border-radius: 25px;
-        font-size: 40px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hero-actions .start-button,
-    .hero-actions .secondary-button {
-        width: 100%;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-links {
-        justify-content: center;
-        gap: 15px;
-    }
-}
+/* END OF MIHWER STYLE.CSS */
