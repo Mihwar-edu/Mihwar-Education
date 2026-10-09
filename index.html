@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أكاديمية مشكاة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--bg:#fff;--soft:#f7f9fb;--card:#fff;--line:#eaeef3}
+@media (prefers-color-scheme:dark){:root{--ink:#f2f5f8;--muted:#9aa7b6;--bg:#0d141c;--soft:#121b25;--card:#16212d;--line:#223041}}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+.logo i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#38bdf8,var(--blue));color:#fff;display:grid;place-items:center;font-style:normal}
+nav{display:flex;align-items:center;gap:18px;font-size:14px}
+.btn{display:inline-block;padding:10px 22px;border-radius:999px;font-weight:700;font-size:15px}
+.btn.p{background:var(--blue);color:#fff}
+.btn.s{background:var(--card);border:1px solid var(--line)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 5%;background:linear-gradient(135deg,#e3f4ff,#f4fbff 60%,#fffbea)}
+@media (prefers-color-scheme:dark){.hero{background:linear-gradient(135deg,#0f2438,#0d141c)}}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.25;font-weight:800}
+h1 span{color:var(--blue)}
+.hero p{color:var(--muted);margin:18px 0 26px;max-width:480px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:34px;margin-top:36px}
+.stats b{display:block;font-size:24px;color:var(--blue)}
+.stats small{color:var(--muted)}
+.mock{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 20px 50px rgba(10,132,255,.15)}
+.mock .l{height:10px;border-radius:6px;background:var(--line);margin-bottom:12px}
+.mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.mock .g div{height:110px;border-radius:12px}
+.g div:nth-child(1){background:#fff7d6}.g div:nth-child(2){background:#dff6ff}.g div:nth-child(3){background:#dcebff}
+section.f{background:var(--soft);padding:70px 5%;text-align:center}
+section.f h2{font-size:30px}
+section.f>p{color:var(--muted);margin-bottom:36px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;text-align:right}
+.card{background:var(--card);border-radius:14px;padding:26px;border:1px solid var(--line)}
+.card i{width:42px;height:42px;border-radius:10px;background:rgba(10,132,255,.12);display:grid;place-items:center;font-style:normal;font-size:20px;margin-bottom:14px}
+.card h3{margin-bottom:6px}.card p{color:var(--muted);font-size:15px}
+footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
+@media (max-width:800px){.hero{grid-template-columns:1fr;padding:40px 5%}nav a.h{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#"><i>م</i> أكاديمية مشكاة</a>
+  <nav>
+    <a class="h" href="login.html">تسجيل الدخول</a>
+    <a class="btn p" href="signup.html">سجّل الآن</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>أكاديمية مشكاة – التعليم بطريقة <span>ممتعة ومنظمة</span></h1>
+    <p>انضم إلى الآلاف من الطلاب الذين يحققون النجاح الدراسي من خلال منصتنا التعليمية الحديثة.</p>
+    <div class="acts">
+      <a class="btn p" href="signup.html">ابدأ التعلم الآن</a>
+      <a class="btn s" href="#features">تعرّف على المنصة</a>
+    </div>
+    <div class="stats">
+      <div><b>+10K</b><small>طالب نشط</small></div>
+      <div><b>+500</b><small>معلم متميز</small></div>
+      <div><b>+1000</b><small>درس تفاعلي</small></div>
+    </div>
+  </div>
+  <div class="mock" aria-hidden="true">
+    <div class="l" style="width:70%"></div><div class="l"></div><div class="l" style="width:85%"></div>
+    <div class="g"><div></div><div></div><div></div></div>
+  </div>
+</div>
+
+<section class="f" id="features">
+  <h2>ميزات أكاديمية مشكاة</h2>
+  <p>نوفر لك كل ما تحتاجه لتحقيق النجاح الدراسي في مكان واحد</p>
+  <div class="cards">
+    <div class="card"><i>📖</i><h3>دروس منظمة</h3><p>محتوى مرتب حسب المادة والوحدة ليسهل عليك المتابعة.</p></div>
+    <div class="card"><i>👥</i><h3>معلمون متميزون</h3><p>نخبة من المعلمين يشرحون لك بأسلوب بسيط وواضح.</p></div>
+    <div class="card"><i>🎥</i><h3>فيديوهات تفاعلية</h3><p>شاهد الدروس في أي وقت وأعد المشاهدة متى شئت.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 أكاديمية مشكاة. جميع الحقوق محفوظة.</footer>
+</body>
+</html>
