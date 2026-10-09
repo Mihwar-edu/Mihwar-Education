@@ -32,7 +32,7 @@
   d.setAttribute('aria-label','عن أكاديمية مشكاة');
   d.innerHTML=''
   +'<span class="ab-shine"></span>'
-  +'<span class="ab-tag">🏅 عن المنصة</span>'
+  +'<span class="ab-tag">✍️ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
   +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة ومنظمة.</span></li>'
