@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اختر شعبتك - أكاديمية مشكاة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css">
+<style>
+body{display:block;padding:40px 5%}
+.wrap{max-width:640px;margin:0 auto;text-align:center}
+h1{font-size:30px;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.b{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:34px 12px;font:inherit;font-size:20px;font-weight:800;color:var(--ink);cursor:pointer;width:100%;margin:0;transition:.15s}
+.b:hover,.b:focus-visible{border-color:var(--blue);transform:translateY(-3px)}
+.b span{display:block;font-size:34px;margin-bottom:8px}
+.back{display:inline-block;margin-top:26px;font-size:14px}
+@media (max-width:420px){.b{font-size:17px;padding:26px 8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">أكاديمية مشكاة</div>
+  <h1>اختر شعبتك</h1>
+  <p class="sub">سنعرض لك الدروس المناسبة لشعبتك</p>
+  <div class="grid">
+    <button class="b" data-b="علوم تجريبية"><span>🧬</span>علوم تجريبية</button>
+    <button class="b" data-b="رياضيات"><span>📐</span>رياضيات</button>
+    <button class="b" data-b="تقني رياضي"><span>⚙️</span>تقني رياضي</button>
+    <button class="b" data-b="تسيير واقتصاد"><span>📊</span>تسيير واقتصاد</button>
+  </div>
+  <a class="back" href="index.html">← العودة للرئيسية</a>
+</div>
+<script>
+document.querySelectorAll('.b').forEach(b=>{
+  b.onclick=()=>{
+    localStorage.setItem('mishkat_branch',b.dataset.b);
+    const logged=localStorage.getItem('mishkat_session');
+    location.href=logged?'dashboard.html':'signup.html';
+  };
+});
+</script>
+</body>
+</html>
