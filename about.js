@@ -34,6 +34,35 @@
   document.head.appendChild(st);
 })();
 
+/* ===== 1b) إطار العنوان الاسطواني المتحرك ===== */
+(function(){
+  var w=document.querySelector('.wrap');
+  if(!w||w.querySelector('.tpill'))return;
+  var kids=[].slice.call(w.children);
+  var logo=kids.filter(function(c){return c.classList.contains('logo');})[0];
+  var h=kids.filter(function(c){return c.tagName==='H1';})[0];
+  var sub=kids.filter(function(c){return c.classList.contains('sub');})[0];
+  if(!h)return;
+
+  var css=''
+  +'.tpill{position:relative;overflow:hidden;display:block;margin:0 auto;max-width:560px;padding:20px 28px 18px;border-radius:46px;background:var(--card);border:3px solid #ff9f1c;box-shadow:0 14px 34px rgba(255,159,28,.28),inset 0 5px 10px rgba(255,255,255,.35),inset 0 -7px 14px rgba(255,159,28,.16);animation:twalk 5s ease-in-out infinite alternate}'
+  +'.tpill>*{position:relative;z-index:1}'
+  +'.tpill .logo{margin-bottom:4px}.tpill h1{margin-bottom:4px}.tpill .sub{margin-bottom:0}'
+  +'.tpill::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-90px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:tsh 5s ease-in-out 1s infinite;pointer-events:none;z-index:2}'
+  +'@keyframes twalk{0%{transform:translateX(-16px) translateY(0) rotate(-.8deg)}25%{transform:translateX(-8px) translateY(-5px) rotate(.4deg)}50%{transform:translateX(0) translateY(0) rotate(.8deg)}75%{transform:translateX(8px) translateY(-5px) rotate(-.4deg)}100%{transform:translateX(16px) translateY(0) rotate(-.8deg)}}'
+  +'@keyframes tsh{0%{left:-90px}40%,100%{left:115%}}'
+  +'@media (min-width:900px){.tpill{max-width:680px;padding:28px 40px 24px}}'
+  +'@media (prefers-reduced-motion:reduce){.tpill,.tpill::after{animation:none}}';
+  var st=document.createElement('style');
+  st.textContent=css;
+  document.head.appendChild(st);
+
+  var pill=document.createElement('div');
+  pill.className='tpill';
+  w.insertBefore(pill,logo||h);
+  [logo,h,sub].forEach(function(el){if(el)pill.appendChild(el);});
+})();
+
 /* ===== 2) الأيقونات الاحترافية ===== */
 (function(){
   var css=''
@@ -131,8 +160,8 @@
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة   ومنظمة البكالوريا .</span></li>'
-  +'<li><i>📚</i><span>دروس وتمارين مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا بخطوات واضحة ومنظمة.</span></li>'
+  +'<li><i>📚</i><span>دروس وتمارين  مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
   +'</ul>';
