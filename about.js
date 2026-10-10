@@ -18,7 +18,11 @@
     chart:V+'<g fill="#fff" stroke="none"><rect x="5" y="21" width="5" height="7" rx="1.2"/><rect x="13.5" y="17" width="5" height="11" rx="1.2"/><rect x="22" y="13" width="5" height="15" rx="1.2"/></g><path d="M5 15L12 10.5L17 12.5L26 4.5"/><path d="M21 4.5H26V9.5"/></svg>',
     pi:V+'<path stroke-width="2.4" d="M7 9.5H25M12.5 9.5C12.5 14.5 12 18.5 10 22.5M19.5 9.5V21C19.5 23 20.3 24 22.3 24"/></svg>',
     atom:V+'<circle cx="16" cy="16" r="2.6" fill="#fff" stroke="none"/><g stroke-width="1.8"><ellipse cx="16" cy="16" rx="13" ry="5.2"/><ellipse cx="16" cy="16" rx="13" ry="5.2" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5.2" transform="rotate(120 16 16)"/></g></svg>',
-    hat:V+'<path d="M6 21A10 10 0 0 1 26 21"/><path stroke-width="1.8" d="M16 11V21M11 12.5V21M21 12.5V21"/><rect x="4" y="21" width="24" height="4.5" rx="2.2" fill="#fff" stroke="none"/></svg>'
+    hat:V+'<path d="M6 21A10 10 0 0 1 26 21"/><path stroke-width="1.8" d="M16 11V21M11 12.5V21M21 12.5V21"/><rect x="4" y="21" width="24" height="4.5" rx="2.2" fill="#fff" stroke="none"/></svg>',
+    book:V+'<path d="M16 7C13 5 9 4.5 5 5V24C9 23.5 13 24 16 26"/><path d="M16 7C19 5 23 4.5 27 5V24C23 23.5 19 24 16 26"/><path d="M16 7V26"/></svg>',
+    pencil:V+'<path d="M5.5 26.5L7.5 20L22 5.5L26.5 10L12 24.5Z"/><path stroke-width="1.8" d="M18.5 9L23 13.5M7.5 20L12 24.5"/></svg>',
+    check:V+'<circle cx="16" cy="16" r="11.5"/><path stroke-width="2.4" d="M10.5 16.5L14.5 20.5L21.5 12"/></svg>',
+    scale:V+'<path d="M16 5V26M10 26H22M6 10H26"/><path stroke-width="1.8" d="M8 10L5 18M8 10L11 18M24 10L21 18M24 10L27 18"/><path stroke-width="1.8" d="M4 18A4 4 0 0 0 12 18ZM20 18A4 4 0 0 0 28 18Z"/><circle cx="16" cy="5" r="1.4" fill="#fff" stroke="none"/></svg>'
   };
   function swap(sel,key){
     document.querySelectorAll(sel).forEach(function(s){
@@ -33,9 +37,23 @@
   swap('.b[data-s="الرياضيات"] > span','pi');
   swap('.b[data-s="الفيزياء"] > span','atom');
   swap('.eng .ic','hat');
+  swap('.b[data-t="sum"] > span','book');
+  swap('.b[data-t="ex"] > span','pencil');
+  swap('.b[data-t="cor"] > span','check');
+  swap('.b[data-t="ser"] > span','scale');
 })();
 
-/* ===== 2) بطاقة عن المنصة (سماوي + ذهبي) ===== */
+/* ===== 2) فتح صفحة الدرس عند الضغط على أي درس ===== */
+(function(){
+  document.querySelectorAll('.b[data-c]').forEach(function(el){
+    el.onclick=function(){
+      localStorage.setItem('mishkat_chapter',el.dataset.c);
+      location.href='lesson.html';
+    };
+  });
+})();
+
+/* ===== 3) بطاقة عن المنصة (سماوي + ذهبي) ===== */
 (function(){
   var mock=document.querySelector('.wrap > .mock');
   if(!mock||document.getElementById('about-card'))return;
@@ -76,7 +94,7 @@
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة ومنظمة.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة في البكالوريا ومنظمة.</span></li>'
   +'<li><i>📚</i><span>دروس وتمارين مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
