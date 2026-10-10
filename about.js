@@ -1,4 +1,40 @@
-/* ===== 1) الأيقونات الاحترافية ===== */
+/* ===== 0) توجيه الصفحات حسب الشعبة ===== */
+(function(){
+  var br=localStorage.getItem('mishkat_branch')||'';
+
+  /* صفحة الشعب: كل الشعب تفتح صفحة المواد */
+  document.querySelectorAll('.b[data-b]').forEach(function(el){
+    el.onclick=function(){
+      localStorage.setItem('mishkat_branch',el.dataset.b);
+      location.href='subjects.html';
+    };
+  });
+
+  /* صفحة المواد: في تسيير واقتصاد تصبح الخانة الثانية «الاقتصاد» */
+  var phys=document.querySelector('.b[data-s="الفيزياء"]');
+  if(phys&&br==='تسيير واقتصاد'){
+    phys.dataset.s='الاقتصاد';
+    phys.innerHTML='<span>📊</span>الاقتصاد';
+  }
+  document.querySelectorAll('[data-s]').forEach(function(el){
+    el.onclick=function(){
+      var s=el.dataset.s;
+      localStorage.setItem('mishkat_subject',s);
+      if(s==='الفيزياء'){location.href='physics.html';}
+      else if(s==='الرياضيات'&&br!=='تسيير واقتصاد'){location.href='math.html';}
+      else{location.href='section.html';}
+    };
+  });
+})();
+
+/* ===== 1) حواف برتقالية للبطاقات ===== */
+(function(){
+  var st=document.createElement('style');
+  st.textContent='.b,.eng{border-color:#ff9f1c!important}.b:hover,.b:focus-visible{border-color:#ff7a00!important;box-shadow:0 12px 30px rgba(255,159,28,.28)}';
+  document.head.appendChild(st);
+})();
+
+/* ===== 2) الأيقونات الاحترافية ===== */
 (function(){
   var css=''
   +'.pi{display:inline-grid;place-items:center;width:62px;height:62px;border-radius:19px;background:linear-gradient(145deg,#4cc3ff,#0a84ff 55%,#1d57d6);box-shadow:0 12px 24px rgba(10,132,255,.38),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .25s}'
@@ -36,6 +72,7 @@
   swap('.b[data-b="تسيير واقتصاد"] > span','chart');
   swap('.b[data-s="الرياضيات"] > span','pi');
   swap('.b[data-s="الفيزياء"] > span','atom');
+  swap('.b[data-s="الاقتصاد"] > span','chart');
   swap('.eng .ic','hat');
   swap('.b[data-t="sum"] > span','book');
   swap('.b[data-t="ex"] > span','pencil');
@@ -43,7 +80,7 @@
   swap('.b[data-t="ser"] > span','scale');
 })();
 
-/* ===== 2) فتح صفحة الدرس عند الضغط على أي درس ===== */
+/* ===== 3) فتح صفحة الدرس عند الضغط على أي درس ===== */
 (function(){
   document.querySelectorAll('.b[data-c]').forEach(function(el){
     el.onclick=function(){
@@ -53,7 +90,7 @@
   });
 })();
 
-/* ===== 3) بطاقة عن المنصة (سماوي + ذهبي) ===== */
+/* ===== 4) بطاقة عن المنصة (سماوي + ذهبي) ===== */
 (function(){
   var mock=document.querySelector('.wrap > .mock');
   if(!mock||document.getElementById('about-card'))return;
@@ -94,7 +131,7 @@
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة في البكالوريا ومنظمة.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة   ومنظمة البكالوريا .</span></li>'
   +'<li><i>📚</i><span>دروس وتمارين مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
