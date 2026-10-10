@@ -36,6 +36,15 @@ h1 span{color:var(--blue)}
 .mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .mock .g div{height:110px;border-radius:12px}
 .g div:nth-child(1){background:#fff7d6}.g div:nth-child(2){background:#dff6ff}.g div:nth-child(3){background:#dcebff}
+
+/* زر التواصل المتغيّر */
+.soc-row{margin-top:14px}
+.soc{display:inline-flex;align-items:center;padding:11px 24px;border-radius:999px;background:var(--blue);color:#fff;border:2.5px solid #ff9f1c;font-weight:800;font-size:15px;box-shadow:0 10px 24px rgba(10,132,255,.3);transition:transform .2s}
+.soc:hover{transform:translateY(-2px)}
+.soc .sw{display:inline-flex;align-items:center;gap:10px;transition:opacity .25s,transform .25s}
+.soc .sw.out{opacity:0;transform:translateY(-8px)}
+.soc svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
 section.f{background:var(--soft);padding:70px 0;text-align:center}
 section.f h2{font-size:30px;padding:0 5%}
 section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
@@ -46,7 +55,6 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 .marquee:hover .track,.marquee:focus-within .track,.marquee.paused .track{animation-play-state:paused}
 .set{display:flex;gap:20px;padding-right:20px;flex:none}
 @keyframes mv{from{transform:translateX(calc(var(--w,0px)*-1))}to{transform:translateX(0)}}
-@media (prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
 
 /* البطاقة */
 .fc{direction:rtl;text-align:center;width:min(300px,78vw);flex:none;border-radius:22px;padding:26px 22px;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative;overflow:hidden;box-shadow:0 18px 40px var(--cglow);transition:transform .25s}
@@ -60,6 +68,34 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 .fc p{color:#fff;font-size:15px;margin-bottom:18px;min-height:52px;font-weight:500;text-shadow:0 1px 2px rgba(0,60,80,.25)}
 .go{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--cdeep);padding:11px 26px;border-radius:999px;font-weight:800;font-size:15px;box-shadow:0 10px 22px rgba(0,60,80,.2)}
 .go:hover{background:#e8fbff}
+
+/* الذيل */
+.ft{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2) 60%,var(--c3));padding:46px 5% 26px;text-shadow:0 1px 2px rgba(0,60,80,.25)}
+.ft::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.1);left:-100px;top:-120px}
+.ft::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,194,51,.22);right:-80px;bottom:-110px}
+.ft>*{position:relative;z-index:1}
+.ft-in{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1100px;margin:0 auto}
+.fcol h4,.ft-soc h4{font-size:17px;font-weight:800;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid rgba(255,255,255,.25);position:relative}
+.fcol h4::after,.ft-soc h4::after{content:"";position:absolute;right:0;bottom:-2px;width:46px;height:2px;background:var(--gold1)}
+.fcol a,.fcol .t{display:block;padding:5px 0;font-size:14.5px;color:rgba(255,255,255,.96);transition:color .2s,padding .2s}
+.fcol a:hover{color:var(--gold1);padding-right:6px}
+.fcol .t::before{content:"•";color:var(--gold1);margin-left:8px}
+.fcol em{font-style:normal;font-size:11.5px;background:var(--gold1);color:var(--goldink);border-radius:999px;padding:1px 9px;margin-right:6px;font-weight:800;text-shadow:none}
+.ft-soc{max-width:1100px;margin:32px auto 0}
+.sicons{display:flex;gap:12px;margin-top:6px}
+.sic{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;color:#fff;transition:.2s}
+.sic:hover{background:var(--gold1);color:var(--goldink);transform:translateY(-3px)}
+.sic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ft-copy{text-align:center;margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.22);font-size:13.5px;max-width:1100px;margin-left:auto;margin-right:auto}
+
+/* الأزرار العائمة */
+.fab{position:fixed;left:14px;bottom:18px;z-index:40;display:flex;flex-direction:column;gap:10px}
+.fab button{width:46px;height:46px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 22px var(--cglow);font-family:inherit}
+.fab svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#fab-up{opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s,transform .25s}
+#fab-up.on{opacity:1;pointer-events:auto;transform:none}
+.tt{position:fixed;left:50%;bottom:84px;transform:translate(-50%,16px);padding:10px 20px;border-radius:999px;background:var(--card);color:var(--ink);border:1.5px solid #ff9f1c;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:45}
+.tt.on{opacity:1;transform:translate(-50%,0)}
 
 /* نافذة التعريف بالمنصة */
 .ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,16,28,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
@@ -94,10 +130,9 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 .ck li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--gold1);color:var(--goldink);font-weight:800;display:grid;place-items:center;font-size:13px;margin-top:2px;text-shadow:none}
 .quote{margin-top:14px;padding:12px 14px;border-radius:14px;background:rgba(255,194,51,.26);font-weight:700;font-size:14.5px}
 .cta{margin-top:22px;text-align:center}
-@media (prefers-reduced-motion:reduce){.mc,.mc::before,.mc::after,.shine{animation:none}.sec{opacity:1;transform:none;transition:none}.ov,.mc{transition:none}}
 
-footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
-@media (max-width:800px){.hero{grid-template-columns:1fr;padding:40px 5%}nav a.h{display:none}}
+@media (max-width:800px){.hero{grid-template-columns:1fr;padding:40px 5%}nav a.h{display:none}.ft-in{grid-template-columns:1fr;gap:24px}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}.mc,.mc::before,.mc::after,.shine{animation:none}.sec{opacity:1;transform:none;transition:none}.ov,.mc{transition:none}.soc .sw{transition:none}}
 </style>
 </head>
 <body>
@@ -117,6 +152,9 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
     <div class="acts">
       <a class="btn p" href="branches.html">ابدأ التعلم الآن</a>
       <button class="btn s" id="about-open" type="button" aria-haspopup="dialog">تعرّف على المنصة</button>
+    </div>
+    <div class="soc-row">
+      <a class="soc" id="soc" href="#" target="_blank" rel="noopener"><span class="sw" id="sw"></span></a>
     </div>
     <div class="stats">
       <div><b>+10K</b><small>طالب نشط</small></div>
@@ -168,7 +206,48 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 </section>
 </main>
 
-<footer>© 2026 أكاديمية مشكاة. جميع الحقوق محفوظة.</footer>
+<footer class="ft">
+  <div class="ft-in">
+    <div class="fcol">
+      <h4>عن أكاديمية مشكاة</h4>
+      <a href="#" id="ft-about">عن المنصة</a>
+      <a href="#social">تواصل معنا</a>
+      <a href="branches.html">ابدأ التعلم</a>
+      <a href="login.html">تسجيل الدخول</a>
+    </div>
+    <div class="fcol">
+      <h4>الموارد التعليمية</h4>
+      <a href="branches.html">الملخصات والدروس</a>
+      <a href="branches.html">التمارين والحلول</a>
+      <a href="branches.html">سلاسل الميزان</a>
+      <span class="t">المواضيع <em>قريباً</em></span>
+    </div>
+    <div class="fcol">
+      <h4>آخر التحديثات</h4>
+      <span class="t">إطلاق صفحات الشعب والمواد</span>
+      <span class="t">إضافة الوضع الليلي لكل الصفحات</span>
+      <span class="t">فتح أقسام الملخصات والتمارين والحلول</span>
+      <span class="t">قريباً: رفع المواضيع والتمارين</span>
+    </div>
+  </div>
+
+  <div class="ft-soc" id="social">
+    <h4>حساباتنا على وسائل التواصل</h4>
+    <div class="sicons">
+      <a class="sic" data-soc="telegram" href="#" target="_blank" rel="noopener"></a>
+      <a class="sic" data-soc="instagram" href="#" target="_blank" rel="noopener"></a>
+      <a class="sic" data-soc="facebook" href="#" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+
+  <p class="ft-copy">© 2026 أكاديمية مشكاة. جميع الحقوق محفوظة.</p>
+</footer>
+
+<div class="fab">
+  <button id="fab-up" type="button" aria-label="العودة إلى الأعلى"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+  <button id="fab-share" type="button" aria-label="مشاركة الموقع"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/><path d="M12 15V4M8 8l4-4 4 4"/></svg></button>
+</div>
+<div class="tt" id="tt" role="status" aria-live="polite"></div>
 
 <!-- نافذة التعريف بالمنصة -->
 <div class="ov" id="ov" aria-hidden="true">
@@ -180,7 +259,7 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
     </div>
     <div class="mb">
       <h2 id="mt">أكاديمية مشكاة</h2>
-      <p class="intro">منصة تعليمية عربية تجمع دروس وتمارين شعبتك ومادتك في مكان واحد، بتصميم بسيط وواضح يساعدك على المراجعة بتركيز وبدون تشتت.</p>
+      <p class="intro">منصة تعليمية عربية تجمع دروس شعبتك ومادتك في مكان واحد، بتصميم بسيط وواضح يساعدك على المراجعة بتركيز وبدون تشتت.</p>
 
       <div class="sec">
         <h3>🎓 الشعب التي نغطيها</h3>
@@ -188,7 +267,7 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
           <span class="cp">علوم تجريبية</span>
           <span class="cp">رياضيات</span>
           <span class="cp">تقني رياضي</span>
-          <span class="cp">تسيير واقتصاد (قريباً)</span>
+          <span class="cp">تسيير واقتصاد</span>
         </div>
       </div>
 
@@ -196,13 +275,15 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
         <h3>📚 المواد والدروس</h3>
         <div class="sb"><b>الرياضيات</b><span>الدالة العددية، الدالة الأسية exp، الدالة اللوغاريتمية ln، المتتاليات، الدوال الأصلية والحساب التكاملي، الاحتمالات، الأعداد المركبة، وتُضاف القسمة في Z لشعبتي رياضيات وتقني رياضي.</span></div>
         <div class="sb"><b>الفيزياء</b><span>المتابعة الزمنية، الميكانيك، دراسة الظواهر الكهربائية، التطور نحو حالة توازن (pH)، التحولات النووية، الاسترة (والأعمدة لشعبتي رياضيات وتقني رياضي)، والاهتزازات.</span></div>
-        <div class="sb"><b>الهندسة (لشعبة تقني رياضي)</b><span>الهندسة المدنية والميكانيكية والكهربائية.</span></div>
+        <div class="sb"><b>الهندسة (لشعبة تقني رياضي)</b><span>الهندسة المدنية والميكانيكية والكهربائية، ولكل فرع الملخصات والتمارين والحلول.</span></div>
+        <div class="sb"><b>تسيير واقتصاد</b><span>الرياضيات والاقتصاد، ولكل مادة أقسام الملخصات والتمارين والحلول.</span></div>
       </div>
 
       <div class="sec">
         <h3>⚡ ماذا تقدم لك المنصة؟</h3>
         <ul class="ck">
-          <li>دروس وتمارين مرتبة حسب شعبتك ومادتك</li>
+          <li>دروس مرتبة حسب شعبتك ومادتك</li>
+          <li>لكل درس: ملخصات وتمارين وتصحيح وسلاسل الميزان</li>
           <li>شروحات مبسطة وفيديوهات تعيد مشاهدتها متى شئت</li>
           <li>حساب شخصي يحفظ شعبتك ومادتك</li>
           <li>وضع ليلي مريح للعين أثناء المراجعة</li>
@@ -222,9 +303,23 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
 
 <script>
 (function(){
+  /* ✏️ ضع روابط حساباتك هنا: استبدل # برابط حسابك الكامل، مثل https://t.me/اسم_قناتك */
+  var SOCIAL={
+    telegram:{n:'تيليجرام',u:'#'},
+    instagram:{n:'انستغرام',u:'#'},
+    facebook:{n:'فايسبوك',u:'#'}
+  };
+
+  var S='<svg viewBox="0 0 24 24" aria-hidden="true">';
+  var ICON={
+    telegram:S+'<path d="M21 4L3 11.2l5.6 2L10.8 20l3.2-3.8 4.6 3.4L21 4Z"/><path d="M8.6 13.2L21 4"/></svg>',
+    instagram:S+'<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>',
+    facebook:S+'<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5Z"/></svg>'
+  };
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* الشريط المتحرك */
   var m=document.getElementById('mq'), t=m.querySelector('.track'), first=t.querySelector('.set');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function build(){
     t.querySelectorAll('.set.clone').forEach(function(e){e.remove();});
     if(reduce) return;
@@ -248,6 +343,58 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
   m.addEventListener('touchstart',function(){clearTimeout(p);m.classList.add('paused');},{passive:true});
   m.addEventListener('touchend',function(){p=setTimeout(function(){m.classList.remove('paused');},1500);},{passive:true});
 
+  /* زر التواصل: يتبدّل كل 3 ثوانٍ */
+  var keys=['telegram','instagram','facebook'], idx=0, paused=false;
+  var soc=document.getElementById('soc'), sw=document.getElementById('sw');
+  function drawSoc(){
+    var k=keys[idx];
+    sw.innerHTML=ICON[k]+'<span>زورونا على '+SOCIAL[k].n+'</span>';
+    soc.href=SOCIAL[k].u;
+  }
+  drawSoc();
+  setInterval(function(){
+    if(paused) return;
+    sw.classList.add('out');
+    setTimeout(function(){
+      idx=(idx+1)%keys.length;
+      drawSoc();
+      sw.classList.remove('out');
+    },reduce?0:250);
+  },3000);
+  soc.addEventListener('mouseenter',function(){paused=true;});
+  soc.addEventListener('mouseleave',function(){paused=false;});
+  soc.addEventListener('focus',function(){paused=true;});
+  soc.addEventListener('blur',function(){paused=false;});
+  soc.addEventListener('click',function(e){if(SOCIAL[keys[idx]].u==='#') e.preventDefault();});
+
+  /* أيقونات الذيل */
+  document.querySelectorAll('[data-soc]').forEach(function(a){
+    var k=a.getAttribute('data-soc');
+    a.innerHTML=ICON[k];
+    a.href=SOCIAL[k].u;
+    a.setAttribute('aria-label',SOCIAL[k].n);
+    a.addEventListener('click',function(e){if(SOCIAL[k].u==='#') e.preventDefault();});
+  });
+
+  /* الأزرار العائمة */
+  var tt=document.getElementById('tt'), tmo;
+  function say(msg){
+    tt.textContent=msg;
+    tt.classList.add('on');
+    clearTimeout(tmo);
+    tmo=setTimeout(function(){tt.classList.remove('on');},2200);
+  }
+  document.getElementById('fab-share').addEventListener('click',function(){
+    var data={title:'أكاديمية مشكاة',text:'تعلّم بطريقة ممتعة ومنظمة',url:location.href};
+    if(navigator.share){navigator.share(data).catch(function(){});}
+    else if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(location.href).then(function(){say('تم نسخ رابط الموقع ✓');});
+    }else{say('انسخ الرابط من شريط العنوان');}
+  });
+  var up=document.getElementById('fab-up');
+  up.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+  window.addEventListener('scroll',function(){up.classList.toggle('on',window.scrollY>300);},{passive:true});
+
   /* نافذة التعريف بالمنصة */
   var ov=document.getElementById('ov'), openB=document.getElementById('about-open'), closeB=document.getElementById('about-close');
   var mc=ov.querySelector('.mc'), mb=ov.querySelector('.mb'), opener=null;
@@ -269,6 +416,7 @@ footer{padding:26px 5%;text-align:center;color:var(--muted);font-size:14px}
     if(opener) opener.focus();
   }
   openB.addEventListener('click',openM);
+  document.getElementById('ft-about').addEventListener('click',function(e){e.preventDefault();openM();});
   closeB.addEventListener('click',closeM);
   ov.addEventListener('click',function(e){if(e.target===ov) closeM();});
   document.addEventListener('keydown',function(e){
