@@ -19,18 +19,29 @@ body{display:block;padding:40px 5%;min-height:100vh;background:linear-gradient(1
 h1{font-size:30px;margin-bottom:6px}
 .sub{color:var(--muted)}
 
-.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,280px));justify-content:center;gap:18px;margin-top:28px}
-.vcard{direction:rtl;text-align:center;padding:20px 18px 22px;border-radius:20px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 14px 32px var(--cglow);transition:transform .25s}
+/* بطاقات الأساتذة: بطاقتان في كل صف */
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px auto 0;max-width:640px}
+.vcard{display:flex;flex-direction:column;align-items:center;direction:rtl;text-align:center;padding:14px 10px 16px;border-radius:18px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 12px 28px var(--cglow);transition:transform .25s}
 .vcard:hover{transform:translateY(-4px)}
-.vcard::before{content:"";position:absolute;left:-50px;bottom:-70px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.12)}
+.vcard::before{content:"";position:absolute;left:-40px;bottom:-60px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.12)}
 .vcard>*{position:relative}
-.vtag{display:inline-block;max-width:100%;background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--goldink);padding:6px 14px;border-radius:999px;font-weight:800;font-size:13.5px;line-height:1.5;box-shadow:0 6px 14px rgba(255,159,28,.4)}
-.vico{width:68px;height:68px;margin:14px auto 6px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center}
-.vico svg{width:38px;height:38px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.vword{font-size:32px;font-weight:800;line-height:1.2;text-shadow:0 2px 4px rgba(0,60,80,.2)}
-.vcard p{color:#fff;font-size:13.5px;line-height:1.6;margin:6px 0 14px;font-weight:500;text-shadow:0 1px 2px rgba(0,60,80,.25)}
-.vgo{display:inline-block;width:auto;margin:0;padding:9px 24px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(0,60,80,.2)}
+.vtag{display:inline-block;max-width:100%;background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--goldink);padding:5px 10px;border-radius:999px;font-weight:800;font-size:11.5px;line-height:1.5;box-shadow:0 6px 14px rgba(255,159,28,.4)}
+.vico{width:52px;height:52px;margin:10px auto 4px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.vico svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vword{font-size:22px;font-weight:800;line-height:1.2;text-shadow:0 2px 4px rgba(0,60,80,.2)}
+.vcard p{color:#fff;font-size:11.5px;line-height:1.55;margin:4px 0 12px;font-weight:500;text-shadow:0 1px 2px rgba(0,60,80,.25);flex:1}
+.vgo{display:inline-block;width:auto;margin:0;padding:7px 14px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(0,60,80,.2)}
 .vgo:hover{background:#e8fbff}
+@media (min-width:600px){
+  .vgrid{gap:18px}
+  .vcard{padding:20px 18px 22px;border-radius:20px}
+  .vtag{font-size:13.5px;padding:6px 14px}
+  .vico{width:68px;height:68px;margin:14px auto 6px}
+  .vico svg{width:38px;height:38px}
+  .vword{font-size:30px}
+  .vcard p{font-size:13.5px;margin:6px 0 14px}
+  .vgo{padding:9px 24px;font-size:14px}
+}
 
 .bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
 .back,.mode{display:inline-block;width:auto;margin:0;padding:8px 20px;border:1.5px solid var(--blue);border-radius:999px;background:var(--card);color:var(--blue);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
@@ -48,27 +59,50 @@ h1{font-size:30px;margin-bottom:6px}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-book" viewBox="0 0 32 32"><path d="M16 7C13 5 9 4.5 5 5V24C9 23.5 13 24 16 26"/><path d="M16 7C19 5 23 4.5 27 5V24C23 23.5 19 24 16 26"/><path d="M16 7V26"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 32 32"><path d="M16 5V26M10 26H22M6 10H26"/><path stroke-width="1.8" d="M8 10L5 18M8 10L11 18M24 10L21 18M24 10L27 18"/><path stroke-width="1.8" d="M4 18A4 4 0 0 0 12 18ZM20 18A4 4 0 0 0 28 18Z"/><circle cx="16" cy="5" r="1.4" fill="#fff" stroke="none"/></symbol>
+</svg>
+
 <div class="wrap">
   <div class="logo">أكاديمية مشكاة</div>
   <h1 id="ttl">الرياضيات</h1>
   <p class="sub" id="br">فيديوهات مادة الرياضيات</p>
 
   <div class="vgrid">
+
     <article class="vcard">
       <span class="vtag">👨‍🏫 الأستاذ نور الدين (الدرس)</span>
-      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 7C13 5 9 4.5 5 5V24C9 23.5 13 24 16 26"/><path d="M16 7C19 5 23 4.5 27 5V24C23 23.5 19 24 16 26"/><path d="M16 7V26"/></svg></div>
+      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
-      <p id="p1">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-n="الدرس">شاهد الآن ←</button>
+      <p class="pl">شرح الدرس بالفيديو</p>
+      <button class="vgo" type="button" data-t="نور الدين" data-n="الدرس">شاهد الآن ←</button>
     </article>
 
     <article class="vcard">
       <span class="vtag">👨‍🏫 الأستاذ نور الدين (الميزان)</span>
-      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5V26M10 26H22M6 10H26"/><path stroke-width="1.8" d="M8 10L5 18M8 10L11 18M24 10L21 18M24 10L27 18"/><path stroke-width="1.8" d="M4 18A4 4 0 0 0 12 18ZM20 18A4 4 0 0 0 28 18Z"/><circle cx="16" cy="5" r="1.4" fill="#fff" stroke="none"/></svg></div>
+      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-scale"/></svg></div>
       <div class="vword">الميزان</div>
-      <p id="p2">حل سلاسل الميزان بالفيديو</p>
-      <button class="vgo" type="button" data-n="الميزان">شاهد الآن ←</button>
+      <p class="pm">حل سلاسل الميزان بالفيديو</p>
+      <button class="vgo" type="button" data-t="نور الدين" data-n="الميزان">شاهد الآن ←</button>
     </article>
+
+    <article class="vcard">
+      <span class="vtag">👨‍🏫 الأستاذ انفينيتي</span>
+      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
+      <div class="vword">الدرس</div>
+      <p class="pl">شرح الدرس بالفيديو</p>
+      <button class="vgo" type="button" data-t="انفينيتي" data-n="الدرس">شاهد الآن ←</button>
+    </article>
+
+    <article class="vcard">
+      <span class="vtag">👨‍🏫 الأستاذ عبد الباسط</span>
+      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
+      <div class="vword">الدرس</div>
+      <p class="pl">شرح الدرس بالفيديو</p>
+      <button class="vgo" type="button" data-t="عبد الباسط" data-n="الدرس">شاهد الآن ←</button>
+    </article>
+
   </div>
 
   <div class="bar">
@@ -107,16 +141,19 @@ document.title=title+' - أكاديمية مشكاة';
 let sub='فيديوهات مادة الرياضيات';
 if(br) sub+=' • شعبة '+br;
 document.getElementById('br').textContent=sub;
-if(ch){
-  document.getElementById('p1').textContent='شرح درس «'+ch+'» بالفيديو';
-  document.getElementById('p2').textContent='حل سلاسل الميزان لدرس «'+ch+'» بالفيديو';
-}
+
+document.querySelectorAll('.pl').forEach(p=>{
+  p.textContent=ch?'شرح درس «'+ch+'» بالفيديو':'شرح الدرس بالفيديو';
+});
+document.querySelectorAll('.pm').forEach(p=>{
+  p.textContent=ch?'حل سلاسل الميزان لدرس «'+ch+'» بالفيديو':'حل سلاسل الميزان بالفيديو';
+});
 
 const toast=document.getElementById('toast');
 let tm;
 document.querySelectorAll('.vgo').forEach(b=>{
   b.onclick=()=>{
-    toast.textContent='فيديوهات «'+b.dataset.n+'» للأستاذ نور الدين قيد الإعداد، وستُضاف قريباً ✨';
+    toast.textContent='فيديوهات «'+b.dataset.n+'» للأستاذ '+b.dataset.t+' قيد الإعداد، وستُضاف قريباً ✨';
     toast.classList.add('on');
     clearTimeout(tm);
     tm=setTimeout(()=>toast.classList.remove('on'),2800);
