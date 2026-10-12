@@ -170,11 +170,11 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
 
   var toast=document.getElementById('toast'), tm;
   document.getElementById('vc-go').onclick=function(){
-    /* الرياضيات: تفتح صفحة فيديوهات الأستاذ نور الدين */
-    if(localStorage.getItem('mishkat_subject')==='الرياضيات'){
-      location.href='videos.html';
-      return;
-    }
+    var sj=localStorage.getItem('mishkat_subject');
+    /* الرياضيات: فيديوهات الأساتذة نور الدين وانفينيتي وعبد الباسط */
+    if(sj==='الرياضيات'){location.href='videos.html';return;}
+    /* الفيزياء: فيديوهات الأستاذات والأستاذ وسلسلة الميزان */
+    if(sj==='الفيزياء'){location.href='physvideos.html';return;}
     if(!toast)return;
     toast.textContent='قسم «الفيديوهات» قيد الإعداد، وسيُضاف محتواه قريباً ✨';
     toast.classList.add('on');
@@ -223,7 +223,7 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق بخطوات واضحة ومنظمة.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا  بخطوات واضحة ومنظمة.</span></li>'
   +'<li><i>📚</i><span>دروس وتمارين  مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
