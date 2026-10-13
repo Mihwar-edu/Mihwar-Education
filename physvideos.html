@@ -30,8 +30,9 @@ h1{font-size:30px;margin-bottom:6px}
 .vico svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vword{font-size:22px;font-weight:800;line-height:1.2;text-shadow:0 2px 4px rgba(0,60,80,.2)}
 .vcard p{color:#fff;font-size:11.5px;line-height:1.55;margin:4px 0 12px;font-weight:500;text-shadow:0 1px 2px rgba(0,60,80,.25);flex:1}
-.vgo{display:inline-block;width:auto;margin:0;padding:7px 14px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(0,60,80,.2)}
-.vgo:hover{background:#e8fbff}
+.vact{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.vgo{display:inline-block;width:auto;margin:0;padding:7px 14px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;box-shadow:0 8px 18px rgba(0,60,80,.2)}
+.vgo:hover,.vgo:focus-visible{background:#e8fbff}
 @media (min-width:600px){
   .vgrid{gap:18px}
   .vcard{padding:20px 18px 22px;border-radius:20px}
@@ -71,12 +72,12 @@ h1{font-size:30px;margin-bottom:6px}
 
   <div class="vgrid">
 
-    <article class="vcard">
+    <article class="vcard" data-k="am">
       <span class="vtag">👩‍🏫 الأستاذة أميرة شنوف</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="الأستاذة أميرة شنوف" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="الأستاذة أميرة شنوف" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
     <article class="vcard">
@@ -84,7 +85,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="الأستاذة ليديا" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="الأستاذة ليديا" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
     <article class="vcard">
@@ -92,7 +93,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="الأستاذ عبد الله" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="الأستاذ عبد الله" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
     <article class="vcard">
@@ -100,7 +101,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-scale"/></svg></div>
       <div class="vword">الميزان</div>
       <p class="pm">حل تمارين سلسلة الميزان بالفيديو</p>
-      <button class="vgo" type="button" data-n="تمارين (سلسلة الميزان)">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-n="تمارين (سلسلة الميزان)">شاهد الآن ←</button></div>
     </article>
 
   </div>
@@ -120,6 +121,7 @@ h1{font-size:30px;margin-bottom:6px}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="physlinks.js"></script>
 <script>
 const root=document.documentElement, modeBtn=document.getElementById('mode');
 function paint(){
@@ -149,9 +151,30 @@ document.querySelectorAll('.pm').forEach(p=>{
   p.textContent=ch?'حل تمارين سلسلة الميزان لدرس «'+ch+'» بالفيديو':'حل تمارين سلسلة الميزان بالفيديو';
 });
 
+/* بطاقة الأستاذة أميرة شنوف: فيديوهات الدرس (الروابط في physlinks.js) */
+const L=(typeof PHYS_LINKS!=='undefined'&&PHYS_LINKS[ch])||[];
+const amCard=document.querySelector('.vcard[data-k="am"]');
+if(L.length&&amCard){
+  const box=amCard.querySelector('.vact');
+  box.innerHTML='';
+  const a=document.createElement('a');
+  a.className='vgo';
+  if(L.length===1){
+    a.href=L[0].u;
+    a.target='_blank';
+    a.rel='noopener';
+  }else{
+    a.href='physlessons.html';
+    amCard.querySelector('.pl').textContent='دروس «'+ch+'» في '+L.length+' فيديوهات';
+  }
+  a.textContent='شاهد الآن ←';
+  box.appendChild(a);
+}
+
+/* الأزرار التي لا فيديو لها بعد */
 const toast=document.getElementById('toast');
 let tm;
-document.querySelectorAll('.vgo').forEach(b=>{
+document.querySelectorAll('button.vgo').forEach(b=>{
   b.onclick=()=>{
     const who=b.dataset.t?(' لـ'+b.dataset.t):'';
     toast.textContent='فيديوهات «'+b.dataset.n+'»'+who+' قيد الإعداد، وستُضاف قريباً ✨';
