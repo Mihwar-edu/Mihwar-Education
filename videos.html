@@ -30,8 +30,9 @@ h1{font-size:30px;margin-bottom:6px}
 .vico svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vword{font-size:22px;font-weight:800;line-height:1.2;text-shadow:0 2px 4px rgba(0,60,80,.2)}
 .vcard p{color:#fff;font-size:11.5px;line-height:1.55;margin:4px 0 12px;font-weight:500;text-shadow:0 1px 2px rgba(0,60,80,.25);flex:1}
-.vgo{display:inline-block;width:auto;margin:0;padding:7px 14px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(0,60,80,.2)}
-.vgo:hover{background:#e8fbff}
+.vact{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.vgo{display:inline-block;width:auto;margin:0;padding:7px 14px;border:0;border-radius:999px;background:#fff;color:var(--cdeep);font:inherit;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;box-shadow:0 8px 18px rgba(0,60,80,.2)}
+.vgo:hover,.vgo:focus-visible{background:#e8fbff}
 @media (min-width:600px){
   .vgrid{gap:18px}
   .vcard{padding:20px 18px 22px;border-radius:20px}
@@ -71,36 +72,36 @@ h1{font-size:30px;margin-bottom:6px}
 
   <div class="vgrid">
 
-    <article class="vcard">
+    <article class="vcard" data-k="nd">
       <span class="vtag">👨‍🏫 الأستاذ نور الدين (الدرس)</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="نور الدين" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="نور الدين" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="nm">
       <span class="vtag">👨‍🏫 الأستاذ نور الدين (الميزان)</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-scale"/></svg></div>
       <div class="vword">الميزان</div>
       <p class="pm">حل سلاسل الميزان بالفيديو</p>
-      <button class="vgo" type="button" data-t="نور الدين" data-n="الميزان">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="نور الدين" data-n="الميزان">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="inf">
       <span class="vtag">👨‍🏫 الأستاذ انفينيتي</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="انفينيتي" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="انفينيتي" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="ab">
       <span class="vtag">👨‍🏫 الأستاذ عبد الباسط</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
       <p class="pl">شرح الدرس بالفيديو</p>
-      <button class="vgo" type="button" data-t="عبد الباسط" data-n="الدرس">شاهد الآن ←</button>
+      <div class="vact"><button class="vgo" type="button" data-t="عبد الباسط" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
   </div>
@@ -133,6 +134,27 @@ modeBtn.onclick=()=>{
   paint();
 };
 
+/* ✏️ روابط الفيديوهات: nd = نور الدين (الدرس) ، nm = نور الدين (الميزان) ، inf = انفينيتي ، ab = عبد الباسط
+   لإضافة فيديو جديد انسخ سطراً من الأسفل وضع معرّف الفيديو (الجزء بعد youtu.be/) */
+const YT=id=>'https://youtu.be/'+id;
+const LINKS={
+  'الدالة العددية':{
+    nd:[{u:YT('qF9CKQpvcSw')}],
+    nm:[{u:YT('86cx0JvTmxE')}],
+    inf:[{u:YT('RA-AFhDmv3g')}]
+  },
+  'الدالة الأسية exp':{
+    nd:[{u:YT('Xou66Qm78GE')}],
+    nm:[{u:YT('SGG0jPJ16gc')}],
+    inf:[{u:YT('RA-AFhDmv3g')}]
+  },
+  'الدالة اللوغاريتمية ln':{
+    nd:[{t:'الجزء الأول',u:YT('dWSMfx216aY')},{t:'الجزء الثاني',u:YT('T5XmCIbk6sY')}],
+    nm:[{u:YT('v5mAjpuTRaI')}],
+    inf:[{u:YT('RA-AFhDmv3g')}]
+  }
+};
+
 const ch=localStorage.getItem('mishkat_chapter')||'';
 const br=localStorage.getItem('mishkat_branch')||'';
 const title=ch||'الرياضيات';
@@ -149,9 +171,28 @@ document.querySelectorAll('.pm').forEach(p=>{
   p.textContent=ch?'حل سلاسل الميزان لدرس «'+ch+'» بالفيديو':'حل سلاسل الميزان بالفيديو';
 });
 
+/* تحويل الأزرار إلى روابط عندما يتوفر فيديو للدرس */
+const set=LINKS[ch]||{};
+document.querySelectorAll('.vcard').forEach(card=>{
+  const arr=set[card.dataset.k];
+  if(!arr||!arr.length) return;
+  const box=card.querySelector('.vact');
+  box.innerHTML='';
+  arr.forEach(l=>{
+    const a=document.createElement('a');
+    a.className='vgo';
+    a.href=l.u;
+    a.target='_blank';
+    a.rel='noopener';
+    a.textContent=(l.t||'شاهد الآن')+' ←';
+    box.appendChild(a);
+  });
+});
+
+/* الأزرار التي لا فيديو لها بعد */
 const toast=document.getElementById('toast');
 let tm;
-document.querySelectorAll('.vgo').forEach(b=>{
+document.querySelectorAll('button.vgo').forEach(b=>{
   b.onclick=()=>{
     toast.textContent='فيديوهات «'+b.dataset.n+'» للأستاذ '+b.dataset.t+' قيد الإعداد، وستُضاف قريباً ✨';
     toast.classList.add('on');
