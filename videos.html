@@ -19,8 +19,9 @@ body{display:block;padding:40px 5%;min-height:100vh;background:linear-gradient(1
 h1{font-size:30px;margin-bottom:6px}
 .sub{color:var(--muted)}
 
-/* بطاقات الأساتذة: بطاقتان في كل صف */
+/* بطاقات الأساتذة: بطاقتان في كل صف، والأخيرة تتوسط */
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px auto 0;max-width:640px}
+.vgrid .vcard:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
 .vcard{display:flex;flex-direction:column;align-items:center;direction:rtl;text-align:center;padding:14px 10px 16px;border-radius:18px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 12px 28px var(--cglow);transition:transform .25s}
 .vcard:hover{transform:translateY(-4px)}
 .vcard::before{content:"";position:absolute;left:-40px;bottom:-60px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.12)}
@@ -35,6 +36,7 @@ h1{font-size:30px;margin-bottom:6px}
 .vgo:hover,.vgo:focus-visible{background:#e8fbff}
 @media (min-width:600px){
   .vgrid{gap:18px}
+  .vgrid .vcard:last-child:nth-child(odd){width:calc(50% - 9px)}
   .vcard{padding:20px 18px 22px;border-radius:20px}
   .vtag{font-size:13.5px;padding:6px 14px}
   .vico{width:68px;height:68px;margin:14px auto 6px}
@@ -96,14 +98,6 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vact"><button class="vgo" type="button" data-t="انفينيتي" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard" data-k="ab">
-      <span class="vtag">👨‍🏫 الأستاذ عبد الباسط</span>
-      <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
-      <div class="vword">الدرس</div>
-      <p class="pl">شرح الدرس بالفيديو</p>
-      <div class="vact"><button class="vgo" type="button" data-t="عبد الباسط" data-n="الدرس">شاهد الآن ←</button></div>
-    </article>
-
   </div>
 
   <div class="bar">
@@ -121,6 +115,7 @@ h1{font-size:30px;margin-bottom:6px}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="links.js"></script>
 <script>
 const root=document.documentElement, modeBtn=document.getElementById('mode');
 function paint(){
@@ -132,27 +127,6 @@ modeBtn.onclick=()=>{
   if(dark){root.removeAttribute('data-theme');}else{root.setAttribute('data-theme','dark');}
   try{localStorage.setItem('mishkat_theme',dark?'light':'dark');}catch(e){}
   paint();
-};
-
-/* ✏️ روابط الفيديوهات: nd = نور الدين (الدرس) ، nm = نور الدين (الميزان) ، inf = انفينيتي ، ab = عبد الباسط
-   لإضافة فيديو جديد انسخ سطراً من الأسفل وضع معرّف الفيديو (الجزء بعد youtu.be/) */
-const YT=id=>'https://youtu.be/'+id;
-const LINKS={
-  'الدالة العددية':{
-    nd:[{u:YT('qF9CKQpvcSw')}],
-    nm:[{u:YT('86cx0JvTmxE')}],
-    inf:[{u:YT('RA-AFhDmv3g')}]
-  },
-  'الدالة الأسية exp':{
-    nd:[{u:YT('Xou66Qm78GE')}],
-    nm:[{u:YT('SGG0jPJ16gc')}],
-    inf:[{u:YT('RA-AFhDmv3g')}]
-  },
-  'الدالة اللوغاريتمية ln':{
-    nd:[{t:'الجزء الأول',u:YT('dWSMfx216aY')},{t:'الجزء الثاني',u:YT('T5XmCIbk6sY')}],
-    nm:[{u:YT('v5mAjpuTRaI')}],
-    inf:[{u:YT('RA-AFhDmv3g')}]
-  }
 };
 
 const ch=localStorage.getItem('mishkat_chapter')||'';
@@ -171,8 +145,8 @@ document.querySelectorAll('.pm').forEach(p=>{
   p.textContent=ch?'حل سلاسل الميزان لدرس «'+ch+'» بالفيديو':'حل سلاسل الميزان بالفيديو';
 });
 
-/* تحويل الأزرار إلى روابط عندما يتوفر فيديو للدرس */
-const set=LINKS[ch]||{};
+/* تحويل الأزرار إلى روابط عندما يتوفر فيديو للدرس (الروابط في links.js) */
+const set=(typeof MATH_LINKS!=='undefined'&&MATH_LINKS[ch])||{};
 document.querySelectorAll('.vcard').forEach(card=>{
   const arr=set[card.dataset.k];
   if(!arr||!arr.length) return;
