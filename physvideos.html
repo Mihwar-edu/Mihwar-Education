@@ -80,7 +80,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vact"><button class="vgo" type="button" data-t="الأستاذة أميرة شنوف" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="ly">
       <span class="vtag">👩‍🏫 الأستاذة ليديا</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
@@ -88,7 +88,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vact"><button class="vgo" type="button" data-t="الأستاذة ليديا" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="ab">
       <span class="vtag">👨‍🏫 الأستاذ عبد الله</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-book"/></svg></div>
       <div class="vword">الدرس</div>
@@ -96,7 +96,7 @@ h1{font-size:30px;margin-bottom:6px}
       <div class="vact"><button class="vgo" type="button" data-t="الأستاذ عبد الله" data-n="الدرس">شاهد الآن ←</button></div>
     </article>
 
-    <article class="vcard">
+    <article class="vcard" data-k="mz">
       <span class="vtag">📝 تمارين (سلسلة الميزان)</span>
       <div class="vico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-scale"/></svg></div>
       <div class="vword">الميزان</div>
@@ -151,7 +151,10 @@ document.querySelectorAll('.pm').forEach(p=>{
   p.textContent=ch?'حل تمارين سلسلة الميزان لدرس «'+ch+'» بالفيديو':'حل تمارين سلسلة الميزان بالفيديو';
 });
 
-/* بطاقة الأستاذة أميرة شنوف: فيديوهات الدرس (الروابط في physlinks.js) */
+/* اسم الدرس الموحّد (الاسترة لها اسمان حسب الشعبة) */
+const key=(typeof PHYS_ALIAS!=='undefined'&&PHYS_ALIAS[ch])||ch;
+
+/* بطاقة الأستاذة أميرة شنوف: قائمة بطاقات الدرس */
 const L=(typeof PHYS_LINKS!=='undefined'&&PHYS_LINKS[ch])||[];
 const amCard=document.querySelector('.vcard[data-k="am"]');
 if(L.length&&amCard){
@@ -170,6 +173,26 @@ if(L.length&&amCard){
   a.textContent='شاهد الآن ←';
   box.appendChild(a);
 }
+
+/* بطاقتا الأستاذ عبد الله وسلسلة الميزان: فيديو مباشر */
+function linkify(k,src){
+  const card=document.querySelector('.vcard[data-k="'+k+'"]');
+  const arr=(src&&src[key])||[];
+  if(!card||!arr.length) return;
+  const box=card.querySelector('.vact');
+  box.innerHTML='';
+  arr.forEach(l=>{
+    const a=document.createElement('a');
+    a.className='vgo';
+    a.href=l.u;
+    a.target='_blank';
+    a.rel='noopener';
+    a.textContent=(l.t||'شاهد الآن')+' ←';
+    box.appendChild(a);
+  });
+}
+linkify('ab',typeof PHYS_AB!=='undefined'?PHYS_AB:null);
+linkify('mz',typeof PHYS_MZ!=='undefined'?PHYS_MZ:null);
 
 /* الأزرار التي لا فيديو لها بعد */
 const toast=document.getElementById('toast');
