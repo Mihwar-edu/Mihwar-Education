@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>أكاديمية مشكاة</title>
+<link rel="icon" href="logo.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--bg:#fff;--soft:#f7f9fb;--card:#fff;--line:#eaeef3}
@@ -17,11 +18,19 @@ a{text-decoration:none;color:inherit}
 header{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;border-bottom:1px solid var(--line)}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
 .logo i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#38bdf8,var(--blue));color:#fff;display:grid;place-items:center;font-style:normal}
+.lg-img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none;background:#fff;box-shadow:0 4px 12px rgba(10,132,255,.25)}
 nav{display:flex;align-items:center;gap:18px;font-size:14px}
 .btn{display:inline-block;padding:10px 22px;border-radius:999px;font-weight:700;font-size:15px}
 button.btn{font-family:inherit;color:inherit;cursor:pointer;line-height:inherit}
 .btn.p{background:var(--blue);color:#fff}
 .btn.s{background:var(--card);border:1px solid var(--line)}
+
+/* شعار المنصة كخلفية باهتة خلف المحتوى */
+.wm{position:relative;overflow:hidden}
+.wm::before{content:"";position:absolute;top:50%;left:50%;width:min(88vw,540px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:url(logo.jpg) center/cover no-repeat;opacity:.09;pointer-events:none}
+.wm>*{position:relative;z-index:1}
+@media (prefers-color-scheme:dark){.wm::before{opacity:.07}}
+
 .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding:70px 5%;background:linear-gradient(135deg,#e3f4ff,#f4fbff 60%,#fffbea)}
 .hero>div{min-width:0}
 @media (prefers-color-scheme:dark){.hero{background:linear-gradient(135deg,#0f2438,#0d141c)}}
@@ -167,7 +176,7 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 </head>
 <body>
 <header>
-  <a class="logo" href="#"><i>م</i> أكاديمية مشكاة</a>
+  <a class="logo" href="#"><img class="lg-img" src="logo.jpg" alt="شعار أكاديمية مشكاة" onerror="this.outerHTML='<i>م</i>'"> أكاديمية مشكاة</a>
   <nav>
     <a class="h" href="login.html">تسجيل الدخول</a>
     <a class="btn p" href="signup.html">سجّل الآن</a>
@@ -175,7 +184,7 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
 </header>
 
 <main>
-<div class="hero">
+<div class="hero wm">
   <div>
     <h1>أكاديمية مشكاة – التعليم بطريقة <span>ممتعة ومنظمة</span></h1>
     <p>انضم إلى الآلاف من الطلاب الذين يحققون النجاح الدراسي من خلال منصتنا التعليمية الحديثة.</p>
@@ -227,7 +236,7 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
   </div>
 </div>
 
-<section class="f" id="features">
+<section class="f wm" id="features">
   <h2>ميزات أكاديمية مشكاة</h2>
   <p>نوفر لك كل ما تحتاجه لتحقيق النجاح الدراسي في مكان واحد</p>
 
@@ -318,7 +327,7 @@ section.f>p{color:var(--muted);margin-bottom:30px;padding:0 5%}
     </div>
     <div class="mb">
       <h2 id="mt">أكاديمية مشكاة</h2>
-      <p class="intro">منصة تعليمية عربية تجمع دروس وتمارين  شعبتك ومادتك في مكان واحد، بتصميم بسيط وواضح يساعدك على المراجعة بتركيز وبدون تشتت.</p>
+      <p class="intro">منصة تعليمية عربية تجمع دروس وتمارين شعبتك ومادتك في مكان واحد، بتصميم بسيط وواضح يساعدك على المراجعة بتركيز وبدون تشتت.</p>
 
       <div class="sec">
         <h3>🎓 الشعب التي نغطيها</h3>
