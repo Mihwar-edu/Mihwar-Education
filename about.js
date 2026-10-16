@@ -93,6 +93,22 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   [logo,h,sub].forEach(function(el){if(el)pill.appendChild(el);});
 })();
 
+/* ===== 1c) شعار المنصة كخلفية باهتة + أيقونة التبويب ===== */
+(function(){
+  var st=document.createElement('style');
+  st.textContent=''
+  +'body::before{content:"";position:fixed;top:50%;left:50%;width:min(86vmin,560px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:url(logo.jpg) center/cover no-repeat;opacity:.08;z-index:-1;pointer-events:none}'
+  +':root[data-theme="dark"] body::before{opacity:.06}';
+  document.head.appendChild(st);
+
+  if(!document.querySelector('link[rel~="icon"]')){
+    var l=document.createElement('link');
+    l.rel='icon';
+    l.href='logo.jpg';
+    document.head.appendChild(l);
+  }
+})();
+
 /* ===== 2) الأيقونات الاحترافية ===== */
 (function(){
   var css=''
@@ -248,8 +264,8 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا بخطوات واضحة ومنظمة.</span></li>'
-  +'<li><i>📚</i><span>دروس وتمارين  مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا  بخطوات واضحة ومنظمة.</span></li>'
+  +'<li><i>📚</i><span>دروس وتمارين مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
   +'</ul>';
