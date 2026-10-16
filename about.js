@@ -34,12 +34,27 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
     phys.dataset.s='الاقتصاد';
     phys.innerHTML='<span>📊</span>الاقتصاد';
   }
+
+  /* مادة العلوم: في علوم تجريبية ورياضيات فقط */
+  if(phys&&(br==='علوم تجريبية'||br==='رياضيات')&&!document.querySelector('.b[data-s="العلوم"]')){
+    var sc=document.createElement('button');
+    sc.type='button';
+    sc.className='b';
+    sc.setAttribute('data-s','العلوم');
+    sc.innerHTML='<span>🧬</span>العلوم';
+    phys.after(sc);
+    var sst=document.createElement('style');
+    sst.textContent='@media (max-width:899px){.grid > .b[data-s="العلوم"]{grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}}';
+    document.head.appendChild(sst);
+  }
+
   document.querySelectorAll('[data-s]').forEach(function(el){
     el.onclick=function(){
       var s=el.dataset.s;
       localStorage.setItem('mishkat_subject',s);
       localStorage.removeItem('mishkat_chapter');
       if(s==='الفيزياء'){location.href='physics.html';}
+      else if(s==='العلوم'){location.href='science.html';}
       else if(s==='الرياضيات'&&br!=='تسيير واقتصاد'){location.href='math.html';}
       else{location.href='section.html';}
     };
@@ -116,6 +131,7 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   swap('.b[data-b="تسيير واقتصاد"] > span','chart');
   swap('.b[data-s="الرياضيات"] > span','pi');
   swap('.b[data-s="الفيزياء"] > span','atom');
+  swap('.b[data-s="العلوم"] > span','dna');
   swap('.b[data-s="الاقتصاد"] > span','chart');
   swap('.eng .ic','hat');
   swap('.b[data-t="sum"] > span','book');
@@ -132,6 +148,16 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
       location.href='lesson.html';
     };
   });
+})();
+
+/* ===== 3b) «الملخصات» تفتح صفحة الملخصات (ما عدا مادة الاقتصاد) ===== */
+(function(){
+  var sj=localStorage.getItem('mishkat_subject')||'';
+  if(sj==='الاقتصاد')return;
+  var el=document.querySelector('.b[data-t="sum"]');
+  if(el){
+    el.onclick=function(){location.href='summaries.html';};
+  }
 })();
 
 /* ===== 4) بطاقة الفيديوهات الصغيرة (صفحات الدرس والأقسام) ===== */
@@ -171,10 +197,9 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   var toast=document.getElementById('toast'), tm;
   document.getElementById('vc-go').onclick=function(){
     var sj=localStorage.getItem('mishkat_subject');
-    /* الرياضيات: فيديوهات الأساتذة نور الدين وانفينيتي وعبد الباسط */
     if(sj==='الرياضيات'){location.href='videos.html';return;}
-    /* الفيزياء: فيديوهات الأستاذات والأستاذ وسلسلة الميزان */
     if(sj==='الفيزياء'){location.href='physvideos.html';return;}
+    if(sj==='العلوم'){location.href='scivideos.html';return;}
     if(!toast)return;
     toast.textContent='قسم «الفيديوهات» قيد الإعداد، وسيُضاف محتواه قريباً ✨';
     toast.classList.add('on');
@@ -223,7 +248,7 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
   +'<span class="ab-tag">✨ عن المنصة</span>'
   +'<h2>أكاديمية مشكاة</h2>'
   +'<ul>'
-  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا  بخطوات واضحة ومنظمة.</span></li>'
+  +'<li><i>🎓</i><span>أكاديمية مشكاة منصة تعليمية عربية تساعدك على التفوق في البكالوريا بخطوات واضحة ومنظمة.</span></li>'
   +'<li><i>📚</i><span>دروس وتمارين  مرتبة حسب شعبتك ومادتك، من الدرس الأول حتى يوم الامتحان.</span></li>'
   +'<li><i>🎥</i><span>شروحات مبسطة وفيديوهات تعيد مشاهدتها في أي وقت ومن أي جهاز.</span></li>'
   +'<li><i>💡</i><span>اسم «مشكاة» مأخوذ من المصباح الذي ينير الطريق، وهذا ما نريده لك في رحلتك الدراسية.</span></li>'
