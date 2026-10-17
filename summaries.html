@@ -146,23 +146,32 @@ let sub='الملخصات';
 if(br) sub+=' • شعبة '+br;
 document.getElementById('br').textContent=sub;
 
-/* في مادة العلوم: بطاقة ملخصات الأساتذة تصبح ملخصات الأستاذة مروة خمالي */
-let tKey='teachers';
-const tCard=document.querySelector('.vcard[data-k="teachers"]');
-if(sj==='العلوم'&&tCard){
-  tKey='marwa';
-  tCard.querySelector('.vtag').textContent='👩‍🏫 الأستاذة مروة خمالي';
-  tCard.querySelector('.vword').textContent='ملخصاتها';
-  tCard.querySelector('p').textContent='ملخصات الأستاذة مروة خمالي لعلوم الطبيعة والحياة';
-  const tb=tCard.querySelector('button.vgo');
-  tb.dataset.n='ملخصات الأستاذة مروة خمالي';
-  tb.textContent='فتح الموقع ←';
+const cards=[].slice.call(document.querySelectorAll('.vcard'));
+function setCard(card,key,tag,word,p,n,icon){
+  card.dataset.k=key;
+  card.querySelector('.vtag').textContent=tag;
+  card.querySelector('.vword').textContent=word;
+  card.querySelector('p').textContent=p;
+  card.querySelector('use').setAttribute('href','#'+icon);
+  const b=card.querySelector('button.vgo');
+  b.dataset.n=n;
+  b.textContent='تصفّح الملخصات ←';
+}
+
+if(sj==='العلوم الإسلامية'){
+  /* العلوم الإسلامية: منصتنا ، كتاب بوسعادي ، همة ، كتاب شمس الدين */
+  setCard(cards[1],'bousaadi','📖 ملخصات (كتاب) الأستاذة بوسعادي','بوسعادي','ملخصات كتاب الأستاذة بوسعادي','ملخصات (كتاب) الأستاذة بوسعادي','i-book');
+  setCard(cards[2],'himma','🌟 ملخصات منصة همة','همة','ملخصات منصة همة','ملخصات منصة همة','i-star');
+  setCard(cards[3],'shams','📖 ملخصات (كتاب) الأستاذ شمس الدين','شمس الدين','ملخصات كتاب الأستاذ شمس الدين','ملخصات (كتاب) الأستاذ شمس الدين','i-book');
+}else if(sj==='العلوم'){
+  /* العلوم: بطاقة ملخصات الأستاذة مروة خمالي */
+  setCard(cards[1],'marwa','👩‍🏫 الأستاذة مروة خمالي','ملخصاتها','ملخصات الأستاذة مروة خمالي لعلوم الطبيعة والحياة','ملخصات الأستاذة مروة خمالي','i-user');
+  cards[1].querySelector('button.vgo').textContent='فتح الموقع ←';
 }
 
 /* تحويل الأزرار إلى روابط عندما يتوفر رابط (الروابط في summlinks.js) */
-document.querySelectorAll('.vcard').forEach(card=>{
-  const k=card.dataset.k==='teachers'?tKey:card.dataset.k;
-  const u=(typeof SUMM!=='undefined'&&SUMM[k])||'';
+cards.forEach(card=>{
+  const u=(typeof SUMM!=='undefined'&&SUMM[card.dataset.k])||'';
   if(!u) return;
   const btn=card.querySelector('button.vgo');
   const a=document.createElement('a');
