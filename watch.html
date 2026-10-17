@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مشاهدة الدرس - أكاديمية مشكاة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css">
+<script>
+try{if(localStorage.getItem('mishkat_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
+</script>
+<style>
+:root{--blue:#0a84ff;--ink:#101828;--muted:#667085;--card:#fff;--line:#eaeef3;--bgfrom:#e3f4ff;--bgmid:#f4fbff;--bgto:#fffbea;--shadow:rgba(10,132,255,.12);color-scheme:light;
+--c1:#0a7ba0;--c2:#0f9bbd}
+:root[data-theme="dark"]{--ink:#f2f5f8;--muted:#9aa7b6;--card:#16212d;--line:#223041;--bgfrom:#0f2438;--bgmid:#0d141c;--bgto:#0d141c;--shadow:rgba(0,0,0,.35);color-scheme:dark}
+body{display:block;padding:40px 5%;min-height:100vh;background:linear-gradient(135deg,var(--bgfrom),var(--bgmid) 60%,var(--bgto));color:var(--ink)}
+.wrap{max-width:760px;margin:0 auto;text-align:center}
+.logo,h1{color:var(--ink)}
+h1{font-size:30px;margin-bottom:6px}
+.sub{color:var(--muted)}
+
+.pw{max-width:860px;margin:26px auto 0}
+.player{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 18px 40px var(--shadow);border:3px solid #ff9f1c}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hint{margin-top:10px;font-size:12.5px;color:var(--muted)}
+
+.vi,.cms{margin-top:16px;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:16px;text-align:right;box-shadow:0 10px 30px var(--shadow)}
+.vt{font-size:17px;font-weight:800;line-height:1.5;margin:0 0 12px}
+.chrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chav{flex:none;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--c2),var(--c1));color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;overflow:hidden}
+.chav img{width:100%;height:100%;object-fit:cover}
+.chn{flex:1;min-width:140px}
+.chn b{display:block;font-size:15px}
+.chn small{color:var(--muted);font-size:12.5px}
+.subbtn{display:inline-block;background:#e62117;color:#fff;padding:9px 22px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 8px 18px rgba(230,33,23,.3)}
+.subbtn:hover{background:#c91a10}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.stat{background:rgba(10,123,160,.12);color:var(--ink);padding:6px 14px;border-radius:999px;font-weight:700;font-size:13px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.abtn{display:inline-block;width:auto;margin:0;padding:9px 18px;border:1.5px solid var(--blue);border-radius:999px;background:var(--card);color:var(--blue);font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;text-decoration:none}
+.abtn:hover,.abtn:focus-visible{background:var(--blue);color:#fff}
+
+.cms h3{font-size:16px;margin:0 0 6px}
+.cm{display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.cm:first-of-type{border-top:0}
+.cm img{flex:none;width:36px;height:36px;border-radius:50%;background:var(--line)}
+.cm b{font-size:13.5px}
+.cm small{color:var(--muted);margin-right:6px;font-size:11.5px}
+.cm p{margin:2px 0 0;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.cm .lk{color:var(--muted);font-size:12px;margin-top:2px}
+[hidden]{display:none!important}
+
+.bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
+.back,.mode{display:inline-block;width:auto;margin:0;padding:8px 20px;border:1.5px solid var(--blue);border-radius:999px;background:var(--card);color:var(--blue);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.back:hover,.back:focus-visible,.mode:hover,.mode:focus-visible{background:var(--blue);color:#fff}
+.mock{background:var(--card);border-radius:16px;padding:24px;margin:34px auto 0;max-width:420px;box-shadow:0 20px 50px var(--shadow)}
+.mock .l{height:10px;border-radius:6px;background:var(--line);margin-bottom:12px}
+.mock .g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.mock .g div{height:110px;border-radius:12px}
+.mock .g div:nth-child(1){background:#fff7d6}
+.mock .g div:nth-child(2){background:#dff6ff}
+.mock .g div:nth-child(3){background:#dcebff}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);max-width:90vw;padding:12px 22px;border-radius:999px;background:var(--card);color:var(--ink);border:1.5px solid var(--blue);box-shadow:0 14px 34px var(--shadow);font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:30;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">أكاديمية مشكاة</div>
+  <h1 id="ttl">مشاهدة الدرس</h1>
+  <p class="sub" id="br">فيديو الدرس</p>
+
+  <div class="pw">
+    <div class="player"><iframe id="yt" title="فيديو الدرس" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <p class="hint">إذا لم يعمل الفيديو هنا فاضغط «فتح في يوتيوب».</p>
+
+    <div class="vi">
+      <h2 class="vt" id="vt">فيديو الدرس</h2>
+      <div class="chrow">
+        <div class="chav" id="chav">▶</div>
+        <div class="chn"><b id="chname">القناة</b><small id="chsubs" hidden></small></div>
+        <a class="subbtn" id="subbtn" href="#" target="_blank" rel="noopener" data-ext>🔔 اشترك</a>
+      </div>
+      <div class="stats" id="stats" hidden></div>
+      <div class="acts">
+        <a class="abtn" id="likeb" href="#" target="_blank" rel="noopener" data-ext>👍 أعجبني على يوتيوب</a>
+        <a class="abtn" id="cmb" href="#" target="_blank" rel="noopener" data-ext>💬 التعليقات</a>
+        <button class="abtn" id="shareb" type="button">↗ مشاركة</button>
+        <a class="abtn" id="openb" href="#" target="_blank" rel="noopener" data-ext>▶ فتح في يوتيوب</a>
+      </div>
+    </div>
+
+    <section class="cms" id="cms" hidden>
+      <h3 id="cmh">التعليقات</h3>
+      <div id="cmlist"></div>
+      <div class="acts"><a class="abtn" id="cmall" href="#" target="_blank" rel="noopener" data-ext>عرض كل التعليقات في يوتيوب</a></div>
+    </section>
+  </div>
+
+  <div class="bar">
+    <a class="back" href="#" id="backb">← رجوع</a>
+    <a class="back" href="index.html">الرئيسية</a>
+    <button class="mode" id="mode" type="button">🌙 الوضع الليلي</button>
+  </div>
+
+  <div class="mock" aria-hidden="true">
+    <div class="l" style="width:70%"></div>
+    <div class="l"></div>
+    <div class="l" style="width:85%"></div>
+    <div class="g"><div></div><div></div><div></div></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="ytconfig.js"></script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+
+  /* الوضع الليلي */
+  var root=document.documentElement, modeBtn=$('mode');
+  function paint(){modeBtn.textContent=root.getAttribute('data-theme')==='dark'?'☀️ الوضع النهاري':'🌙 الوضع الليلي';}
+  paint();
+  modeBtn.onclick=function(){
+    var dark=root.getAttribute('data-theme')==='dark';
+    if(dark){root.removeAttribute('data-theme');}else{root.setAttribute('data-theme','dark');}
+    try{localStorage.setItem('mishkat_theme',dark?'light':'dark');}catch(e){}
+    paint();
+  };
+
+  /* رجوع */
+  $('backb').onclick=function(e){
+    e.preventDefault();
+    if(history.length>1){history.back();}else{location.href='index.html';}
+  };
+
+  /* بيانات الصفحة */
+  var q=new URLSearchParams(location.search);
+  var id=(q.get('v')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,20);
+  var label=q.get('t')||'';
+  var ch=localStorage.getItem('mishkat_chapter')||'';
+  var br=localStorage.getItem('mishkat_branch')||'';
+
+  $('ttl').textContent=ch||'مشاهدة الدرس';
+  document.title=(ch||'مشاهدة الدرس')+' - أكاديمية مشكاة';
+  var sub=label||'فيديو الدرس';
+  if(br) sub+=' • شعبة '+br;
+  $('br').textContent=sub;
+  if(label) $('vt').textContent=label;
+
+  var toast=$('toast'), tm;
+  function say(msg){
+    toast.textContent=msg;
+    toast.classList.add('on');
+    clearTimeout(tm);
+    tm=setTimeout(function(){toast.classList.remove('on');},2400);
+  }
+
+  if(!id){
+    document.querySelector('.player').innerHTML='<p style="color:#fff;padding:30px;text-align:center">لا يوجد فيديو لعرضه.</p>';
+    return;
+  }
+
+  var ytUrl='https://www.youtube.com/watch?v='+id;
+  $('yt').src='https://www.youtube-nocookie.com/embed/'+id+'?rel=0&modestbranding=1&playsinline=1';
+  $('likeb').href=ytUrl;
+  $('cmb').href=ytUrl;
+  $('openb').href=ytUrl;
+  $('cmall').href=ytUrl;
+  $('subbtn').href=ytUrl;
+
+  /* مشاركة */
+  $('shareb').onclick=function(){
+    var data={title:'أكاديمية مشكاة',text:$('vt').textContent,url:location.href};
+    if(navigator.share){navigator.share(data).catch(function(){});}
+    else if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(location.href).then(function(){say('تم نسخ رابط الفيديو ✓');});
+    }else{say('انسخ الرابط من شريط العنوان');}
+  };
+
+  function setChannel(name,url){
+    if(name){
+      $('chname').textContent=name;
+      $('chav').textContent=name.trim().charAt(0).toUpperCase()||'▶';
+    }
+    if(url){
+      $('subbtn').href=url+(url.indexOf('?')>-1?'&':'?')+'sub_confirmation=1';
+    }
+  }
+
+  function fmt(n){
+    n=Number(n);
+    if(!isFinite(n)) return '';
+    function t(x){return String(Math.round(x*10)/10).replace(/\.0$/,'');}
+    if(n>=1e6) return t(n/1e6)+' مليون';
+    if(n>=1e3) return t(n/1e3)+' ألف';
+    return String(n);
+  }
+  function addStat(txt){
+    var s=document.createElement('span');
+    s.className='stat';
+    s.textContent=txt;
+    $('stats').appendChild(s);
+    $('stats').hidden=false;
+  }
+
+  /* بدون مفتاح: عنوان الفيديو واسم القناة عبر oEmbed (إن سمح المتصفح) */
+  fetch('https://www.youtube.com/oembed?url='+encodeURIComponent('https://youtu.be/'+id)+'&format=json')
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(j){
+      if(!j) return;
+      if(j.title) $('vt').textContent=j.title;
+      setChannel(j.author_name,j.author_url);
+    })
+    .catch(function(){});
+
+  /* مع مفتاح YouTube API: مشاهدات وإعجابات وتعليقات وعدد المشتركين */
+  var KEY=(typeof YT_API_KEY!=='undefined'&&YT_API_KEY)||'';
+  if(!KEY) return;
+  var API='https://www.googleapis.com/youtube/v3/';
+
+  fetch(API+'videos?part=snippet,statistics&id='+id+'&key='+KEY)
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var it=d.items&&d.items[0];
+      if(!it) return;
+      var sn=it.snippet||{}, st=it.statistics||{};
+      if(sn.title) $('vt').textContent=sn.title;
+      setChannel(sn.channelTitle,sn.channelId?('https://www.youtube.com/channel/'+sn.channelId):'');
+      if(st.viewCount) addStat('👁 '+fmt(st.viewCount)+' مشاهدة');
+      if(st.likeCount) addStat('👍 '+fmt(st.likeCount));
+      if(st.commentCount) addStat('💬 '+fmt(st.commentCount)+' تعليق');
+      if(sn.publishedAt){
+        try{addStat('📅 '+new Date(sn.publishedAt).toLocaleDateString('ar'));}catch(e){}
+      }
+      if(!sn.channelId) return;
+      return fetch(API+'channels?part=snippet,statistics&id='+sn.channelId+'&key='+KEY)
+        .then(function(r){return r.json();})
+        .then(function(c){
+          var ci=c.items&&c.items[0];
+          if(!ci) return;
+          var th=ci.snippet&&ci.snippet.thumbnails&&(ci.snippet.thumbnails.default||ci.snippet.thumbnails.medium);
+          if(th&&th.url){
+            var img=document.createElement('img');
+            img.src=th.url;
+            img.alt='';
+            $('chav').textContent='';
+            $('chav').appendChild(img);
+          }
+          var cs=ci.statistics||{};
+          if(cs.subscriberCount&&!cs.hiddenSubscriberCount){
+            $('chsubs').textContent=fmt(cs.subscriberCount)+' مشترك';
+            $('chsubs').hidden=false;
+          }
+        });
+    })
+    .catch(function(){});
+
+  fetch(API+'commentThreads?part=snippet&videoId='+id+'&maxResults=20&order=relevance&textFormat=plainText&key='+KEY)
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(!d.items||!d.items.length) return;
+      var box=$('cmlist');
+      d.items.forEach(function(it){
+        var c=it.snippet&&it.snippet.topLevelComment&&it.snippet.topLevelComment.snippet;
+        if(!c) return;
+        var row=document.createElement('div');
+        row.className='cm';
+        var im=document.createElement('img');
+        im.src=c.authorProfileImageUrl||'';
+        im.alt='';
+        var body=document.createElement('div');
+        var head=document.createElement('div');
+        var nm=document.createElement('b');
+        nm.textContent=c.authorDisplayName||'';
+        var dt=document.createElement('small');
+        try{dt.textContent=new Date(c.publishedAt).toLocaleDateString('ar');}catch(e){}
+        head.appendChild(nm);
+        head.appendChild(dt);
+        var p=document.createElement('p');
+        p.textContent=c.textDisplay||'';
+        body.appendChild(head);
+        body.appendChild(p);
+        if(c.likeCount){
+          var lk=document.createElement('div');
+          lk.className='lk';
+          lk.textContent='👍 '+c.likeCount;
+          body.appendChild(lk);
+        }
+        row.appendChild(im);
+        row.appendChild(body);
+        box.appendChild(row);
+      });
+      $('cms').hidden=false;
+    })
+    .catch(function(){});
+})();
+</script>
+<script src="about.js"></script>
+</body>
+</html>
