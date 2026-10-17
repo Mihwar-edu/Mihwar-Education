@@ -4,12 +4,16 @@
    platform = ملخصات منصة مشكاة
    teachers = ملخصات الأساتذة (في بقية المواد)
    top      = ملخصات التلاميذ المتفوقين
-   himma    = ملخصات منصة همة */
+   himma    = ملخصات منصة همة
+   bousaadi = ملخصات (كتاب) الأستاذة بوسعادي (العلوم الإسلامية)
+   shams    = ملخصات (كتاب) الأستاذ شمس الدين (العلوم الإسلامية) */
 
 var SUMM={
   marwa:'https://profmarwa.github.io',
   platform:'',
   teachers:'',
   top:'',
-  himma:''
+  himma:'',
+  bousaadi:'',
+  shams:''
 };
