@@ -72,7 +72,7 @@ h1{font-size:30px;margin-bottom:6px}
 
   <div class="pw">
     <div class="player"><iframe id="yt" title="فيديو الدرس" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <p class="hint">إذا لم يعمل الفيديو هنا فاضغط «فتح في يوتيوب».</p>
+    <p class="hint">للمشاهدة بالعرض اضغط «ملء الشاشة بالعرض». وإذا لم يعمل الفيديو هنا فاضغط «فتح في يوتيوب».</p>
 
     <div class="vi">
       <h2 class="vt" id="vt">فيديو الدرس</h2>
@@ -83,6 +83,7 @@ h1{font-size:30px;margin-bottom:6px}
       </div>
       <div class="stats" id="stats" hidden></div>
       <div class="acts">
+        <button class="abtn" id="fsb" type="button">⛶ ملء الشاشة بالعرض</button>
         <a class="abtn" id="likeb" href="#" target="_blank" rel="noopener" data-ext>👍 أعجبني على يوتيوب</a>
         <a class="abtn" id="cmb" href="#" target="_blank" rel="noopener" data-ext>💬 التعليقات</a>
         <button class="abtn" id="shareb" type="button">↗ مشاركة</button>
@@ -133,6 +134,40 @@ h1{font-size:30px;margin-bottom:6px}
   $('backb').onclick=function(e){
     e.preventDefault();
     if(history.length>1){history.back();}else{location.href='index.html';}
+  };
+
+  /* ملء الشاشة بالعرض: عند دخول ملء الشاشة يُطلب من الهاتف الدوران إلى الوضع الأفقي */
+  function lockLandscape(){
+    try{
+      if(screen.orientation&&screen.orientation.lock){
+        var p=screen.orientation.lock('landscape');
+        if(p&&p.catch) p.catch(function(){});
+      }
+    }catch(e){}
+  }
+  function unlockOrientation(){
+    try{
+      if(screen.orientation&&screen.orientation.unlock) screen.orientation.unlock();
+    }catch(e){}
+  }
+  function onFsChange(){
+    var fs=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fs){lockLandscape();}else{unlockOrientation();}
+  }
+  document.addEventListener('fullscreenchange',onFsChange);
+  document.addEventListener('webkitfullscreenchange',onFsChange);
+
+  $('fsb').onclick=function(){
+    var el=$('yt');
+    var req=el.requestFullscreen||el.webkitRequestFullscreen;
+    if(req){
+      try{
+        var p=req.call(el);
+        if(p&&p.catch) p.catch(function(){say('اضغط زر ملء الشاشة داخل المشغّل');});
+      }catch(e){say('اضغط زر ملء الشاشة داخل المشغّل');}
+    }else{
+      say('اضغط زر ملء الشاشة داخل المشغّل');
+    }
   };
 
   /* بيانات الصفحة */
