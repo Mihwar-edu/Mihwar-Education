@@ -279,3 +279,42 @@ var MK={C1:'#0a7ba0',C2:'#0f9bbd',C3:'#0b8cae',GOLD1:'#ffc233',GOLD2:'#ff9f1c',G
     io.observe(d);
   }else{show();}
 })();
+
+/* ===== 6) فتح فيديوهات يوتيوب داخل المنصة (صفحة watch.html) ===== */
+(function(){
+  if(/watch\.html$/.test(location.pathname))return;
+
+  function vid(u){
+    var m=u.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/)||u.match(/[?&]v=([A-Za-z0-9_-]{6,})/);
+    return m?m[1]:'';
+  }
+  function clean(s){
+    return (s||'').replace(/[←→]/g,'').replace(/^[^\u0600-\u06FFA-Za-z0-9]+/,'').replace(/\s+/g,' ').trim();
+  }
+
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey)return;
+    var a=e.target.closest?e.target.closest('a[href]'):null;
+    if(!a||a.hasAttribute('data-ext'))return;
+    var id=vid(a.getAttribute('href')||'');
+    if(!id)return;
+    e.preventDefault();
+
+    var label='';
+    var card=a.closest('.vcard');
+    if(card){
+      var tag=card.querySelector('.vtag');
+      label=clean(tag?tag.textContent:'');
+      var part=clean(a.textContent);
+      if(part&&part!=='شاهد الآن')label+=' — '+part;
+    }else{
+      var lc=a.closest('.lc');
+      if(lc){
+        var t=lc.querySelector('.lc-t');
+        label=clean(t?t.textContent:'');
+        if(label)label+=' — الأستاذة أميرة شنوف';
+      }
+    }
+    location.href='watch.html?v='+encodeURIComponent(id)+(label?'&t='+encodeURIComponent(label):'');
+  });
+})();
